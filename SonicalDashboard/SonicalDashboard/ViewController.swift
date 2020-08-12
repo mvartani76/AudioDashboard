@@ -8,11 +8,40 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    @IBOutlet var systemPickerView: UIPickerView!
+    
+    let systemConfigurations = ["Individual", "Work", "Home", "Fitness"]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return systemConfigurations.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return systemConfigurations[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var label = UILabel()
+        if let v = view {
+            label = v as! UILabel
+        }
+        label.font = UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.regular)
+        label.text =  systemConfigurations[row]
+        label.textAlignment = .center
+        return label
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        systemPickerView.delegate = self
+        systemPickerView.dataSource = self
     }
 
 
