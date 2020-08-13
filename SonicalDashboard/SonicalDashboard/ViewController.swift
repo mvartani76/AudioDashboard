@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, AADraggableViewDelegate {
     
+    @IBOutlet var respectedView: UIView!
+    @IBOutlet var draggableView: AADraggableView!
     @IBOutlet var systemPickerView: UIPickerView!
     
     let systemConfigurations = ["Individual", "Work", "Home", "Fitness"]
@@ -37,13 +39,49 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return label
     }
     
+    // Add delegate methods and observe changes!
+    func draggingDidBegan(_ sender: UIView) {
+        sender.layer.zPosition = 100
+        sender.layer.shadowOffset = CGSize(width: 0, height: 20)
+        sender.layer.shadowOpacity = 0.3
+        sender.layer.shadowRadius = 6
+    }
+    
+    func draggingDidChanged(_ sender: UIView) {
+        //if (testView.frame.contains(sender.center)) {
+          //  sender.center = testView.center
+            //testView.backgroundColor = UIColor.red
+        //}
+    }
+    
+    func draggingDidEnd(_ sender: UIView) {
+        sender.layer.zPosition = 0
+        sender.layer.shadowOffset = CGSize.zero
+        sender.layer.shadowOpacity = 0.0
+        sender.layer.shadowRadius = 0
+        //print(testView.center)
+        //if (testView.frame.contains(sender.center)) {
+          //  sender.center = testView.center
+          //  testView.backgroundColor = UIColor.red
+        //}
+        //sender.center = CGPoint(x: 150, y: 150)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         systemPickerView.delegate = self
         systemPickerView.dataSource = self
+        
+        
     }
-
-
+    override func viewWillAppear(_ animated: Bool) {
+        // Set options
+        draggableView.delegate = self // AADraggableViewDelegate
+        draggableView.respectedView = respectedView// reference view
+        draggableView.reposition = .sticky// Reposition option
+        draggableView.repositionIfNeeded() // Auto correct reposition
+        respectedView.bringSubviewToFront(draggableView)
+        draggableView.layer.zPosition = 1000
+    }
 }
-

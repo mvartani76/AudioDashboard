@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22F3145624E4C9010096C174 /* AADraggableView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3145424E4C8FC0096C174 /* AADraggableView+Helper.swift */; };
+		22F3145824E4F6040096C174 /* AADraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F3145724E4F6040096C174 /* AADraggableView.swift */; };
 		22FA35F424D90EC500C75DFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA35F324D90EC500C75DFF /* AppDelegate.swift */; };
 		22FA35F624D90EC500C75DFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA35F524D90EC500C75DFF /* SceneDelegate.swift */; };
 		22FA35F824D90EC500C75DFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FA35F724D90EC500C75DFF /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22F3145424E4C8FC0096C174 /* AADraggableView+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AADraggableView+Helper.swift"; sourceTree = "<group>"; };
+		22F3145724E4F6040096C174 /* AADraggableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AADraggableView.swift; path = /Users/michaelvartanian/Documents/XcodeProjects/AudioDashboard/SonicalDashboard/SonicalDashboard/AADraggableView.swift; sourceTree = "<absolute>"; };
 		22FA35F024D90EC500C75DFF /* SonicalDashboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SonicalDashboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22FA35F324D90EC500C75DFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22FA35F524D90EC500C75DFF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				22FA35F324D90EC500C75DFF /* AppDelegate.swift */,
 				22FA35F524D90EC500C75DFF /* SceneDelegate.swift */,
 				22FA35F724D90EC500C75DFF /* ViewController.swift */,
+				22F3145724E4F6040096C174 /* AADraggableView.swift */,
+				22F3145424E4C8FC0096C174 /* AADraggableView+Helper.swift */,
 				22FA35F924D90EC500C75DFF /* Main.storyboard */,
 				22FA35FC24D90EC800C75DFF /* Assets.xcassets */,
 				22FA35FE24D90EC800C75DFF /* LaunchScreen.storyboard */,
@@ -141,6 +147,8 @@
 				22FA35F824D90EC500C75DFF /* ViewController.swift in Sources */,
 				22FA35F424D90EC500C75DFF /* AppDelegate.swift in Sources */,
 				22FA35F624D90EC500C75DFF /* SceneDelegate.swift in Sources */,
+				22F3145624E4C9010096C174 /* AADraggableView+Helper.swift in Sources */,
+				22F3145824E4F6040096C174 /* AADraggableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

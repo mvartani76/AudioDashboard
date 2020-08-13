@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SonicalDashboard.xcodeproj">
+      location = "group:/Users/michaelvartanian/Documents/XcodeProjects/AudioDashboard/SonicalDashboard/SonicalDashboard/AADraggableView.swift">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
