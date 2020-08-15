@@ -635,8 +635,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="appHearingView" destination="afI-eY-Jzc" id="xjU-Ob-cyY"/>
+                        <outlet property="appMusicView" destination="vze-vp-0Pi" id="kbW-As-yjs"/>
+                        <outlet property="appOtherView" destination="oML-Kp-jd9" id="Vtp-0C-cRN"/>
+                        <outlet property="appPhoneView" destination="RQi-4p-Wzq" id="03X-QH-866"/>
+                        <outlet property="appSystemView" destination="TnO-Hj-fLS" id="dG2-Gg-KXI"/>
                         <outlet property="draggableView" destination="v8f-PN-sdt" id="TpR-E0-wBm"/>
                         <outlet property="respectedView" destination="8bC-Xf-vdC" id="F3M-BS-yur"/>
+                        <outlet property="systemHearingView" destination="glT-Yn-8FL" id="k34-Jj-Kkx"/>
+                        <outlet property="systemMusicView" destination="Brn-BY-gWP" id="qtE-IT-OoI"/>
+                        <outlet property="systemOtherView" destination="uca-2B-Xty" id="lb6-1O-7fA"/>
+                        <outlet property="systemPhoneView" destination="UzG-W7-7At" id="ZA4-Qo-aQf"/>
                         <outlet property="systemPickerView" destination="815-M1-8I0" id="xCL-vb-shm"/>
                     </connections>
                 </viewController>

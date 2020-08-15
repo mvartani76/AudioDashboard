@@ -14,6 +14,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet var draggableView: AADraggableView!
     @IBOutlet var systemPickerView: UIPickerView!
     
+    @IBOutlet var appSystemView: UIView!
+    @IBOutlet var appMusicView: UIView!
+    @IBOutlet var appPhoneView: UIView!
+    @IBOutlet var appHearingView: UIView!
+    @IBOutlet var appOtherView: UIView!
+    @IBOutlet var systemMusicView: UIView!
+    @IBOutlet var systemPhoneView: UIView!
+    @IBOutlet var systemHearingView: UIView!
+    @IBOutlet var systemOtherView: UIView!
+    
+    var dashboardViews: [UIView] {
+        return [appSystemView, appMusicView, appPhoneView, appHearingView, appOtherView, systemMusicView, systemPhoneView, systemHearingView, systemOtherView]
+    }
+    var dashboardViewsBGColors: [UIColor] = []
+    
     let systemConfigurations = ["Individual", "Work", "Home", "Fitness"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -59,12 +74,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         sender.layer.shadowOffset = CGSize.zero
         sender.layer.shadowOpacity = 0.0
         sender.layer.shadowRadius = 0
-        //print(testView.center)
-        //if (testView.frame.contains(sender.center)) {
-          //  sender.center = testView.center
-          //  testView.backgroundColor = UIColor.red
-        //}
-        //sender.center = CGPoint(x: 150, y: 150)
+
+        var globalpoint: CGPoint = CGPoint(x: 0,y: 0)
+
+        dashboardViews.enumerated().forEach { (index, dashboardView) in
+ 
+            globalpoint = dashboardView.superview?.convert(dashboardView.frame.origin, to: nil) as! CGPoint
+
+            dashboardView.bounds.origin.x = dashboardView.bounds.origin.x + globalpoint.x
+            dashboardView.bounds.origin.y = dashboardView.bounds.origin.y + globalpoint.y
+            
+            if (dashboardView.bounds.contains(sender.center)) {
+                dashboardView.backgroundColor = UIColor.red
+                sender.center.x = dashboardView.bounds.origin.x + (dashboardView.bounds.width / 2)
+                sender.center.y = dashboardView.bounds.origin.y + (dashboardView.bounds.height / 2)
+            } else {
+                dashboardView.backgroundColor = dashboardViewsBGColors[index]
+            }
+            dashboardView.bounds.origin = CGPoint(x:0,y:0)
+        }
     }
     
     override func viewDidLoad() {
@@ -73,7 +101,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         systemPickerView.delegate = self
         systemPickerView.dataSource = self
         
-        
+        // Get the initial background colors for the views
+        dashboardViewsBGColors.append(contentsOf: [UIColor](repeating: UIColor.systemFill, count:dashboardViews.count ))
+        for i in 0..<dashboardViews.count {
+            dashboardViewsBGColors[i] = dashboardViews[i].backgroundColor ?? UIColor.systemFill
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         // Set options
