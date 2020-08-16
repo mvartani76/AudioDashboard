@@ -14,6 +14,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet var draggableView: AADraggableView!
     @IBOutlet var systemPickerView: UIPickerView!
     
+    @IBOutlet var factoryResetButton: UIButton!
+    
     @IBOutlet var appSystemView: UIView!
     @IBOutlet var appMusicView: UIView!
     @IBOutlet var appPhoneView: UIView!
@@ -100,6 +102,30 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         systemPickerView.delegate = self
         systemPickerView.dataSource = self
+        
+        // Initialize button gradient
+        let frbTopGradientColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1)
+        let frbBottomGradientColor = UIColor(red: 128/255, green: 122/255, blue: 121/255, alpha: 1)
+
+        let frbGradientLayer = CAGradientLayer()
+
+        frbGradientLayer.frame = factoryResetButton.bounds
+
+        frbGradientLayer.colors = [frbTopGradientColor.cgColor, frbBottomGradientColor.cgColor]
+
+        //Vertical
+        frbGradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        frbGradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+
+        //Horizontal
+        //gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        //gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.0)
+
+        frbGradientLayer.locations = [0.0, 1.0]
+
+        factoryResetButton.layer.insertSublayer(frbGradientLayer, at: 0)
+        factoryResetButton.layer.cornerRadius = 10
+        factoryResetButton.clipsToBounds = true
         
         // Get the initial background colors for the views
         dashboardViewsBGColors.append(contentsOf: [UIColor](repeating: UIColor.systemFill, count:dashboardViews.count ))

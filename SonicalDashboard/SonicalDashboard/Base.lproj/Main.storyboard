@@ -26,10 +26,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rQ-gO-VnX" userLabel="TitleView">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="224.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sonical Dashboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qw-uM-odS" userLabel="DashboardLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qw-uM-odS" userLabel="DashboardLabel">
                                                 <rect key="frame" x="25.5" y="5.5" width="973" height="213"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                                <nil key="textColor"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Sonical Dashboard">
+                                                        <attributes>
+                                                            <font key="NSFont" size="48" name="CourierNewPS-BoldMT"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -56,10 +62,23 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="69W-Ph-E1o" userLabel="FactoryResetView">
                                                                         <rect key="frame" x="0.0" y="0.0" width="512" height="93.5"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGO-sK-98T">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aGO-sK-98T">
                                                                                 <rect key="frame" x="51" y="9" width="410" height="75"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                                                <state key="normal" title="Factory Reset"/>
+                                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <state key="normal">
+                                                                                    <attributedString key="attributedTitle">
+                                                                                        <fragment content="Factory Reset">
+                                                                                            <attributes>
+                                                                                                <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                            </attributes>
+                                                                                        </fragment>
+                                                                                    </attributedString>
+                                                                                </state>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                        <integer key="value" value="10"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
                                                                             </button>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -641,6 +660,7 @@
                         <outlet property="appPhoneView" destination="RQi-4p-Wzq" id="03X-QH-866"/>
                         <outlet property="appSystemView" destination="TnO-Hj-fLS" id="dG2-Gg-KXI"/>
                         <outlet property="draggableView" destination="v8f-PN-sdt" id="TpR-E0-wBm"/>
+                        <outlet property="factoryResetButton" destination="aGO-sK-98T" id="iZ0-If-pSG"/>
                         <outlet property="respectedView" destination="8bC-Xf-vdC" id="F3M-BS-yur"/>
                         <outlet property="systemHearingView" destination="glT-Yn-8FL" id="k34-Jj-Kkx"/>
                         <outlet property="systemMusicView" destination="Brn-BY-gWP" id="qtE-IT-OoI"/>
