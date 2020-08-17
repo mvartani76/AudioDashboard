@@ -132,14 +132,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         for i in 0..<dashboardViews.count {
             dashboardViewsBGColors[i] = dashboardViews[i].backgroundColor ?? UIColor.systemFill
         }
+        
+        let myNewView=AADraggableView(frame: CGRect(x:0, y:0, width: 400, height: 30))
+        myNewView.backgroundColor=UIColor.lightGray
+        myNewView.layer.borderColor = UIColor.red.cgColor
+        myNewView.layer.zPosition = 100
+        self.view.addSubview(myNewView)
+        myNewView.center = CGPoint(x: appPhoneView.frame.width / 2, y:appPhoneView.frame.height / 2)
+        
+        // Configure Draggable View
+        myNewView.delegate = self // AADraggableViewDelegate
+        myNewView.respectedView = respectedView// reference view
+        myNewView.reposition = .sticky// Reposition option
+        myNewView.repositionIfNeeded() // Auto correct reposition
+        respectedView.bringSubviewToFront(myNewView)
+        myNewView.layer.zPosition = 1000
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         // Set options
-        draggableView.delegate = self // AADraggableViewDelegate
-        draggableView.respectedView = respectedView// reference view
-        draggableView.reposition = .sticky// Reposition option
-        draggableView.repositionIfNeeded() // Auto correct reposition
-        respectedView.bringSubviewToFront(draggableView)
-        draggableView.layer.zPosition = 1000
+
     }
 }
