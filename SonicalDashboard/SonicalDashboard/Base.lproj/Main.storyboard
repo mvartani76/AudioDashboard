@@ -183,10 +183,16 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lke-kA-8qh" userLabel="SystemLabelView">
                                                                         <rect key="frame" x="0.0" y="76" width="512" height="76.5"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SYSTEM:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hU0-HH-Eq6" userLabel="SystemLabel">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hU0-HH-Eq6" userLabel="SystemLabel">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="512" height="76.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                                                <nil key="textColor"/>
+                                                                                <attributedString key="attributedText">
+                                                                                    <fragment content="SYSTEM:">
+                                                                                        <attributes>
+                                                                                            <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                        </attributes>
+                                                                                    </fragment>
+                                                                                </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
@@ -217,10 +223,16 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Jx-w8-FQV" userLabel="MusicLabelView">
                                                                         <rect key="frame" x="0.0" y="229" width="512" height="76.5"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MUSIC:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1J-sQ-CPd" userLabel="MusicLabel">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1J-sQ-CPd" userLabel="MusicLabel">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="512" height="76.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                                                <nil key="textColor"/>
+                                                                                <attributedString key="attributedText">
+                                                                                    <fragment content="MUSIC:">
+                                                                                        <attributes>
+                                                                                            <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                        </attributes>
+                                                                                    </fragment>
+                                                                                </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
@@ -251,10 +263,16 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csw-0c-oHq" userLabel="PhoneLabelView">
                                                                         <rect key="frame" x="0.0" y="382" width="512" height="76.5"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHONE:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt3-mg-2PU" userLabel="PhoneLabel">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt3-mg-2PU" userLabel="PhoneLabel">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="512" height="76.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                                                <nil key="textColor"/>
+                                                                                <attributedString key="attributedText">
+                                                                                    <fragment content="PHONE:">
+                                                                                        <attributes>
+                                                                                            <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                        </attributes>
+                                                                                    </fragment>
+                                                                                </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
@@ -285,10 +303,15 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWU-Iz-jdC" userLabel="HearingLabelView">
                                                                         <rect key="frame" x="0.0" y="535" width="512" height="76.5"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEARING:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frm-dV-NVK" userLabel="HearingLabel">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frm-dV-NVK" userLabel="HearingLabel">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="512" height="76.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                                                <nil key="textColor"/>
+                                                                                <attributedString key="attributedText">
+                                                                                    <fragment content="HEARING:">
+                                                                                        <attributes>
+                                                                                            <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                        </attributes>
+                                                                                    </fragment>
+                                                                                </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
@@ -319,10 +342,16 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZh-R6-KyW" userLabel="OtherLabelView">
                                                                         <rect key="frame" x="0.0" y="688" width="512" height="76.5"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OTHER:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27d-wd-f0L" userLabel="OtherLabel">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27d-wd-f0L" userLabel="OtherLabel">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="512" height="76.5"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                                                <nil key="textColor"/>
+                                                                                <attributedString key="attributedText">
+                                                                                    <fragment content="OTHER:">
+                                                                                        <attributes>
+                                                                                            <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                        </attributes>
+                                                                                    </fragment>
+                                                                                </attributedString>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
@@ -395,7 +424,7 @@
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SYSTEM:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSx-ip-dFr" userLabel="SystemLabel">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="512" height="140"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="30"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -432,10 +461,16 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4o-kH-osO" userLabel="MusicLabelView">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="143.5"/>
                                                                                         <subviews>
-                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MUSIC:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQB-BW-8Fj" userLabel="MusicLabel">
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQB-BW-8Fj" userLabel="MusicLabel">
                                                                                                 <rect key="frame" x="6" y="3.5" width="228" height="136.5"/>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                                                                <nil key="textColor"/>
+                                                                                                <attributedString key="attributedText">
+                                                                                                    <fragment content="MUSIC:">
+                                                                                                        <attributes>
+                                                                                                            <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                                        </attributes>
+                                                                                                    </fragment>
+                                                                                                </attributedString>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                         </subviews>
@@ -450,10 +485,16 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03Q-pw-0kw" userLabel="PhoneLabelView">
                                                                                         <rect key="frame" x="240" y="0.0" width="240" height="143.5"/>
                                                                                         <subviews>
-                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHONE:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qco-iH-9ut" userLabel="PhoneLabel">
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qco-iH-9ut" userLabel="PhoneLabel">
                                                                                                 <rect key="frame" x="6" y="3.5" width="228" height="136.5"/>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                                                                <nil key="textColor"/>
+                                                                                                <attributedString key="attributedText">
+                                                                                                    <fragment content="PHONE:">
+                                                                                                        <attributes>
+                                                                                                            <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                                        </attributes>
+                                                                                                    </fragment>
+                                                                                                </attributedString>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                         </subviews>
@@ -544,10 +585,15 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYE-bJ-1np" userLabel="HearingLabelView">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="256" height="140.5"/>
                                                                                         <subviews>
-                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEARING:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tl-eC-sM1" userLabel="HearingLabel">
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tl-eC-sM1" userLabel="HearingLabel">
                                                                                                 <rect key="frame" x="6.5" y="3.5" width="243" height="133.5"/>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                                                                <nil key="textColor"/>
+                                                                                                <attributedString key="attributedText">
+                                                                                                    <fragment content="HEARING:">
+                                                                                                        <attributes>
+                                                                                                            <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                                        </attributes>
+                                                                                                    </fragment>
+                                                                                                </attributedString>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                         </subviews>
@@ -562,10 +608,15 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUH-pw-v6w" userLabel="OtherLabelView">
                                                                                         <rect key="frame" x="256" y="0.0" width="256" height="140.5"/>
                                                                                         <subviews>
-                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OTHER:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enZ-8B-t4C" userLabel="OtherLabel">
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enZ-8B-t4C" userLabel="OtherLabel">
                                                                                                 <rect key="frame" x="6.5" y="3.5" width="243" height="133.5"/>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                                                                <nil key="textColor"/>
+                                                                                                <attributedString key="attributedText">
+                                                                                                    <fragment content="OTHER:">
+                                                                                                        <attributes>
+                                                                                                            <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                                        </attributes>
+                                                                                                    </fragment>
+                                                                                                </attributedString>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                         </subviews>
