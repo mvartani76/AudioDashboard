@@ -154,11 +154,37 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iJc-WB-7SW" userLabel="ApplicationsStackView">
                                                                 <rect key="frame" x="0.0" y="0.0" width="512" height="841"/>
                                                                 <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGY-RJ-DQG" userLabel="AddAppButtonView">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="512" height="76"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n9W-dN-OBE" userLabel="AddAppButton">
+                                                                                <rect key="frame" x="51" y="7.5" width="410" height="61"/>
+                                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <state key="normal">
+                                                                                    <attributedString key="attributedTitle">
+                                                                                        <fragment content="Add App">
+                                                                                            <attributes>
+                                                                                                <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                            </attributes>
+                                                                                        </fragment>
+                                                                                    </attributedString>
+                                                                                </state>
+                                                                            </button>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="n9W-dN-OBE" firstAttribute="centerY" secondItem="fGY-RJ-DQG" secondAttribute="centerY" id="ByS-h1-Fpc"/>
+                                                                            <constraint firstItem="n9W-dN-OBE" firstAttribute="centerX" secondItem="fGY-RJ-DQG" secondAttribute="centerX" id="Iwy-Zb-Ba6"/>
+                                                                            <constraint firstItem="n9W-dN-OBE" firstAttribute="height" secondItem="fGY-RJ-DQG" secondAttribute="height" multiplier="0.8" id="ScI-Dc-Rxt"/>
+                                                                            <constraint firstItem="n9W-dN-OBE" firstAttribute="width" secondItem="fGY-RJ-DQG" secondAttribute="width" multiplier="0.8" id="z2z-yo-Mdc"/>
+                                                                        </constraints>
+                                                                    </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lke-kA-8qh" userLabel="SystemLabelView">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="512" height="84"/>
+                                                                        <rect key="frame" x="0.0" y="76" width="512" height="76.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SYSTEM:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hU0-HH-Eq6" userLabel="SystemLabel">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="512" height="84"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="512" height="76.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -173,10 +199,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wd7-mf-dQh" userLabel="SystemOuterView">
-                                                                        <rect key="frame" x="0.0" y="84" width="512" height="84"/>
+                                                                        <rect key="frame" x="0.0" y="152.5" width="512" height="76.5"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TnO-Hj-fLS" userLabel="SystemInnerView">
-                                                                                <rect key="frame" x="13" y="2" width="486" height="80"/>
+                                                                                <rect key="frame" x="13" y="2" width="486" height="73"/>
                                                                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </view>
                                                                         </subviews>
@@ -189,10 +215,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Jx-w8-FQV" userLabel="MusicLabelView">
-                                                                        <rect key="frame" x="0.0" y="168" width="512" height="84"/>
+                                                                        <rect key="frame" x="0.0" y="229" width="512" height="76.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MUSIC:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1J-sQ-CPd" userLabel="MusicLabel">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="512" height="84"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="512" height="76.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -207,10 +233,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ed-np-xwA" userLabel="MusicOuterView">
-                                                                        <rect key="frame" x="0.0" y="252" width="512" height="84.5"/>
+                                                                        <rect key="frame" x="0.0" y="305.5" width="512" height="76.5"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vze-vp-0Pi" userLabel="MusicInnerView">
-                                                                                <rect key="frame" x="13" y="2" width="486" height="80"/>
+                                                                                <rect key="frame" x="13" y="2" width="486" height="72.5"/>
                                                                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </view>
                                                                         </subviews>
@@ -223,10 +249,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csw-0c-oHq" userLabel="PhoneLabelView">
-                                                                        <rect key="frame" x="0.0" y="336.5" width="512" height="84"/>
+                                                                        <rect key="frame" x="0.0" y="382" width="512" height="76.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PHONE:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt3-mg-2PU" userLabel="PhoneLabel">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="512" height="84"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="512" height="76.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -241,10 +267,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kys-pS-hxd" userLabel="PhoneOuterView">
-                                                                        <rect key="frame" x="0.0" y="420.5" width="512" height="84"/>
+                                                                        <rect key="frame" x="0.0" y="458.5" width="512" height="76.5"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQi-4p-Wzq" userLabel="PhoneInnerView">
-                                                                                <rect key="frame" x="13" y="2" width="486" height="80"/>
+                                                                                <rect key="frame" x="13" y="2" width="486" height="72.5"/>
                                                                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </view>
                                                                         </subviews>
@@ -257,10 +283,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWU-Iz-jdC" userLabel="HearingLabelView">
-                                                                        <rect key="frame" x="0.0" y="504.5" width="512" height="84"/>
+                                                                        <rect key="frame" x="0.0" y="535" width="512" height="76.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEARING:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frm-dV-NVK" userLabel="HearingLabel">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="512" height="84"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="512" height="76.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -275,10 +301,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTN-bu-9lT" userLabel="HearingOuterView">
-                                                                        <rect key="frame" x="0.0" y="588.5" width="512" height="84.5"/>
+                                                                        <rect key="frame" x="0.0" y="611.5" width="512" height="76.5"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afI-eY-Jzc" userLabel="HearingInnerView">
-                                                                                <rect key="frame" x="13" y="2" width="486" height="80"/>
+                                                                                <rect key="frame" x="13" y="2" width="486" height="72.5"/>
                                                                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </view>
                                                                         </subviews>
@@ -291,10 +317,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZh-R6-KyW" userLabel="OtherLabelView">
-                                                                        <rect key="frame" x="0.0" y="673" width="512" height="84"/>
+                                                                        <rect key="frame" x="0.0" y="688" width="512" height="76.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OTHER:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27d-wd-f0L" userLabel="OtherLabel">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="512" height="84"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="512" height="76.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -309,10 +335,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ywv-Z1-dVW" userLabel="OtherOuterView">
-                                                                        <rect key="frame" x="0.0" y="757" width="512" height="84"/>
+                                                                        <rect key="frame" x="0.0" y="764.5" width="512" height="76.5"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oML-Kp-jd9" userLabel="OtherInnerView">
-                                                                                <rect key="frame" x="13" y="2" width="486" height="80"/>
+                                                                                <rect key="frame" x="13" y="2" width="486" height="72.5"/>
                                                                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </view>
                                                                         </subviews>
@@ -331,6 +357,7 @@
                                                                     <constraint firstItem="kTN-bu-9lT" firstAttribute="height" secondItem="lke-kA-8qh" secondAttribute="height" id="51L-xm-6z6"/>
                                                                     <constraint firstItem="Ywv-Z1-dVW" firstAttribute="height" secondItem="lke-kA-8qh" secondAttribute="height" id="62Q-LX-D4p"/>
                                                                     <constraint firstItem="Ywv-Z1-dVW" firstAttribute="width" secondItem="iJc-WB-7SW" secondAttribute="width" id="AHa-rf-Kfo"/>
+                                                                    <constraint firstItem="fGY-RJ-DQG" firstAttribute="width" secondItem="iJc-WB-7SW" secondAttribute="width" id="BSq-fi-Yec"/>
                                                                     <constraint firstItem="kys-pS-hxd" firstAttribute="height" secondItem="lke-kA-8qh" secondAttribute="height" id="Kox-DJ-rbg"/>
                                                                     <constraint firstItem="LWU-Iz-jdC" firstAttribute="width" secondItem="iJc-WB-7SW" secondAttribute="width" id="LTa-j1-P60"/>
                                                                     <constraint firstItem="Wd7-mf-dQh" firstAttribute="width" secondItem="iJc-WB-7SW" secondAttribute="width" id="Odj-4q-30s"/>
@@ -344,6 +371,7 @@
                                                                     <constraint firstItem="kys-pS-hxd" firstAttribute="width" secondItem="iJc-WB-7SW" secondAttribute="width" id="mcQ-x4-PZz"/>
                                                                     <constraint firstItem="5Jx-w8-FQV" firstAttribute="height" secondItem="lke-kA-8qh" secondAttribute="height" id="tgZ-bm-M7c"/>
                                                                     <constraint firstItem="UZh-R6-KyW" firstAttribute="height" secondItem="lke-kA-8qh" secondAttribute="height" id="wPY-nL-Sct"/>
+                                                                    <constraint firstItem="fGY-RJ-DQG" firstAttribute="height" secondItem="lke-kA-8qh" secondAttribute="height" id="weO-eX-r2B"/>
                                                                     <constraint firstItem="9Ed-np-xwA" firstAttribute="height" secondItem="lke-kA-8qh" secondAttribute="height" id="z8H-ae-pPI"/>
                                                                 </constraints>
                                                             </stackView>
@@ -681,6 +709,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="addAppButton" destination="n9W-dN-OBE" id="XaI-l0-6tL"/>
                         <outlet property="appHearingView" destination="afI-eY-Jzc" id="xjU-Ob-cyY"/>
                         <outlet property="appMusicView" destination="vze-vp-0Pi" id="kbW-As-yjs"/>
                         <outlet property="appOtherView" destination="oML-Kp-jd9" id="Vtp-0C-cRN"/>

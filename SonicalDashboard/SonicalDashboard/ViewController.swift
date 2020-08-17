@@ -11,10 +11,10 @@ import UIKit
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, AADraggableViewDelegate {
     
     @IBOutlet var respectedView: UIView!
-    @IBOutlet var draggableView: AADraggableView!
     @IBOutlet var systemPickerView: UIPickerView!
     
     @IBOutlet var factoryResetButton: UIButton!
+    @IBOutlet var addAppButton: UIButton!
     
     @IBOutlet var appSystemView: UIView!
     @IBOutlet var appMusicView: UIView!
@@ -108,24 +108,32 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let frbBottomGradientColor = UIColor(red: 128/255, green: 122/255, blue: 121/255, alpha: 1)
 
         let frbGradientLayer = CAGradientLayer()
+        let apbGradientLayer = CAGradientLayer()
 
         frbGradientLayer.frame = factoryResetButton.bounds
-
         frbGradientLayer.colors = [frbTopGradientColor.cgColor, frbBottomGradientColor.cgColor]
 
         //Vertical
         frbGradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         frbGradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
 
-        //Horizontal
-        //gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        //gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.0)
-
         frbGradientLayer.locations = [0.0, 1.0]
 
         factoryResetButton.layer.insertSublayer(frbGradientLayer, at: 0)
         factoryResetButton.layer.cornerRadius = 10
         factoryResetButton.clipsToBounds = true
+        
+        apbGradientLayer.frame = addAppButton.bounds
+
+        apbGradientLayer.colors = [frbTopGradientColor.cgColor, frbBottomGradientColor.cgColor]
+
+        //Vertical
+        apbGradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        apbGradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        
+        addAppButton.layer.insertSublayer(apbGradientLayer, at: 0)
+        addAppButton.layer.cornerRadius = 10
+        addAppButton.clipsToBounds = true
         
         // Get the initial background colors for the views
         dashboardViewsBGColors.append(contentsOf: [UIColor](repeating: UIColor.systemFill, count:dashboardViews.count ))
