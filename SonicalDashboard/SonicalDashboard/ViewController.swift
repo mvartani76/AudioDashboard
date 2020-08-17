@@ -31,6 +31,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     var dashboardViewsBGColors: [UIColor] = []
     
+    var myApps: [AADraggableView] = []
+    var numApps = 0
+    
     let systemConfigurations = ["Individual", "Work", "Home", "Fitness"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -141,24 +144,41 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             dashboardViewsBGColors[i] = dashboardViews[i].backgroundColor ?? UIColor.systemFill
         }
         
-        let myNewView=AADraggableView(frame: CGRect(x:0, y:0, width: 400, height: 30))
-        myNewView.backgroundColor=UIColor.lightGray
-        myNewView.layer.borderColor = UIColor.red.cgColor
-        myNewView.layer.zPosition = 100
-        self.view.addSubview(myNewView)
-        myNewView.center = CGPoint(x: appPhoneView.frame.width / 2, y:appPhoneView.frame.height / 2)
-        
-        // Configure Draggable View
-        myNewView.delegate = self // AADraggableViewDelegate
-        myNewView.respectedView = respectedView// reference view
-        myNewView.reposition = .sticky// Reposition option
-        myNewView.repositionIfNeeded() // Auto correct reposition
-        respectedView.bringSubviewToFront(myNewView)
-        myNewView.layer.zPosition = 1000
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         // Set options
 
     }
+    
+    @IBAction func addApp(_ sender: Any) {
+        myApps.append(AADraggableView(frame: CGRect(x:0, y:0, width: 150, height: 30)))
+        myApps[numApps].backgroundColor=UIColor.lightGray
+        myApps[numApps].layer.borderColor = UIColor.red.cgColor
+        self.view.addSubview(myApps[numApps])
+        
+        var globalpoint: CGPoint = CGPoint(x: 0,y: 0)
+
+        globalpoint = addAppButton.superview?.convert(addAppButton.frame.origin, to: nil) as! CGPoint
+        
+        // Center the app view below the add app button
+        myApps[numApps].center.x = globalpoint.x + addAppButton.frame.width / 2
+        myApps[numApps].center.y = globalpoint.y + addAppButton.frame.height + 20
+        
+        let label = UILabel(frame: CGRect(x:0,y: 0, width:150, height:30))
+        label.textAlignment = .center
+        label.text = "App " + String(numApps)
+        myApps[numApps].addSubview(label)
+        
+        // Configure Draggable View
+        myApps[numApps].delegate = self // AADraggableViewDelegate
+        myApps[numApps].respectedView = respectedView// reference view
+        myApps[numApps].reposition = .sticky// Reposition option
+        myApps[numApps].repositionIfNeeded() // Auto correct reposition
+        respectedView.bringSubviewToFront(myApps[numApps])
+        myApps[numApps].layer.zPosition = 1000
+        
+        // Increment the # of apps
+        numApps += 1
+    }
+    
 }
