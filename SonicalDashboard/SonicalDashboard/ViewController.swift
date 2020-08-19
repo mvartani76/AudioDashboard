@@ -206,4 +206,18 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         numApps += 1
     }
     
+    @IBAction func factoryReset(_ sender: Any) {
+        // Remove all the app icons
+        myApps.enumerated().forEach { (index, myApp) in
+            myApp.removeFromSuperview()
+        }
+        myApps = []
+        numApps = 0
+        // Reset all the dashboard views back to original state
+        dashboardViews.enumerated().forEach { (index, dashboardView) in
+            dashboardViewsNumApps[index] = 0
+            dashboardView.backgroundColor = dashboardViewsBGColors[index]
+        }
+    }
+
 }
