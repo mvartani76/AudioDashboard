@@ -30,6 +30,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return [appSystemView, appMusicView, appPhoneView, appHearingView, appOtherView, systemMusicView, systemPhoneView, systemHearingView, systemOtherView]
     }
     var dashboardViewsBGColors: [UIColor] = []
+    var dashboardViewsNumApps: [Int] = []
     
     var myApps: [AADraggableView] = []
     var numApps = 0
@@ -65,15 +66,30 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         sender.layer.shadowOffset = CGSize(width: 0, height: 20)
         sender.layer.shadowOpacity = 0.3
         sender.layer.shadowRadius = 6
+        
+        var globalpoint: CGPoint = CGPoint(x: 0,y: 0)
+
+        dashboardViews.enumerated().forEach { (index, dashboardView) in
+        
+            globalpoint = dashboardView.superview?.convert(dashboardView.frame.origin, to: nil) as! CGPoint
+
+            dashboardView.bounds.origin.x = dashboardView.bounds.origin.x + globalpoint.x
+            dashboardView.bounds.origin.y = dashboardView.bounds.origin.y + globalpoint.y
+
+            if (dashboardView.bounds.contains(sender.center)) && (dashboardViewsNumApps[index] > 0) {
+                dashboardViewsNumApps[index] -= 1
+            }
+            dashboardView.bounds.origin = CGPoint(x:0,y:0)
+        }
     }
-    
+
     func draggingDidChanged(_ sender: UIView) {
         //if (testView.frame.contains(sender.center)) {
           //  sender.center = testView.center
             //testView.backgroundColor = UIColor.red
         //}
     }
-    
+
     func draggingDidEnd(_ sender: UIView) {
         sender.layer.zPosition = 0
         sender.layer.shadowOffset = CGSize.zero
@@ -88,13 +104,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
             dashboardView.bounds.origin.x = dashboardView.bounds.origin.x + globalpoint.x
             dashboardView.bounds.origin.y = dashboardView.bounds.origin.y + globalpoint.y
-            
+
             if (dashboardView.bounds.contains(sender.center)) {
                 dashboardView.backgroundColor = UIColor.red
                 sender.center.x = dashboardView.bounds.origin.x + (dashboardView.bounds.width / 2)
                 sender.center.y = dashboardView.bounds.origin.y + (dashboardView.bounds.height / 2)
+                // Increment the num apps in view for keeping track of dashboardview formatting
+                dashboardViewsNumApps[index] += 1
             } else {
-                dashboardView.backgroundColor = dashboardViewsBGColors[index]
+                // Only set the background color back to the original if there are currently no
+                // apps in the dashboard view
+                if (dashboardViewsNumApps[index] == 0) {
+                    dashboardView.backgroundColor = dashboardViewsBGColors[index]
+                }
             }
             dashboardView.bounds.origin = CGPoint(x:0,y:0)
         }
@@ -140,8 +162,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         // Get the initial background colors for the views
         dashboardViewsBGColors.append(contentsOf: [UIColor](repeating: UIColor.systemFill, count:dashboardViews.count ))
+        dashboardViewsNumApps.append(contentsOf: [Int](repeating: 0, count:dashboardViews.count ))
+
         for i in 0..<dashboardViews.count {
             dashboardViewsBGColors[i] = dashboardViews[i].backgroundColor ?? UIColor.systemFill
+            dashboardViewsNumApps[i] = 0
         }
         
     }
