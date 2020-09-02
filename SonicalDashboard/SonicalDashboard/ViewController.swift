@@ -204,6 +204,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         // Increment the # of apps
         numApps += 1
+        
+        // Blur the background when the modal is presented to the viewer
+        self.definesPresentationContext = true
+        self.providesPresentationContextTransitionStyle = true
+        self.overlayBlurredBackgroundView()
+    }
+
+    func overlayBlurredBackgroundView() {
+
+        let blurredBackgroundView = UIVisualEffectView()
+
+        blurredBackgroundView.frame = view.frame
+        blurredBackgroundView.effect = UIBlurEffect(style: .systemUltraThinMaterial)
+
+        view.addSubview(blurredBackgroundView)
     }
     
     @IBAction func factoryReset(_ sender: Any) {
