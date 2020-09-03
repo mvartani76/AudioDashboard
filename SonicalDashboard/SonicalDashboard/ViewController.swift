@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, AADraggableViewDelegate {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, AADraggableViewDelegate, AppDownloadViewControllerDelegate {
     
     @IBOutlet var respectedView: UIView!
     @IBOutlet var systemPickerView: UIPickerView!
@@ -204,7 +204,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         // Increment the # of apps
         numApps += 1
-        
+
         // Blur the background when the modal is presented to the viewer
         self.definesPresentationContext = true
         self.providesPresentationContextTransitionStyle = true
@@ -219,6 +219,27 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         blurredBackgroundView.effect = UIBlurEffect(style: .systemUltraThinMaterial)
 
         view.addSubview(blurredBackgroundView)
+    }
+
+    func removeBlurredBackgroundView() {
+
+        for subview in view.subviews {
+            if subview.isKind(of: UIVisualEffectView.self) {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if let identifier = segue.identifier {
+                if identifier == "ShowModalView" {
+                    if let viewController = segue.destination as? AppDownloadViewController {
+                        viewController.delegate = self
+                        //viewController.modalPresentationStyle = .fullScreen
+                        self.modalPresentationStyle =  UIModalPresentationStyle(rawValue: 0)!
+                }
+            }
+        }
     }
     
     @IBAction func factoryReset(_ sender: Any) {

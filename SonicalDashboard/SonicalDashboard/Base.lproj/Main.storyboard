@@ -175,7 +175,7 @@
                                                                                 </state>
                                                                                 <connections>
                                                                                     <action selector="addApp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q7q-Ne-HwG"/>
-                                                                                    <segue destination="1pb-xv-Tyk" kind="presentation" id="Jvt-JW-bdi"/>
+                                                                                    <segue destination="1pb-xv-Tyk" kind="presentation" identifier="ShowModalView" modalPresentationStyle="automatic" id="Jvt-JW-bdi"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -789,7 +789,7 @@
         <!--App Download View Controller-->
         <scene sceneID="f66-wl-56K">
             <objects>
-                <viewController id="1pb-xv-Tyk" userLabel="App Download View Controller" sceneMemberID="viewController">
+                <viewController id="1pb-xv-Tyk" userLabel="App Download View Controller" customClass="AppDownloadViewController" customModule="SonicalDashboard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XDf-Rw-JOJ">
                         <rect key="frame" x="0.0" y="0.0" width="712" height="1006.9200564096436"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -828,10 +828,18 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5F-aN-uXB" userLabel="SelectView">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="127.5"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1T-d1-JXR">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1T-d1-JXR">
                                                                 <rect key="frame" x="12" y="6" width="216" height="115.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                                <state key="normal" title="Select"/>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="Select">
+                                                                            <attributes>
+                                                                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -845,10 +853,21 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVT-7y-7Kz" userLabel="CancelView">
                                                         <rect key="frame" x="240" y="0.0" width="240" height="127.5"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yg-6v-ly0">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1yg-6v-ly0">
                                                                 <rect key="frame" x="12" y="6" width="216" height="115.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                                <state key="normal" title="Cancel"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="Cancel">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="returnToDashboardViewController:" destination="1pb-xv-Tyk" eventType="touchUpInside" id="hGK-GS-uN8"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -897,6 +916,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pdU-Bk-De3"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelAudioAppButton" destination="1yg-6v-ly0" id="WsT-Td-tG0"/>
+                        <outlet property="selectAudioAppButton" destination="l1T-d1-JXR" id="17x-Ky-x0a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fs2-bi-16U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
