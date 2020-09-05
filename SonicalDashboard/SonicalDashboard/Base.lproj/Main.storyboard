@@ -1082,14 +1082,65 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="676-WS-Am9" userLabel="PhoneAppView">
                                                                                         <rect key="frame" x="0.0" y="150" width="641" height="150"/>
                                                                                         <subviews>
-                                                                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNp-xy-A4u">
-                                                                                                <rect key="frame" x="200.5" y="10.5" width="240" height="128"/>
-                                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNp-xy-A4u" userLabel="PhoneAppScrollView">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="150"/>
+                                                                                                <subviews>
+                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E60-yn-z5Z" userLabel="PhoneAppSelectionView">
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="150"/>
+                                                                                                        <subviews>
+                                                                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tme-av-HO1" userLabel="PhoneAppSelectionStackView">
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="1000" height="150"/>
+                                                                                                                <subviews>
+                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6r-oD-6qZ" userLabel="PhoneAppView1">
+                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="333.5" height="150"/>
+                                                                                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                    </view>
+                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGk-OE-OZU" userLabel="PhoneAppView2">
+                                                                                                                        <rect key="frame" x="333.5" y="0.0" width="333.5" height="150"/>
+                                                                                                                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                    </view>
+                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DP8-VX-k8k" userLabel="PhoneAppView3">
+                                                                                                                        <rect key="frame" x="667" y="0.0" width="333" height="150"/>
+                                                                                                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                    </view>
+                                                                                                                </subviews>
+                                                                                                                <constraints>
+                                                                                                                    <constraint firstItem="VGk-OE-OZU" firstAttribute="width" secondItem="I6r-oD-6qZ" secondAttribute="width" id="0WG-wh-cHC"/>
+                                                                                                                    <constraint firstItem="DP8-VX-k8k" firstAttribute="height" secondItem="Tme-av-HO1" secondAttribute="height" id="CVg-8S-z0b"/>
+                                                                                                                    <constraint firstItem="VGk-OE-OZU" firstAttribute="height" secondItem="Tme-av-HO1" secondAttribute="height" id="Yiw-aY-HbQ"/>
+                                                                                                                    <constraint firstItem="I6r-oD-6qZ" firstAttribute="height" secondItem="Tme-av-HO1" secondAttribute="height" id="sRY-JO-gtN"/>
+                                                                                                                    <constraint firstItem="DP8-VX-k8k" firstAttribute="width" secondItem="I6r-oD-6qZ" secondAttribute="width" id="wY0-Mk-iND"/>
+                                                                                                                </constraints>
+                                                                                                            </stackView>
+                                                                                                        </subviews>
+                                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                                        <constraints>
+                                                                                                            <constraint firstAttribute="width" constant="1000" id="7k4-8Q-X09"/>
+                                                                                                            <constraint firstItem="Tme-av-HO1" firstAttribute="width" secondItem="E60-yn-z5Z" secondAttribute="width" id="ACO-Nq-eGJ"/>
+                                                                                                            <constraint firstItem="Tme-av-HO1" firstAttribute="centerX" secondItem="E60-yn-z5Z" secondAttribute="centerX" id="AWY-tc-at7"/>
+                                                                                                            <constraint firstItem="Tme-av-HO1" firstAttribute="centerY" secondItem="E60-yn-z5Z" secondAttribute="centerY" id="Chn-xJ-i4q"/>
+                                                                                                            <constraint firstItem="Tme-av-HO1" firstAttribute="height" secondItem="E60-yn-z5Z" secondAttribute="height" id="RYJ-2o-cy9"/>
+                                                                                                        </constraints>
+                                                                                                    </view>
+                                                                                                </subviews>
+                                                                                                <constraints>
+                                                                                                    <constraint firstItem="E60-yn-z5Z" firstAttribute="height" secondItem="Hiw-n5-o4b" secondAttribute="height" id="17k-ms-WmT"/>
+                                                                                                    <constraint firstItem="E60-yn-z5Z" firstAttribute="top" secondItem="Fxu-ba-Q8N" secondAttribute="top" id="Bhb-M1-4qf"/>
+                                                                                                    <constraint firstItem="E60-yn-z5Z" firstAttribute="leading" secondItem="Fxu-ba-Q8N" secondAttribute="leading" id="CLd-xP-pjx"/>
+                                                                                                    <constraint firstItem="E60-yn-z5Z" firstAttribute="trailing" secondItem="Fxu-ba-Q8N" secondAttribute="trailing" id="Gjl-65-ivL"/>
+                                                                                                    <constraint firstItem="E60-yn-z5Z" firstAttribute="bottom" secondItem="Fxu-ba-Q8N" secondAttribute="bottom" id="Sai-K3-71n"/>
+                                                                                                </constraints>
                                                                                                 <viewLayoutGuide key="contentLayoutGuide" id="Fxu-ba-Q8N"/>
                                                                                                 <viewLayoutGuide key="frameLayoutGuide" id="Hiw-n5-o4b"/>
                                                                                             </scrollView>
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstItem="MNp-xy-A4u" firstAttribute="top" secondItem="676-WS-Am9" secondAttribute="top" id="W4v-XW-wNr"/>
+                                                                                            <constraint firstAttribute="bottom" secondItem="MNp-xy-A4u" secondAttribute="bottom" id="grG-Ic-ReT"/>
+                                                                                            <constraint firstAttribute="trailing" secondItem="MNp-xy-A4u" secondAttribute="trailing" id="nMA-RA-sjo"/>
+                                                                                            <constraint firstItem="MNp-xy-A4u" firstAttribute="leading" secondItem="676-WS-Am9" secondAttribute="leading" id="ys8-ba-ziL"/>
+                                                                                        </constraints>
                                                                                     </view>
                                                                                 </subviews>
                                                                                 <constraints>
