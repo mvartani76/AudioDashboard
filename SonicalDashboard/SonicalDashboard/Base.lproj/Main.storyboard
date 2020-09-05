@@ -866,18 +866,18 @@
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2M-Mz-gAO" userLabel="MusicAppSelectionView">
                                                                                                         <rect key="frame" x="0.0" y="0.0" width="1000" height="150"/>
                                                                                                         <subviews>
-                                                                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNy-jN-fD8">
+                                                                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNy-jN-fD8" userLabel="MusicAppSelectionStackView">
                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="1000" height="150"/>
                                                                                                                 <subviews>
-                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecS-mq-20q" userLabel="View1">
+                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecS-mq-20q" userLabel="AppView1">
                                                                                                                         <rect key="frame" x="0.0" y="0.0" width="333.5" height="150"/>
                                                                                                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                                     </view>
-                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIO-ju-zVn" userLabel="View2">
+                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIO-ju-zVn" userLabel="AooView2">
                                                                                                                         <rect key="frame" x="333.5" y="0.0" width="333.5" height="150"/>
                                                                                                                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                                     </view>
-                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upi-mt-zE4" userLabel="View3">
+                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upi-mt-zE4" userLabel="AppView3">
                                                                                                                         <rect key="frame" x="667" y="0.0" width="333" height="150"/>
                                                                                                                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                                     </view>
@@ -971,14 +971,65 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHM-l5-KI5" userLabel="HearingAppView">
                                                                                         <rect key="frame" x="0.0" y="150" width="641" height="150"/>
                                                                                         <subviews>
-                                                                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aam-X6-KbH">
-                                                                                                <rect key="frame" x="200.5" y="11" width="240" height="128"/>
-                                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aam-X6-KbH" userLabel="HearingAppScrollView">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="150"/>
+                                                                                                <subviews>
+                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lI3-za-4Rl" userLabel="HearingAppSelectionView">
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="150"/>
+                                                                                                        <subviews>
+                                                                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6UH-gc-1KN" userLabel="HearingAppSelectionStackView">
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="1000" height="150"/>
+                                                                                                                <subviews>
+                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EfP-k9-oSu" userLabel="HearingAppView1">
+                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="333.5" height="150"/>
+                                                                                                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                    </view>
+                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1m-lK-E7H" userLabel="HearingAppView2">
+                                                                                                                        <rect key="frame" x="333.5" y="0.0" width="333.5" height="150"/>
+                                                                                                                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                    </view>
+                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSX-8x-soJ" userLabel="HearingAppView3">
+                                                                                                                        <rect key="frame" x="667" y="0.0" width="333" height="150"/>
+                                                                                                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                    </view>
+                                                                                                                </subviews>
+                                                                                                                <constraints>
+                                                                                                                    <constraint firstItem="v1m-lK-E7H" firstAttribute="height" secondItem="6UH-gc-1KN" secondAttribute="height" id="KGX-OO-QJu"/>
+                                                                                                                    <constraint firstItem="EfP-k9-oSu" firstAttribute="height" secondItem="6UH-gc-1KN" secondAttribute="height" id="gBI-Cm-rc1"/>
+                                                                                                                    <constraint firstItem="gSX-8x-soJ" firstAttribute="height" secondItem="6UH-gc-1KN" secondAttribute="height" id="kXD-99-BWV"/>
+                                                                                                                    <constraint firstItem="v1m-lK-E7H" firstAttribute="width" secondItem="EfP-k9-oSu" secondAttribute="width" id="sTj-I8-Ngf"/>
+                                                                                                                    <constraint firstItem="gSX-8x-soJ" firstAttribute="width" secondItem="EfP-k9-oSu" secondAttribute="width" id="ynT-LX-Lkd"/>
+                                                                                                                </constraints>
+                                                                                                            </stackView>
+                                                                                                        </subviews>
+                                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                                        <constraints>
+                                                                                                            <constraint firstItem="6UH-gc-1KN" firstAttribute="centerX" secondItem="lI3-za-4Rl" secondAttribute="centerX" id="2xe-Pc-jan"/>
+                                                                                                            <constraint firstItem="6UH-gc-1KN" firstAttribute="centerY" secondItem="lI3-za-4Rl" secondAttribute="centerY" id="MtD-uE-h9I"/>
+                                                                                                            <constraint firstAttribute="width" constant="1000" id="iFT-hE-lic"/>
+                                                                                                            <constraint firstItem="6UH-gc-1KN" firstAttribute="width" secondItem="lI3-za-4Rl" secondAttribute="width" id="nos-cN-jk9"/>
+                                                                                                            <constraint firstItem="6UH-gc-1KN" firstAttribute="height" secondItem="lI3-za-4Rl" secondAttribute="height" id="rvv-8r-ZNr"/>
+                                                                                                        </constraints>
+                                                                                                    </view>
+                                                                                                </subviews>
+                                                                                                <constraints>
+                                                                                                    <constraint firstItem="lI3-za-4Rl" firstAttribute="trailing" secondItem="qhB-EQ-0sh" secondAttribute="trailing" id="6gs-fh-7Ea"/>
+                                                                                                    <constraint firstItem="lI3-za-4Rl" firstAttribute="height" secondItem="fGB-2R-dqw" secondAttribute="height" id="CTQ-18-Bn1"/>
+                                                                                                    <constraint firstItem="lI3-za-4Rl" firstAttribute="leading" secondItem="qhB-EQ-0sh" secondAttribute="leading" id="FgH-wn-6pk"/>
+                                                                                                    <constraint firstItem="lI3-za-4Rl" firstAttribute="bottom" secondItem="qhB-EQ-0sh" secondAttribute="bottom" id="dkM-jr-Dp2"/>
+                                                                                                    <constraint firstItem="lI3-za-4Rl" firstAttribute="top" secondItem="qhB-EQ-0sh" secondAttribute="top" id="zEM-LK-38q"/>
+                                                                                                </constraints>
                                                                                                 <viewLayoutGuide key="contentLayoutGuide" id="qhB-EQ-0sh"/>
                                                                                                 <viewLayoutGuide key="frameLayoutGuide" id="fGB-2R-dqw"/>
                                                                                             </scrollView>
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstItem="Aam-X6-KbH" firstAttribute="top" secondItem="bHM-l5-KI5" secondAttribute="top" id="8Y3-Ic-RaV"/>
+                                                                                            <constraint firstAttribute="bottom" secondItem="Aam-X6-KbH" secondAttribute="bottom" id="hiM-LD-nGw"/>
+                                                                                            <constraint firstAttribute="trailing" secondItem="Aam-X6-KbH" secondAttribute="trailing" id="lTq-J2-N2e"/>
+                                                                                            <constraint firstItem="Aam-X6-KbH" firstAttribute="leading" secondItem="bHM-l5-KI5" secondAttribute="leading" id="shu-GV-fBS"/>
+                                                                                        </constraints>
                                                                                     </view>
                                                                                 </subviews>
                                                                                 <constraints>
