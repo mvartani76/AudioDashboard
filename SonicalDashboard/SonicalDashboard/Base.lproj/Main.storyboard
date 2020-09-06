@@ -834,10 +834,10 @@
                                                                                 <rect key="frame" x="35.5" y="17" width="641" height="300"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PrV-xr-UKS" userLabel="MusicAppTitleView">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="641" height="150"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="641" height="120"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzg-7A-sCp">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="150"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="120"/>
                                                                                                 <attributedString key="attributedText">
                                                                                                     <fragment content="Music">
                                                                                                         <attributes>
@@ -858,28 +858,82 @@
                                                                                         </constraints>
                                                                                     </view>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCu-Il-z2L" userLabel="MusicAppView">
-                                                                                        <rect key="frame" x="0.0" y="150" width="641" height="150"/>
+                                                                                        <rect key="frame" x="0.0" y="120" width="641" height="180"/>
                                                                                         <subviews>
                                                                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fox-Ce-0dz" userLabel="MusicAppScrollView">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="150"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="180"/>
                                                                                                 <subviews>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2M-Mz-gAO" userLabel="MusicAppSelectionView">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="150"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="180"/>
                                                                                                         <subviews>
                                                                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNy-jN-fD8" userLabel="MusicAppSelectionStackView">
-                                                                                                                <rect key="frame" x="0.0" y="0.0" width="1000" height="150"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="1000" height="180"/>
                                                                                                                 <subviews>
-                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecS-mq-20q" userLabel="AppView1">
-                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="333.5" height="150"/>
+                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecS-mq-20q" userLabel="MusicAppView1">
+                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="333.5" height="180"/>
+                                                                                                                        <subviews>
+                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waves-logo" translatesAutoresizingMaskIntoConstraints="NO" id="sje-lp-G0O">
+                                                                                                                                <rect key="frame" x="104.5" y="27.5" width="125" height="125"/>
+                                                                                                                                <constraints>
+                                                                                                                                    <constraint firstAttribute="height" constant="125" id="7x2-mn-q0O"/>
+                                                                                                                                    <constraint firstAttribute="width" constant="125" id="i9x-xQ-aMR"/>
+                                                                                                                                </constraints>
+                                                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                                                                        <integer key="value" value="15"/>
+                                                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                                                </userDefinedRuntimeAttributes>
+                                                                                                                            </imageView>
+                                                                                                                        </subviews>
                                                                                                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                        <constraints>
+                                                                                                                            <constraint firstItem="sje-lp-G0O" firstAttribute="centerY" secondItem="ecS-mq-20q" secondAttribute="centerY" id="CEK-bj-oTC"/>
+                                                                                                                            <constraint firstItem="sje-lp-G0O" firstAttribute="centerX" secondItem="ecS-mq-20q" secondAttribute="centerX" id="FBn-5b-SSu"/>
+                                                                                                                        </constraints>
                                                                                                                     </view>
-                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIO-ju-zVn" userLabel="AooView2">
-                                                                                                                        <rect key="frame" x="333.5" y="0.0" width="333.5" height="150"/>
+                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIO-ju-zVn" userLabel="MusicAppView2">
+                                                                                                                        <rect key="frame" x="333.5" y="0.0" width="333.5" height="180"/>
+                                                                                                                        <subviews>
+                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sony-logo" translatesAutoresizingMaskIntoConstraints="NO" id="H0F-VW-d6n">
+                                                                                                                                <rect key="frame" x="104" y="27.5" width="125" height="125"/>
+                                                                                                                                <constraints>
+                                                                                                                                    <constraint firstAttribute="width" constant="125" id="F2B-X8-UyV"/>
+                                                                                                                                    <constraint firstAttribute="height" constant="125" id="mo4-VM-scY"/>
+                                                                                                                                </constraints>
+                                                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                                                                        <integer key="value" value="15"/>
+                                                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                                                </userDefinedRuntimeAttributes>
+                                                                                                                            </imageView>
+                                                                                                                        </subviews>
                                                                                                                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                        <constraints>
+                                                                                                                            <constraint firstItem="H0F-VW-d6n" firstAttribute="centerX" secondItem="OIO-ju-zVn" secondAttribute="centerX" id="4nH-wI-8D7"/>
+                                                                                                                            <constraint firstItem="H0F-VW-d6n" firstAttribute="centerY" secondItem="OIO-ju-zVn" secondAttribute="centerY" id="6Ef-Zk-9J4"/>
+                                                                                                                        </constraints>
                                                                                                                     </view>
-                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upi-mt-zE4" userLabel="AppView3">
-                                                                                                                        <rect key="frame" x="667" y="0.0" width="333" height="150"/>
+                                                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upi-mt-zE4" userLabel="MusicAppView3">
+                                                                                                                        <rect key="frame" x="667" y="0.0" width="333" height="180"/>
+                                                                                                                        <subviews>
+                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dts-logo" translatesAutoresizingMaskIntoConstraints="NO" id="gIQ-Nl-7Og">
+                                                                                                                                <rect key="frame" x="104" y="27.5" width="125" height="125"/>
+                                                                                                                                <constraints>
+                                                                                                                                    <constraint firstAttribute="height" constant="125" id="H2X-kS-4Ev"/>
+                                                                                                                                    <constraint firstAttribute="width" constant="125" id="hex-YO-et0"/>
+                                                                                                                                </constraints>
+                                                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                                                                        <integer key="value" value="15"/>
+                                                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                                                </userDefinedRuntimeAttributes>
+                                                                                                                            </imageView>
+                                                                                                                        </subviews>
                                                                                                                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                        <constraints>
+                                                                                                                            <constraint firstItem="gIQ-Nl-7Og" firstAttribute="centerX" secondItem="Upi-mt-zE4" secondAttribute="centerX" id="Ikp-dx-hjP"/>
+                                                                                                                            <constraint firstItem="gIQ-Nl-7Og" firstAttribute="centerY" secondItem="Upi-mt-zE4" secondAttribute="centerY" id="zbt-nm-5xA"/>
+                                                                                                                        </constraints>
                                                                                                                     </view>
                                                                                                                 </subviews>
                                                                                                                 <constraints>
@@ -924,7 +978,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstItem="PrV-xr-UKS" firstAttribute="width" secondItem="bzz-9P-4fC" secondAttribute="width" id="GLB-ay-oad"/>
                                                                                     <constraint firstItem="JCu-Il-z2L" firstAttribute="centerX" secondItem="bzz-9P-4fC" secondAttribute="centerX" id="myi-bn-7HN"/>
-                                                                                    <constraint firstItem="JCu-Il-z2L" firstAttribute="height" secondItem="PrV-xr-UKS" secondAttribute="height" id="rV3-9K-0xY"/>
+                                                                                    <constraint firstItem="JCu-Il-z2L" firstAttribute="height" secondItem="PrV-xr-UKS" secondAttribute="height" multiplier="1.5" id="rV3-9K-0xY"/>
                                                                                     <constraint firstItem="JCu-Il-z2L" firstAttribute="width" secondItem="bzz-9P-4fC" secondAttribute="width" id="tb3-Er-xwZ"/>
                                                                                     <constraint firstItem="PrV-xr-UKS" firstAttribute="centerX" secondItem="bzz-9P-4fC" secondAttribute="centerX" id="v4w-su-4dL"/>
                                                                                 </constraints>
@@ -945,10 +999,10 @@
                                                                                 <rect key="frame" x="35.5" y="16.5" width="641" height="300"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cob-Sy-BCF" userLabel="HearingAppTitleView">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="641" height="150"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="641" height="120"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n84-VK-J78">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="150"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="120"/>
                                                                                                 <attributedString key="attributedText">
                                                                                                     <fragment content="Hearing">
                                                                                                         <attributes>
@@ -969,28 +1023,92 @@
                                                                                         </constraints>
                                                                                     </view>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bHM-l5-KI5" userLabel="HearingAppView">
-                                                                                        <rect key="frame" x="0.0" y="150" width="641" height="150"/>
+                                                                                        <rect key="frame" x="0.0" y="120" width="641" height="180"/>
                                                                                         <subviews>
                                                                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aam-X6-KbH" userLabel="HearingAppScrollView">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="150"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="180"/>
                                                                                                 <subviews>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lI3-za-4Rl" userLabel="HearingAppSelectionView">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="150"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="180"/>
                                                                                                         <subviews>
                                                                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6UH-gc-1KN" userLabel="HearingAppSelectionStackView">
-                                                                                                                <rect key="frame" x="0.0" y="0.0" width="1000" height="150"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="1000" height="180"/>
                                                                                                                 <subviews>
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EfP-k9-oSu" userLabel="HearingAppView1">
-                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="333.5" height="150"/>
+                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="333.5" height="180"/>
+                                                                                                                        <subviews>
+                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="petralex-logo" translatesAutoresizingMaskIntoConstraints="NO" id="9mM-hl-2KQ">
+                                                                                                                                <rect key="frame" x="104.5" y="27.5" width="125" height="125"/>
+                                                                                                                                <constraints>
+                                                                                                                                    <constraint firstAttribute="width" constant="125" id="Kc9-9C-1d9"/>
+                                                                                                                                    <constraint firstAttribute="height" constant="125" id="b64-F4-Hwg"/>
+                                                                                                                                </constraints>
+                                                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                                                                        <integer key="value" value="15"/>
+                                                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                                                </userDefinedRuntimeAttributes>
+                                                                                                                            </imageView>
+                                                                                                                        </subviews>
                                                                                                                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                        <constraints>
+                                                                                                                            <constraint firstItem="9mM-hl-2KQ" firstAttribute="centerX" secondItem="EfP-k9-oSu" secondAttribute="centerX" id="6Zq-0A-Xrk"/>
+                                                                                                                            <constraint firstItem="9mM-hl-2KQ" firstAttribute="centerY" secondItem="EfP-k9-oSu" secondAttribute="centerY" id="WLX-aT-hSi"/>
+                                                                                                                        </constraints>
                                                                                                                     </view>
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1m-lK-E7H" userLabel="HearingAppView2">
-                                                                                                                        <rect key="frame" x="333.5" y="0.0" width="333.5" height="150"/>
+                                                                                                                        <rect key="frame" x="333.5" y="0.0" width="333.5" height="180"/>
+                                                                                                                        <subviews>
+                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alango-logo" translatesAutoresizingMaskIntoConstraints="NO" id="TcN-kG-c04">
+                                                                                                                                <rect key="frame" x="104" y="27.5" width="125" height="125"/>
+                                                                                                                                <constraints>
+                                                                                                                                    <constraint firstAttribute="width" constant="125" id="Ipg-hu-RtY"/>
+                                                                                                                                    <constraint firstAttribute="height" constant="125" id="puV-4n-cck">
+                                                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                                                                                <integer key="value" value="15"/>
+                                                                                                                                            </userDefinedRuntimeAttribute>
+                                                                                                                                        </userDefinedRuntimeAttributes>
+                                                                                                                                    </constraint>
+                                                                                                                                </constraints>
+                                                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                                                                        <integer key="value" value="15"/>
+                                                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                                                </userDefinedRuntimeAttributes>
+                                                                                                                            </imageView>
+                                                                                                                        </subviews>
                                                                                                                         <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                        <constraints>
+                                                                                                                            <constraint firstItem="TcN-kG-c04" firstAttribute="centerY" secondItem="v1m-lK-E7H" secondAttribute="centerY" id="G8A-ce-fk4"/>
+                                                                                                                            <constraint firstItem="TcN-kG-c04" firstAttribute="centerX" secondItem="v1m-lK-E7H" secondAttribute="centerX" id="xn9-gb-8Tt"/>
+                                                                                                                        </constraints>
                                                                                                                     </view>
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSX-8x-soJ" userLabel="HearingAppView3">
-                                                                                                                        <rect key="frame" x="667" y="0.0" width="333" height="150"/>
+                                                                                                                        <rect key="frame" x="667" y="0.0" width="333" height="180"/>
+                                                                                                                        <subviews>
+                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eargo-logo" translatesAutoresizingMaskIntoConstraints="NO" id="xEg-5K-hoO">
+                                                                                                                                <rect key="frame" x="104" y="27.5" width="125" height="125"/>
+                                                                                                                                <constraints>
+                                                                                                                                    <constraint firstAttribute="height" constant="125" id="47q-hI-yNq"/>
+                                                                                                                                    <constraint firstAttribute="width" constant="125" id="SPf-7y-xyH">
+                                                                                                                                        <userDefinedRuntimeAttributes>
+                                                                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                                                                                                                        </userDefinedRuntimeAttributes>
+                                                                                                                                    </constraint>
+                                                                                                                                </constraints>
+                                                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                                                                        <integer key="value" value="15"/>
+                                                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                                                </userDefinedRuntimeAttributes>
+                                                                                                                            </imageView>
+                                                                                                                        </subviews>
                                                                                                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                        <constraints>
+                                                                                                                            <constraint firstItem="xEg-5K-hoO" firstAttribute="centerY" secondItem="gSX-8x-soJ" secondAttribute="centerY" id="TEm-Fd-39p"/>
+                                                                                                                            <constraint firstItem="xEg-5K-hoO" firstAttribute="centerX" secondItem="gSX-8x-soJ" secondAttribute="centerX" id="UgY-Xr-H9O"/>
+                                                                                                                        </constraints>
                                                                                                                     </view>
                                                                                                                 </subviews>
                                                                                                                 <constraints>
@@ -1036,7 +1154,7 @@
                                                                                     <constraint firstItem="bHM-l5-KI5" firstAttribute="width" secondItem="Wa6-85-Ln4" secondAttribute="width" id="3Xt-n7-qf3"/>
                                                                                     <constraint firstItem="cob-Sy-BCF" firstAttribute="width" secondItem="Wa6-85-Ln4" secondAttribute="width" id="8Ko-5h-O5K"/>
                                                                                     <constraint firstItem="cob-Sy-BCF" firstAttribute="centerX" secondItem="Wa6-85-Ln4" secondAttribute="centerX" id="Bl7-W0-h8V"/>
-                                                                                    <constraint firstItem="bHM-l5-KI5" firstAttribute="height" secondItem="cob-Sy-BCF" secondAttribute="height" id="MHp-Hu-Fjt"/>
+                                                                                    <constraint firstItem="bHM-l5-KI5" firstAttribute="height" secondItem="cob-Sy-BCF" secondAttribute="height" multiplier="1.5" id="MHp-Hu-Fjt"/>
                                                                                     <constraint firstItem="bHM-l5-KI5" firstAttribute="centerX" secondItem="Wa6-85-Ln4" secondAttribute="centerX" id="Qnf-fb-w4j"/>
                                                                                 </constraints>
                                                                             </stackView>
@@ -1056,10 +1174,10 @@
                                                                                 <rect key="frame" x="35.5" y="16.5" width="641" height="300"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Qt-mp-QtR" userLabel="PhoneAppTitleView">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="641" height="150"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="641" height="120"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAp-Un-WQU">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="150"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="120"/>
                                                                                                 <attributedString key="attributedText">
                                                                                                     <fragment content="Phone">
                                                                                                         <attributes>
@@ -1080,28 +1198,82 @@
                                                                                         </constraints>
                                                                                     </view>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="676-WS-Am9" userLabel="PhoneAppView">
-                                                                                        <rect key="frame" x="0.0" y="150" width="641" height="150"/>
+                                                                                        <rect key="frame" x="0.0" y="120" width="641" height="180"/>
                                                                                         <subviews>
                                                                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNp-xy-A4u" userLabel="PhoneAppScrollView">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="150"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="641" height="180"/>
                                                                                                 <subviews>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E60-yn-z5Z" userLabel="PhoneAppSelectionView">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="150"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="180"/>
                                                                                                         <subviews>
                                                                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tme-av-HO1" userLabel="PhoneAppSelectionStackView">
-                                                                                                                <rect key="frame" x="0.0" y="0.0" width="1000" height="150"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="1000" height="180"/>
                                                                                                                 <subviews>
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6r-oD-6qZ" userLabel="PhoneAppView1">
-                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="333.5" height="150"/>
+                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="333.5" height="180"/>
+                                                                                                                        <subviews>
+                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dolby-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ALV-ES-D7d">
+                                                                                                                                <rect key="frame" x="104.5" y="27.5" width="125" height="125"/>
+                                                                                                                                <constraints>
+                                                                                                                                    <constraint firstAttribute="height" constant="125" id="EKP-XU-kdn"/>
+                                                                                                                                    <constraint firstAttribute="width" constant="125" id="jUm-fF-hek"/>
+                                                                                                                                </constraints>
+                                                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                                                                        <integer key="value" value="15"/>
+                                                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                                                </userDefinedRuntimeAttributes>
+                                                                                                                            </imageView>
+                                                                                                                        </subviews>
                                                                                                                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                        <constraints>
+                                                                                                                            <constraint firstItem="ALV-ES-D7d" firstAttribute="centerX" secondItem="I6r-oD-6qZ" secondAttribute="centerX" id="Qvg-bP-NgA"/>
+                                                                                                                            <constraint firstItem="ALV-ES-D7d" firstAttribute="centerY" secondItem="I6r-oD-6qZ" secondAttribute="centerY" id="eUZ-Kc-8Da"/>
+                                                                                                                        </constraints>
                                                                                                                     </view>
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGk-OE-OZU" userLabel="PhoneAppView2">
-                                                                                                                        <rect key="frame" x="333.5" y="0.0" width="333.5" height="150"/>
+                                                                                                                        <rect key="frame" x="333.5" y="0.0" width="333.5" height="180"/>
+                                                                                                                        <subviews>
+                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yamaha-logo" translatesAutoresizingMaskIntoConstraints="NO" id="zPg-Vi-sdM">
+                                                                                                                                <rect key="frame" x="104" y="27.5" width="125" height="125"/>
+                                                                                                                                <constraints>
+                                                                                                                                    <constraint firstAttribute="width" constant="125" id="7CK-wy-Sbt"/>
+                                                                                                                                    <constraint firstAttribute="height" constant="125" id="9Ma-vP-1LA"/>
+                                                                                                                                </constraints>
+                                                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                                                                        <integer key="value" value="15"/>
+                                                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                                                </userDefinedRuntimeAttributes>
+                                                                                                                            </imageView>
+                                                                                                                        </subviews>
                                                                                                                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                        <constraints>
+                                                                                                                            <constraint firstItem="zPg-Vi-sdM" firstAttribute="centerX" secondItem="VGk-OE-OZU" secondAttribute="centerX" id="B2y-bO-WgO"/>
+                                                                                                                            <constraint firstItem="zPg-Vi-sdM" firstAttribute="centerY" secondItem="VGk-OE-OZU" secondAttribute="centerY" id="Mpk-4J-yLx"/>
+                                                                                                                        </constraints>
                                                                                                                     </view>
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DP8-VX-k8k" userLabel="PhoneAppView3">
-                                                                                                                        <rect key="frame" x="667" y="0.0" width="333" height="150"/>
+                                                                                                                        <rect key="frame" x="667" y="0.0" width="333" height="180"/>
+                                                                                                                        <subviews>
+                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dirac-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ng4-it-8WM">
+                                                                                                                                <rect key="frame" x="104" y="27.5" width="125" height="125"/>
+                                                                                                                                <constraints>
+                                                                                                                                    <constraint firstAttribute="height" constant="125" id="VSi-2R-hus"/>
+                                                                                                                                    <constraint firstAttribute="width" constant="125" id="WIA-ec-1Uc"/>
+                                                                                                                                </constraints>
+                                                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                                                                        <integer key="value" value="15"/>
+                                                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                                                </userDefinedRuntimeAttributes>
+                                                                                                                            </imageView>
+                                                                                                                        </subviews>
                                                                                                                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                        <constraints>
+                                                                                                                            <constraint firstItem="Ng4-it-8WM" firstAttribute="centerX" secondItem="DP8-VX-k8k" secondAttribute="centerX" id="YEQ-eW-00n"/>
+                                                                                                                            <constraint firstItem="Ng4-it-8WM" firstAttribute="centerY" secondItem="DP8-VX-k8k" secondAttribute="centerY" id="aeN-cL-Qaf"/>
+                                                                                                                        </constraints>
                                                                                                                     </view>
                                                                                                                 </subviews>
                                                                                                                 <constraints>
@@ -1144,7 +1316,7 @@
                                                                                     </view>
                                                                                 </subviews>
                                                                                 <constraints>
-                                                                                    <constraint firstItem="676-WS-Am9" firstAttribute="height" secondItem="0Qt-mp-QtR" secondAttribute="height" id="AGp-b2-9Vh"/>
+                                                                                    <constraint firstItem="676-WS-Am9" firstAttribute="height" secondItem="0Qt-mp-QtR" secondAttribute="height" multiplier="1.5" id="AGp-b2-9Vh"/>
                                                                                     <constraint firstItem="0Qt-mp-QtR" firstAttribute="width" secondItem="dfK-Vd-d97" secondAttribute="width" id="ZBC-94-Ejv"/>
                                                                                     <constraint firstItem="676-WS-Am9" firstAttribute="centerX" secondItem="dfK-Vd-d97" secondAttribute="centerX" id="lPa-t8-H4w"/>
                                                                                     <constraint firstItem="0Qt-mp-QtR" firstAttribute="centerX" secondItem="dfK-Vd-d97" secondAttribute="centerX" id="uHl-eh-eE0"/>
@@ -1309,4 +1481,15 @@
             <point key="canvasLocation" x="833.7890625" y="-335.13909224011712"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="alango-logo" width="170" height="170"/>
+        <image name="dirac-logo" width="900" height="500"/>
+        <image name="dolby-logo" width="225" height="225"/>
+        <image name="dts-logo" width="400" height="400"/>
+        <image name="eargo-logo" width="800" height="800"/>
+        <image name="petralex-logo" width="1200" height="1200"/>
+        <image name="sony-logo" width="3000" height="3000"/>
+        <image name="waves-logo" width="970" height="1000"/>
+        <image name="yamaha-logo" width="300" height="168"/>
+    </resources>
 </document>
