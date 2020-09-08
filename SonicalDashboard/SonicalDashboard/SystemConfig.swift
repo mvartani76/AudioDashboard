@@ -12,8 +12,10 @@ class SystemConfig {
     static let shared = SystemConfig()
     
     var numApps: Int
+    var selectedApp: Int
     
     private init() {
         numApps = 0
+        selectedApp = 1
     }
 }

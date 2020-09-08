@@ -30,7 +30,9 @@ class AppDownloadViewController: UIViewController {
     @IBOutlet var phoneApp2ImageView: UIImageView!
     @IBOutlet var phoneApp3ImageView: UIImageView!
 
-
+    var imageViewArray: [UIImageView] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -125,21 +127,33 @@ class AppDownloadViewController: UIViewController {
         phoneApp1ImageView.addGestureRecognizer(gesture7)
         phoneApp2ImageView.addGestureRecognizer(gesture8)
         phoneApp3ImageView.addGestureRecognizer(gesture9)
+        
+        imageViewArray = [
+            musicApp1ImageView,
+            musicApp2ImageView,
+            musicApp3ImageView,
+            hearingApp1ImageView,
+            hearingApp2ImageView,
+            hearingApp3ImageView,
+            phoneApp1ImageView,
+            phoneApp2ImageView,
+            phoneApp3ImageView]
     }
     
     //Action
     @objc func tapDetected(sender: UITapGestureRecognizer) {
-        print("Single Tap on imageview")
 
+        print("Selected App = \(SystemConfig.shared.selectedApp)")
+        
         if let tag = sender.view?.tag {
-            print(tag)
-            switch tag {
-            case 1:
-                print("First View Tapped")
-            case 2:
-                print("Second View Tapped")
-            default:
-                print("Nothing Tapped")
+            print("Current App = \(tag)")
+            if (tag != SystemConfig.shared.selectedApp) {
+                print("Setting colors")
+                imageViewArray[SystemConfig.shared.selectedApp-1].layer.borderColor = UIColor.clear.cgColor
+                imageViewArray[SystemConfig.shared.selectedApp-1].setNeedsLayout()
+                sender.view?.layer.borderColor = UIColor.red.cgColor
+                sender.view?.layer.borderWidth = 5
+                SystemConfig.shared.selectedApp = tag
             }
         }
     }
