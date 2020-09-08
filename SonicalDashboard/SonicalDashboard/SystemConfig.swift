@@ -12,10 +12,13 @@ class SystemConfig {
     static let shared = SystemConfig()
     
     var numApps: Int
+    var tempSelectedApp: Int
     var selectedApp: Int
+    var myApps: [AADraggableView] = []
     
     private init() {
         numApps = 0
+        tempSelectedApp = 1
         selectedApp = 1
     }
 }

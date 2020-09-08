@@ -1401,6 +1401,9 @@
                                                                         </fragment>
                                                                     </attributedString>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="selectAudioAppAndReturnToDashboardVC:" destination="1pb-xv-Tyk" eventType="touchUpInside" id="kN5-Pg-ZvJ"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

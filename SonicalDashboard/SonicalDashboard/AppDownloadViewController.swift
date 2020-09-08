@@ -143,17 +143,17 @@ class AppDownloadViewController: UIViewController {
     //Action
     @objc func tapDetected(sender: UITapGestureRecognizer) {
 
-        print("Selected App = \(SystemConfig.shared.selectedApp)")
+        print("Selected App = \(SystemConfig.shared.tempSelectedApp)")
         
         if let tag = sender.view?.tag {
             print("Current App = \(tag)")
-            if (tag != SystemConfig.shared.selectedApp) {
+            if (tag != SystemConfig.shared.tempSelectedApp) {
                 print("Setting colors")
-                imageViewArray[SystemConfig.shared.selectedApp-1].layer.borderColor = UIColor.clear.cgColor
-                imageViewArray[SystemConfig.shared.selectedApp-1].setNeedsLayout()
+                imageViewArray[SystemConfig.shared.tempSelectedApp-1].layer.borderColor = UIColor.clear.cgColor
+                imageViewArray[SystemConfig.shared.tempSelectedApp-1].setNeedsLayout()
                 sender.view?.layer.borderColor = UIColor.red.cgColor
                 sender.view?.layer.borderWidth = 5
-                SystemConfig.shared.selectedApp = tag
+                SystemConfig.shared.tempSelectedApp = tag
             }
         }
     }
@@ -167,6 +167,15 @@ class AppDownloadViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    @IBAction func selectAudioAppAndReturnToDashboardVC(_ sender: UIButton) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissAppDownloadModal"), object: nil)
+
+        dismiss(animated: true, completion: nil)
+        delegate?.removeBlurredBackgroundView()
+    }
+    
+    
     @IBAction func returnToDashboardViewController(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
         delegate?.removeBlurredBackgroundView()

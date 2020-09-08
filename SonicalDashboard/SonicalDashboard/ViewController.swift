@@ -168,7 +168,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             dashboardViewsBGColors[i] = dashboardViews[i].backgroundColor ?? UIColor.systemFill
             dashboardViewsNumApps[i] = 0
         }
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.postModalAddApp), name: NSNotification.Name(rawValue: "DismissAppDownloadModal"), object: nil)
+
     }
     override func viewWillAppear(_ animated: Bool) {
         // Set options
@@ -176,6 +177,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func addApp(_ sender: Any) {
+        
+
+        // Blur the background when the modal is presented to the viewer
+        self.definesPresentationContext = true
+        self.providesPresentationContextTransitionStyle = true
+        self.overlayBlurredBackgroundView()
+    }
+    
+    @objc func postModalAddApp() {
+
         myApps.append(AADraggableView(frame: CGRect(x:0, y:0, width: 150, height: 30)))
         myApps[numApps].backgroundColor=UIColor.lightGray
         myApps[numApps].layer.borderColor = UIColor.red.cgColor
@@ -205,10 +216,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Increment the # of apps
         numApps += 1
 
-        // Blur the background when the modal is presented to the viewer
-        self.definesPresentationContext = true
-        self.providesPresentationContextTransitionStyle = true
-        self.overlayBlurredBackgroundView()
     }
 
     func overlayBlurredBackgroundView() {
