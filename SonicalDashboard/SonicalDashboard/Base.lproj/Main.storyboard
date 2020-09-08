@@ -878,7 +878,7 @@
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecS-mq-20q" userLabel="MusicAppView1">
                                                                                                                         <rect key="frame" x="0.0" y="0.0" width="250" height="180"/>
                                                                                                                         <subviews>
-                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waves-logo" translatesAutoresizingMaskIntoConstraints="NO" id="sje-lp-G0O">
+                                                                                                                            <imageView clipsSubviews="YES" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waves-logo" translatesAutoresizingMaskIntoConstraints="NO" id="sje-lp-G0O">
                                                                                                                                 <rect key="frame" x="62.5" y="27.5" width="125" height="125"/>
                                                                                                                                 <constraints>
                                                                                                                                     <constraint firstAttribute="height" constant="125" id="7x2-mn-q0O"/>
@@ -900,7 +900,7 @@
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIO-ju-zVn" userLabel="MusicAppView2">
                                                                                                                         <rect key="frame" x="250" y="0.0" width="250" height="180"/>
                                                                                                                         <subviews>
-                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sony-logo" translatesAutoresizingMaskIntoConstraints="NO" id="H0F-VW-d6n">
+                                                                                                                            <imageView clipsSubviews="YES" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sony-logo" translatesAutoresizingMaskIntoConstraints="NO" id="H0F-VW-d6n">
                                                                                                                                 <rect key="frame" x="62.5" y="27.5" width="125" height="125"/>
                                                                                                                                 <constraints>
                                                                                                                                     <constraint firstAttribute="width" constant="125" id="F2B-X8-UyV"/>
@@ -922,7 +922,7 @@
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Upi-mt-zE4" userLabel="MusicAppView3">
                                                                                                                         <rect key="frame" x="500" y="0.0" width="250" height="180"/>
                                                                                                                         <subviews>
-                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dts-logo" translatesAutoresizingMaskIntoConstraints="NO" id="gIQ-Nl-7Og">
+                                                                                                                            <imageView clipsSubviews="YES" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dts-logo" translatesAutoresizingMaskIntoConstraints="NO" id="gIQ-Nl-7Og">
                                                                                                                                 <rect key="frame" x="62.5" y="27.5" width="125" height="125"/>
                                                                                                                                 <constraints>
                                                                                                                                     <constraint firstAttribute="height" constant="125" id="H2X-kS-4Ev"/>
@@ -1043,7 +1043,7 @@
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EfP-k9-oSu" userLabel="HearingAppView1">
                                                                                                                         <rect key="frame" x="0.0" y="0.0" width="250" height="180"/>
                                                                                                                         <subviews>
-                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="petralex-logo" translatesAutoresizingMaskIntoConstraints="NO" id="9mM-hl-2KQ">
+                                                                                                                            <imageView clipsSubviews="YES" tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="petralex-logo" translatesAutoresizingMaskIntoConstraints="NO" id="9mM-hl-2KQ">
                                                                                                                                 <rect key="frame" x="62.5" y="27.5" width="125" height="125"/>
                                                                                                                                 <constraints>
                                                                                                                                     <constraint firstAttribute="width" constant="125" id="Kc9-9C-1d9"/>
@@ -1065,7 +1065,7 @@
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1m-lK-E7H" userLabel="HearingAppView2">
                                                                                                                         <rect key="frame" x="250" y="0.0" width="250" height="180"/>
                                                                                                                         <subviews>
-                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alango-logo" translatesAutoresizingMaskIntoConstraints="NO" id="TcN-kG-c04">
+                                                                                                                            <imageView clipsSubviews="YES" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alango-logo" translatesAutoresizingMaskIntoConstraints="NO" id="TcN-kG-c04">
                                                                                                                                 <rect key="frame" x="62.5" y="27.5" width="125" height="125"/>
                                                                                                                                 <constraints>
                                                                                                                                     <constraint firstAttribute="width" constant="125" id="Ipg-hu-RtY"/>
@@ -1093,7 +1093,7 @@
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSX-8x-soJ" userLabel="HearingAppView3">
                                                                                                                         <rect key="frame" x="500" y="0.0" width="250" height="180"/>
                                                                                                                         <subviews>
-                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eargo-logo" translatesAutoresizingMaskIntoConstraints="NO" id="xEg-5K-hoO">
+                                                                                                                            <imageView clipsSubviews="YES" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eargo-logo" translatesAutoresizingMaskIntoConstraints="NO" id="xEg-5K-hoO">
                                                                                                                                 <rect key="frame" x="62.5" y="27.5" width="125" height="125"/>
                                                                                                                                 <constraints>
                                                                                                                                     <constraint firstAttribute="height" constant="125" id="47q-hI-yNq"/>
@@ -1218,7 +1218,7 @@
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6r-oD-6qZ" userLabel="PhoneAppView1">
                                                                                                                         <rect key="frame" x="0.0" y="0.0" width="250" height="180"/>
                                                                                                                         <subviews>
-                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dolby-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ALV-ES-D7d">
+                                                                                                                            <imageView clipsSubviews="YES" tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dolby-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ALV-ES-D7d">
                                                                                                                                 <rect key="frame" x="62.5" y="27.5" width="125" height="125"/>
                                                                                                                                 <constraints>
                                                                                                                                     <constraint firstAttribute="height" constant="125" id="EKP-XU-kdn"/>
@@ -1240,7 +1240,7 @@
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGk-OE-OZU" userLabel="PhoneAppView2">
                                                                                                                         <rect key="frame" x="250" y="0.0" width="250" height="180"/>
                                                                                                                         <subviews>
-                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yamaha-logo" translatesAutoresizingMaskIntoConstraints="NO" id="zPg-Vi-sdM">
+                                                                                                                            <imageView clipsSubviews="YES" tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yamaha-logo" translatesAutoresizingMaskIntoConstraints="NO" id="zPg-Vi-sdM">
                                                                                                                                 <rect key="frame" x="62.5" y="27.5" width="125" height="125"/>
                                                                                                                                 <constraints>
                                                                                                                                     <constraint firstAttribute="width" constant="125" id="7CK-wy-Sbt"/>
@@ -1262,7 +1262,7 @@
                                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DP8-VX-k8k" userLabel="PhoneAppView3">
                                                                                                                         <rect key="frame" x="500" y="0.0" width="250" height="180"/>
                                                                                                                         <subviews>
-                                                                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dirac-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ng4-it-8WM">
+                                                                                                                            <imageView clipsSubviews="YES" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dirac-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ng4-it-8WM">
                                                                                                                                 <rect key="frame" x="62.5" y="27.5" width="125" height="125"/>
                                                                                                                                 <constraints>
                                                                                                                                     <constraint firstAttribute="height" constant="125" id="VSi-2R-hus"/>
@@ -1479,6 +1479,15 @@
                     </view>
                     <connections>
                         <outlet property="cancelAudioAppButton" destination="1yg-6v-ly0" id="WsT-Td-tG0"/>
+                        <outlet property="hearingApp1ImageView" destination="9mM-hl-2KQ" id="STh-5r-Fn4"/>
+                        <outlet property="hearingApp2ImageView" destination="TcN-kG-c04" id="AhX-og-VNm"/>
+                        <outlet property="hearingApp3ImageView" destination="xEg-5K-hoO" id="bBd-rO-lFd"/>
+                        <outlet property="musicApp1ImageView" destination="sje-lp-G0O" id="tul-uW-w7D"/>
+                        <outlet property="musicApp2ImageView" destination="H0F-VW-d6n" id="07q-Zz-Hou"/>
+                        <outlet property="musicApp3ImageView" destination="gIQ-Nl-7Og" id="Hkx-3Y-Z5W"/>
+                        <outlet property="phoneApp1ImageView" destination="ALV-ES-D7d" id="1W9-JG-Jov"/>
+                        <outlet property="phoneApp2ImageView" destination="zPg-Vi-sdM" id="EFm-MB-A58"/>
+                        <outlet property="phoneApp3ImageView" destination="Ng4-it-8WM" id="LZO-KX-ySs"/>
                         <outlet property="selectAudioAppButton" destination="l1T-d1-JXR" id="17x-Ky-x0a"/>
                     </connections>
                 </viewController>
