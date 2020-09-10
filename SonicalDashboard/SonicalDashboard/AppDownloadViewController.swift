@@ -57,7 +57,8 @@ class AppDownloadViewController: UIViewController {
         selectAudioAppButton.layer.insertSublayer(selGradientLayer, at: 0)
         selectAudioAppButton.layer.cornerRadius = 10
         selectAudioAppButton.clipsToBounds = true
-        
+        selectAudioAppButton.alpha = 0.5
+
         canGradientLayer.frame = cancelAudioAppButton.bounds
 
         canGradientLayer.colors = [canTopGradientColor.cgColor, canBottomGradientColor.cgColor]
@@ -139,7 +140,7 @@ class AppDownloadViewController: UIViewController {
             phoneApp2ImageView,
             phoneApp3ImageView]
     }
-    
+
     //Action
     @objc func tapDetected(sender: UITapGestureRecognizer) {
 
@@ -154,6 +155,7 @@ class AppDownloadViewController: UIViewController {
                 sender.view?.layer.borderColor = UIColor.red.cgColor
                 sender.view?.layer.borderWidth = 5
                 SystemConfig.shared.tempSelectedApp = tag
+                selectAudioAppButton.alpha = 1.0
             }
         }
     }
