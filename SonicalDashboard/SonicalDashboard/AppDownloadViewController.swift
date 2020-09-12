@@ -171,6 +171,7 @@ class AppDownloadViewController: UIViewController {
     */
 
     @IBAction func selectAudioAppAndReturnToDashboardVC(_ sender: UIButton) {
+        SystemConfig.shared.selectedApp = SystemConfig.shared.tempSelectedApp
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissAppDownloadModal"), object: nil)
 
         dismiss(animated: true, completion: nil)

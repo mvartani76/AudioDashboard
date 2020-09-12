@@ -16,6 +16,8 @@ class SystemConfig {
     var selectedApp: Int
     var myApps: [AADraggableView] = []
     
+    var appMatrix: [(id: Int, name: String, appType: String, appTypeId: Int)] = []
+    
     private init() {
         numApps = 0
         tempSelectedApp = 1

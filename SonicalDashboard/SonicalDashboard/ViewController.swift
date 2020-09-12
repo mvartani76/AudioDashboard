@@ -167,15 +167,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
         NotificationCenter.default.addObserver(self, selector: #selector(self.postModalAddApp), name: NSNotification.Name(rawValue: "DismissAppDownloadModal"), object: nil)
 
+        initializeAppMatrix()
+
     }
+
     override func viewWillAppear(_ animated: Bool) {
         // Set options
-
     }
     
     @IBAction func addApp(_ sender: Any) {
         
-
         // Blur the background when the modal is presented to the viewer
         self.definesPresentationContext = true
         self.providesPresentationContextTransitionStyle = true
@@ -183,7 +184,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @objc func postModalAddApp() {
-
+        print("postmodaladdapp")
+        print(SystemConfig.shared.selectedApp)
         SystemConfig.shared.myApps.append(AADraggableView(frame: CGRect(x:0, y:0, width: 150, height: 30)))
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].backgroundColor=UIColor.lightGray
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].layer.borderColor = UIColor.red.cgColor
@@ -191,11 +193,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         var globalpoint: CGPoint = CGPoint(x: 0,y: 0)
 
-        globalpoint = addAppButton.superview?.convert(addAppButton.frame.origin, to: nil) as! CGPoint
+        //globalpoint = addAppButton.superview?.convert(addAppButton.frame.origin, to: nil) as! CGPoint
+        let viewSelect = SystemConfig.shared.appMatrix[SystemConfig.shared.selectedApp-1].appTypeId
+        print(viewSelect)
+        globalpoint = dashboardViews[viewSelect].superview?.convert(dashboardViews[viewSelect].frame.origin, to: nil) as! CGPoint
         
         // Center the app view below the add app button
-        SystemConfig.shared.myApps[SystemConfig.shared.numApps].center.x = globalpoint.x + addAppButton.frame.width / 2
-        SystemConfig.shared.myApps[SystemConfig.shared.numApps].center.y = globalpoint.y + addAppButton.frame.height + 20
+        SystemConfig.shared.myApps[SystemConfig.shared.numApps].center.x = globalpoint.x + dashboardViews[viewSelect].frame.width / 2 // addAppButton.frame.width / 2
+        SystemConfig.shared.myApps[SystemConfig.shared.numApps].center.y = globalpoint.y + dashboardViews[viewSelect].frame.height / 2
         
         let label = UILabel(frame: CGRect(x:0,y: 0, width:150, height:30))
         label.textAlignment = .center
@@ -258,6 +263,18 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             dashboardViewsNumApps[index] = 0
             dashboardView.backgroundColor = dashboardViewsBGColors[index]
         }
+    }
+    
+    func initializeAppMatrix() {
+        SystemConfig.shared.appMatrix.append((1, "Waves", "Music", 1))
+        SystemConfig.shared.appMatrix.append((2, "Sony", "Music", 1))
+        SystemConfig.shared.appMatrix.append((3, "dts", "Music", 1))
+        SystemConfig.shared.appMatrix.append((4, "Petralex", "Hearing", 3))
+        SystemConfig.shared.appMatrix.append((5, "Alango", "Hearing", 3))
+        SystemConfig.shared.appMatrix.append((6, "Eargo", "Hearing", 3))
+        SystemConfig.shared.appMatrix.append((7, "Dolby", "Phone", 2))
+        SystemConfig.shared.appMatrix.append((8, "Yamaha", "Phone", 2))
+        SystemConfig.shared.appMatrix.append((9, "Dirac", "Phone", 2))
     }
 
 }
