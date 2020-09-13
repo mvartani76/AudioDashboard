@@ -148,15 +148,12 @@ class AppDownloadViewController: UIViewController {
         
         if let tag = sender.view?.tag {
             print("Current App = \(tag)")
-            if (tag != SystemConfig.shared.tempSelectedApp) {
-                print("Setting colors")
                 imageViewArray[SystemConfig.shared.tempSelectedApp-1].layer.borderColor = UIColor.clear.cgColor
                 imageViewArray[SystemConfig.shared.tempSelectedApp-1].setNeedsLayout()
                 sender.view?.layer.borderColor = UIColor.red.cgColor
                 sender.view?.layer.borderWidth = 5
                 SystemConfig.shared.tempSelectedApp = tag
                 selectAudioAppButton.alpha = 1.0
-            }
         }
     }
 
