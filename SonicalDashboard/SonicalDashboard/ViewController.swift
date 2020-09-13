@@ -186,27 +186,45 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @objc func postModalAddApp() {
         print("postmodaladdapp")
         print(SystemConfig.shared.selectedApp)
-        SystemConfig.shared.myApps.append(AADraggableView(frame: CGRect(x:0, y:0, width: 150, height: 30)))
+        SystemConfig.shared.myApps.append(AADraggableView(frame: CGRect(x:0, y:0, width: 50, height: 50)))
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].backgroundColor=UIColor.lightGray
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].layer.borderColor = UIColor.red.cgColor
+
+        SystemConfig.shared.myApps[SystemConfig.shared.numApps].layer.cornerRadius = 10
+        SystemConfig.shared.myApps[SystemConfig.shared.numApps].clipsToBounds = true
+
         self.view.addSubview(SystemConfig.shared.myApps[SystemConfig.shared.numApps])
-        
+
         var globalpoint: CGPoint = CGPoint(x: 0,y: 0)
 
         //globalpoint = addAppButton.superview?.convert(addAppButton.frame.origin, to: nil) as! CGPoint
         let viewSelect = SystemConfig.shared.appMatrix[SystemConfig.shared.selectedApp-1].appTypeId
-        print(viewSelect)
+        print("ViewSelect = \(viewSelect)")
+        let appSelect = SystemConfig.shared.appMatrix[SystemConfig.shared.selectedApp-1].id
         globalpoint = dashboardViews[viewSelect].superview?.convert(dashboardViews[viewSelect].frame.origin, to: nil) as! CGPoint
         
         // Center the app view below the add app button
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].center.x = globalpoint.x + dashboardViews[viewSelect].frame.width / 2 // addAppButton.frame.width / 2
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].center.y = globalpoint.y + dashboardViews[viewSelect].frame.height / 2
+
+        let imageName = SystemConfig.shared.appMatrix[appSelect-1].fileName
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
+
+        //let label = UILabel(frame: CGRect(x:0,y: 0, width:150, height:30))
+        //label.textAlignment = .center
+        //label.text = "App " + String(SystemConfig.shared.numApps)
+        //SystemConfig.shared.myApps[SystemConfig.shared.numApps].addSubview(label)
+
+        SystemConfig.shared.myApps[SystemConfig.shared.numApps].addSubview(imageView)
         
-        let label = UILabel(frame: CGRect(x:0,y: 0, width:150, height:30))
-        label.textAlignment = .center
-        label.text = "App " + String(SystemConfig.shared.numApps)
-        SystemConfig.shared.myApps[SystemConfig.shared.numApps].addSubview(label)
-        
+        imageView.centerXAnchor.constraint(equalTo: SystemConfig.shared.myApps[SystemConfig.shared.numApps].centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: SystemConfig.shared.myApps[SystemConfig.shared.numApps].centerYAnchor).isActive = true
+
         // Configure Draggable View
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].delegate = self // AADraggableViewDelegate
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].respectedView = respectedView// reference view
@@ -266,15 +284,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func initializeAppMatrix() {
-        SystemConfig.shared.appMatrix.append((1, "Waves", "Music", 1))
-        SystemConfig.shared.appMatrix.append((2, "Sony", "Music", 1))
-        SystemConfig.shared.appMatrix.append((3, "dts", "Music", 1))
-        SystemConfig.shared.appMatrix.append((4, "Petralex", "Hearing", 3))
-        SystemConfig.shared.appMatrix.append((5, "Alango", "Hearing", 3))
-        SystemConfig.shared.appMatrix.append((6, "Eargo", "Hearing", 3))
-        SystemConfig.shared.appMatrix.append((7, "Dolby", "Phone", 2))
-        SystemConfig.shared.appMatrix.append((8, "Yamaha", "Phone", 2))
-        SystemConfig.shared.appMatrix.append((9, "Dirac", "Phone", 2))
+        SystemConfig.shared.appMatrix.append((1, "Waves", "Music", 1, "waves-logo.jpg"))
+        SystemConfig.shared.appMatrix.append((2, "Sony", "Music", 1, "sony-logo.png"))
+        SystemConfig.shared.appMatrix.append((3, "dts", "Music", 1, "dts-logo.png"))
+        SystemConfig.shared.appMatrix.append((4, "Petralex", "Hearing", 3, "petralex-logo.png"))
+        SystemConfig.shared.appMatrix.append((5, "Alango", "Hearing", 3, "alango-logo.png"))
+        SystemConfig.shared.appMatrix.append((6, "Eargo", "Hearing", 3, "eargo-logo.png"))
+        SystemConfig.shared.appMatrix.append((7, "Dolby", "Phone", 2, "dolby-logo.png"))
+        SystemConfig.shared.appMatrix.append((8, "Yamaha", "Phone", 2, "yamaha-logo.png"))
+        SystemConfig.shared.appMatrix.append((9, "Dirac", "Phone", 2, "dirac-logo.png"))
     }
 
 }
