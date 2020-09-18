@@ -26,8 +26,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet var systemHearingView: UIView!
     @IBOutlet var systemOtherView: UIView!
     
-    var dashboardViews: [UIView] {
-        return [appSystemView, appMusicView, appPhoneView, appHearingView, appOtherView, systemMusicView, systemPhoneView, systemHearingView, systemOtherView]
+    var dashboardViewMatrix: [(dView: UIView, dashboardType: String, isInput: Bool)] {
+        return [(appSystemView, "System", true), (appMusicView, "Music", true), (appPhoneView, "Phone", true), (appHearingView, "Hearing", true), (appOtherView, "Other", true), (systemMusicView, "Music", false), (systemPhoneView, "Phone", false), (systemHearingView, "Hearing", false), (systemOtherView, "Other", false)]
     }
     var dashboardViewsBGColors: [UIColor] = []
     var dashboardViewsNumApps: [Int] = []
@@ -66,17 +66,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         var globalpoint: CGPoint = CGPoint(x: 0,y: 0)
 
-        dashboardViews.enumerated().forEach { (index, dashboardView) in
+        dashboardViewMatrix.enumerated().forEach { (index, dashboardView) in
         
-            globalpoint = dashboardView.superview?.convert(dashboardView.frame.origin, to: nil) as! CGPoint
+            globalpoint = dashboardView.dView.superview?.convert(dashboardView.dView.frame.origin, to: nil) as! CGPoint
 
-            dashboardView.bounds.origin.x = dashboardView.bounds.origin.x + globalpoint.x
-            dashboardView.bounds.origin.y = dashboardView.bounds.origin.y + globalpoint.y
+            dashboardView.dView.bounds.origin.x = dashboardView.dView.bounds.origin.x + globalpoint.x
+            dashboardView.dView.bounds.origin.y = dashboardView.dView.bounds.origin.y + globalpoint.y
 
-            if (dashboardView.bounds.contains(sender.center)) && (dashboardViewsNumApps[index] > 0) {
+            if (dashboardView.dView.bounds.contains(sender.center)) && (dashboardViewsNumApps[index] > 0) {
                 dashboardViewsNumApps[index] -= 1
             }
-            dashboardView.bounds.origin = CGPoint(x:0,y:0)
+            dashboardView.dView.bounds.origin = CGPoint(x:0,y:0)
         }
     }
 
@@ -95,27 +95,27 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
         var globalpoint: CGPoint = CGPoint(x: 0,y: 0)
 
-        dashboardViews.enumerated().forEach { (index, dashboardView) in
+        dashboardViewMatrix.enumerated().forEach { (index, dashboardView) in
  
-            globalpoint = dashboardView.superview?.convert(dashboardView.frame.origin, to: nil) as! CGPoint
+            globalpoint = dashboardView.dView.superview?.convert(dashboardView.dView.frame.origin, to: nil) as! CGPoint
 
-            dashboardView.bounds.origin.x = dashboardView.bounds.origin.x + globalpoint.x
-            dashboardView.bounds.origin.y = dashboardView.bounds.origin.y + globalpoint.y
+            dashboardView.dView.bounds.origin.x = dashboardView.dView.bounds.origin.x + globalpoint.x
+            dashboardView.dView.bounds.origin.y = dashboardView.dView.bounds.origin.y + globalpoint.y
 
-            if (dashboardView.bounds.contains(sender.center)) {
-                dashboardView.backgroundColor = UIColor.red
-                sender.center.x = dashboardView.bounds.origin.x + (dashboardView.bounds.width / 2)
-                sender.center.y = dashboardView.bounds.origin.y + (dashboardView.bounds.height / 2)
+            if (dashboardView.dView.bounds.contains(sender.center)) {
+                dashboardView.dView.backgroundColor = UIColor.red
+                sender.center.x = dashboardView.dView.bounds.origin.x + (dashboardView.dView.bounds.width / 2)
+                sender.center.y = dashboardView.dView.bounds.origin.y + (dashboardView.dView.bounds.height / 2)
                 // Increment the num apps in view for keeping track of dashboardview formatting
                 dashboardViewsNumApps[index] += 1
             } else {
                 // Only set the background color back to the original if there are currently no
                 // apps in the dashboard view
                 if (dashboardViewsNumApps[index] == 0) {
-                    dashboardView.backgroundColor = dashboardViewsBGColors[index]
+                    dashboardView.dView.backgroundColor = dashboardViewsBGColors[index]
                 }
             }
-            dashboardView.bounds.origin = CGPoint(x:0,y:0)
+            dashboardView.dView.bounds.origin = CGPoint(x:0,y:0)
         }
     }
     
@@ -158,11 +158,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         addAppButton.clipsToBounds = true
         
         // Get the initial background colors for the views
-        dashboardViewsBGColors.append(contentsOf: [UIColor](repeating: UIColor.systemFill, count:dashboardViews.count ))
-        dashboardViewsNumApps.append(contentsOf: [Int](repeating: 0, count:dashboardViews.count ))
+        dashboardViewsBGColors.append(contentsOf: [UIColor](repeating: UIColor.systemFill, count:dashboardViewMatrix.count ))
+        dashboardViewsNumApps.append(contentsOf: [Int](repeating: 0, count:dashboardViewMatrix.count ))
 
-        for i in 0..<dashboardViews.count {
-            dashboardViewsBGColors[i] = dashboardViews[i].backgroundColor ?? UIColor.systemFill
+        for i in 0..<dashboardViewMatrix.count {
+            dashboardViewsBGColors[i] = dashboardViewMatrix[i].dView.backgroundColor ?? UIColor.systemFill
             dashboardViewsNumApps[i] = 0
         }
         NotificationCenter.default.addObserver(self, selector: #selector(self.postModalAddApp), name: NSNotification.Name(rawValue: "DismissAppDownloadModal"), object: nil)
@@ -201,11 +201,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let viewSelect = SystemConfig.shared.appMatrix[SystemConfig.shared.selectedApp-1].appTypeId
         print("ViewSelect = \(viewSelect)")
         let appSelect = SystemConfig.shared.appMatrix[SystemConfig.shared.selectedApp-1].id
-        globalpoint = dashboardViews[viewSelect].superview?.convert(dashboardViews[viewSelect].frame.origin, to: nil) as! CGPoint
+        globalpoint = dashboardViewMatrix[viewSelect].dView.superview?.convert(dashboardViewMatrix[viewSelect].dView.frame.origin, to: nil) as! CGPoint
         
         // Center the app view below the add app button
-        SystemConfig.shared.myApps[SystemConfig.shared.numApps].center.x = globalpoint.x + dashboardViews[viewSelect].frame.width / 2 // addAppButton.frame.width / 2
-        SystemConfig.shared.myApps[SystemConfig.shared.numApps].center.y = globalpoint.y + dashboardViews[viewSelect].frame.height / 2
+        SystemConfig.shared.myApps[SystemConfig.shared.numApps].center.x = globalpoint.x + dashboardViewMatrix[viewSelect].dView.frame.width / 2 // addAppButton.frame.width / 2
+        SystemConfig.shared.myApps[SystemConfig.shared.numApps].center.y = globalpoint.y + dashboardViewMatrix[viewSelect].dView.frame.height / 2
 
         let imageName = SystemConfig.shared.appMatrix[appSelect-1].fileName
         let image = UIImage(named: imageName)
@@ -277,9 +277,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         SystemConfig.shared.myApps = []
         SystemConfig.shared.numApps = 0
         // Reset all the dashboard views back to original state
-        dashboardViews.enumerated().forEach { (index, dashboardView) in
+        dashboardViewMatrix.enumerated().forEach { (index, dashboardView) in
             dashboardViewsNumApps[index] = 0
-            dashboardView.backgroundColor = dashboardViewsBGColors[index]
+            dashboardView.dView.backgroundColor = dashboardViewsBGColors[index]
         }
     }
     
