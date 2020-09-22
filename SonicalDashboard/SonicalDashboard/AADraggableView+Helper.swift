@@ -8,8 +8,8 @@
 import UIKit
 /// MARK:- AADraggableViewDelegate
 @objc public protocol AADraggableViewDelegate {
-    @objc optional func draggingDidBegan(_ sender: UIView)
-    @objc optional func draggingDidEnd(_ sender: UIView)
+    @objc optional func draggingDidBegan(_ sender: AADraggableView)
+    @objc optional func draggingDidEnd(_ sender: AADraggableView)
 }
 
 /// Repositioning varients after dragging the view

@@ -31,6 +31,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     var dashboardViewsBGColors: [UIColor] = []
     var dashboardViewsNumApps: [Int] = []
+    var dashboardType: String = "System"
+    var startingPoint: CGPoint = CGPoint(x: 0,y: 0)
     
     let systemConfigurations = ["Individual", "Work", "Home", "Fitness"]
     
@@ -58,12 +60,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     // Add delegate methods and observe changes!
-    func draggingDidBegan(_ sender: UIView) {
+    func draggingDidBegan(_ sender: AADraggableView) {
         sender.layer.zPosition = 100
         sender.layer.shadowOffset = CGSize(width: 0, height: 20)
         sender.layer.shadowOpacity = 0.3
         sender.layer.shadowRadius = 6
-        
+
         var globalpoint: CGPoint = CGPoint(x: 0,y: 0)
 
         dashboardViewMatrix.enumerated().forEach { (index, dashboardView) in
@@ -72,9 +74,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
             dashboardView.dView.bounds.origin.x = dashboardView.dView.bounds.origin.x + globalpoint.x
             dashboardView.dView.bounds.origin.y = dashboardView.dView.bounds.origin.y + globalpoint.y
-
-            if (dashboardView.dView.bounds.contains(sender.center)) && (dashboardViewsNumApps[index] > 0) {
-                dashboardViewsNumApps[index] -= 1
+            if (dashboardView.dView.bounds.contains(sender.center)) { //&& (dashboardViewsNumApps[index] > 0) {
+                //dashboardViewsNumApps[index] -= 1
+                if dashboardView.isInput {
+                    dashboardType = dashboardView.dashboardType
+                    print(dashboardView.dashboardType)
+                }
+                // save the starting point for the app to use when dragging the app to views it cannot go to
+                // the behavior will be for the app to return to the startingPoint
+                startingPoint.x = dashboardView.dView.bounds.origin.x + (dashboardView.dView.bounds.width / 2)
+                startingPoint.y = dashboardView.dView.bounds.origin.y + (dashboardView.dView.bounds.height / 2)
             }
             dashboardView.dView.bounds.origin = CGPoint(x:0,y:0)
         }
@@ -87,14 +96,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         //}
     }
 
-    func draggingDidEnd(_ sender: UIView) {
+    func draggingDidEnd(_ sender: AADraggableView) {
         sender.layer.zPosition = 0
         sender.layer.shadowOffset = CGSize.zero
         sender.layer.shadowOpacity = 0.0
         sender.layer.shadowRadius = 0
 
         var globalpoint: CGPoint = CGPoint(x: 0,y: 0)
-
+        var entered: Bool = false
         dashboardViewMatrix.enumerated().forEach { (index, dashboardView) in
  
             globalpoint = dashboardView.dView.superview?.convert(dashboardView.dView.frame.origin, to: nil) as! CGPoint
@@ -102,12 +111,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             dashboardView.dView.bounds.origin.x = dashboardView.dView.bounds.origin.x + globalpoint.x
             dashboardView.dView.bounds.origin.y = dashboardView.dView.bounds.origin.y + globalpoint.y
 
-            if (dashboardView.dView.bounds.contains(sender.center)) {
+            if ((dashboardView.dView.bounds.contains(sender.center)) && (!dashboardView.isInput) && (sender.appType == dashboardView.dashboardType)) {
+
                 dashboardView.dView.backgroundColor = UIColor.red
                 sender.center.x = dashboardView.dView.bounds.origin.x + (dashboardView.dView.bounds.width / 2)
                 sender.center.y = dashboardView.dView.bounds.origin.y + (dashboardView.dView.bounds.height / 2)
                 // Increment the num apps in view for keeping track of dashboardview formatting
                 dashboardViewsNumApps[index] += 1
+                entered = true
             } else {
                 // Only set the background color back to the original if there are currently no
                 // apps in the dashboard view
@@ -116,6 +127,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 }
             }
             dashboardView.dView.bounds.origin = CGPoint(x:0,y:0)
+        }
+        // after looping through all dashboard views, check to see if it entered any
+        // if not, set the center back to the starting point
+        if (!entered) {
+            sender.center = startingPoint
         }
     }
     
@@ -194,6 +210,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].clipsToBounds = true
 
         self.view.addSubview(SystemConfig.shared.myApps[SystemConfig.shared.numApps])
+
+        // Set the appType for the draggableView. This will be used for determing where the view
+        // can be dragged to
+        SystemConfig.shared.myApps[SystemConfig.shared.numApps].appType = SystemConfig.shared.appMatrix[SystemConfig.shared.selectedApp-1].appType
 
         var globalpoint: CGPoint = CGPoint(x: 0,y: 0)
 

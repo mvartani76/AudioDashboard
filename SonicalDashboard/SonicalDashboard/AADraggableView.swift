@@ -38,6 +38,9 @@ open class AADraggableView: UIView {
         return UIPanGestureRecognizer(target: self,
                                       action: #selector(self.touchHandler(_:)))
     }
+
+    /// MCV Add dashboard specific variables
+    var appType: String = "System"
     
     /// Drawing AADraggableView
     ///
