@@ -134,6 +134,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             sender.center = startingPoint
         }
     }
+
+    func doubleTap(_ sender: AADraggableView) {
+        print("Detected double tap")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

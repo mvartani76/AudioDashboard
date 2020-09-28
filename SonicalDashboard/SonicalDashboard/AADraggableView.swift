@@ -28,6 +28,7 @@ open class AADraggableView: UIView {
     /// AADraggableView dragging Enabled
     @IBInspectable open var isEnabled: Bool = true {
         didSet {
+            setupPanGesture()
             setupTapGesture()
             setNeedsLayout()
         }
@@ -39,6 +40,11 @@ open class AADraggableView: UIView {
                                       action: #selector(self.touchHandler(_:)))
     }
 
+    var tapGesture: UITapGestureRecognizer  {
+        return UITapGestureRecognizer(target: self,
+                                      action: #selector(self.tapHandler(_:)))
+    }
+
     /// MCV Add dashboard specific variables
     var appType: String = "System"
     
@@ -47,11 +53,12 @@ open class AADraggableView: UIView {
     /// - Parameter rect: view frame
     open override func draw(_ rect: CGRect) {
         super.draw(rect)
+        setupPanGesture()
         setupTapGesture()
     }
     
     /// Add or remove pan gesture as required
-    func setupTapGesture() {
+    func setupPanGesture() {
         guard isEnabled else {
             removeGestureRecognizer(panGesture)
             return
@@ -59,6 +66,22 @@ open class AADraggableView: UIView {
         addGestureRecognizer(panGesture)
     }
     
+    /// Add or remove pan gesture as required
+    func setupTapGesture() {
+        guard isEnabled else {
+            removeGestureRecognizer(tapGesture)
+            return
+        }
+
+        self.tapGesture.numberOfTapsRequired = 2
+        self.isUserInteractionEnabled = true
+        print("# of taps req = \(tapGesture.numberOfTapsRequired)")
+        self.addGestureRecognizer(tapGesture)
+        print("# of taps req = \(tapGesture.numberOfTapsRequired)")
+        print("adding gesture to \(self)")
+        print(self.gestureRecognizers)
+    }
+
     /// View touch handling
     ///
     /// - Parameter sender: UIPanGestureRecognizer
@@ -79,12 +102,23 @@ open class AADraggableView: UIView {
         delegate?.draggingDidEnd?(self)
         
     }
+
+    /// - Parameter sender: UIPanGestureRecognizer
+    @objc func tapHandler(_ sender: UITapGestureRecognizer) {
+        print("sender state = \(sender.state)")
+        print("tapHandler")
+        print("# of touches = \(sender.numberOfTouches)")
+        print("# of taps = \(sender.numberOfTapsRequired)")
+        print("# of taps req = \(tapGesture.numberOfTapsRequired)")
+        print(self.tapGesture)
+        delegate?.doubleTap?(self)
+    }
     
     /// Reposition the view if needed
     open func repositionIfNeeded() {
 
         var newCenter = self.center
-        
+
         switch reposition {
         case .sticky:
             if let minX = repositionMinX {
@@ -119,12 +153,11 @@ open class AADraggableView: UIView {
         default:
             break
         }
-        
+
         animateToReposition(newCenter)
         
     }
-    
-    
+
     /// Animate view with respect to center if needed
     ///
     /// - Parameter toPoint: center point
@@ -138,5 +171,4 @@ open class AADraggableView: UIView {
             self.center = toPoint
         }
     }
-    
 }

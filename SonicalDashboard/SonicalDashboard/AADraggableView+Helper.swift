@@ -10,6 +10,7 @@ import UIKit
 @objc public protocol AADraggableViewDelegate {
     @objc optional func draggingDidBegan(_ sender: AADraggableView)
     @objc optional func draggingDidEnd(_ sender: AADraggableView)
+    @objc optional func doubleTap(_ sender: AADraggableView)
 }
 
 /// Repositioning varients after dragging the view
