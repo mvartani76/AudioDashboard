@@ -75,11 +75,7 @@ open class AADraggableView: UIView {
 
         self.tapGesture.numberOfTapsRequired = 2
         self.isUserInteractionEnabled = true
-        print("# of taps req = \(tapGesture.numberOfTapsRequired)")
         self.addGestureRecognizer(tapGesture)
-        print("# of taps req = \(tapGesture.numberOfTapsRequired)")
-        print("adding gesture to \(self)")
-        print(self.gestureRecognizers)
     }
 
     /// View touch handling
@@ -105,12 +101,6 @@ open class AADraggableView: UIView {
 
     /// - Parameter sender: UIPanGestureRecognizer
     @objc func tapHandler(_ sender: UITapGestureRecognizer) {
-        print("sender state = \(sender.state)")
-        print("tapHandler")
-        print("# of touches = \(sender.numberOfTouches)")
-        print("# of taps = \(sender.numberOfTapsRequired)")
-        print("# of taps req = \(tapGesture.numberOfTapsRequired)")
-        print(self.tapGesture)
         delegate?.doubleTap?(self)
     }
     
