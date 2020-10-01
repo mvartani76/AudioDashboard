@@ -780,11 +780,156 @@
                         <outlet property="systemOtherView" destination="uca-2B-Xty" id="lb6-1O-7fA"/>
                         <outlet property="systemPhoneView" destination="UzG-W7-7At" id="ZA4-Qo-aQf"/>
                         <outlet property="systemPickerView" destination="815-M1-8I0" id="xCL-vb-shm"/>
+                        <segue destination="1pb-xv-Tyk" kind="presentation" id="TeC-gG-ekX"/>
+                        <segue destination="c3B-Xw-aUY" kind="presentation" identifier="ShowAppSettings" modalPresentationStyle="automatic" id="Rhk-0d-UEc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="117"/>
+        </scene>
+        <!--App Settings View Controller-->
+        <scene sceneID="b4x-lc-tUy">
+            <objects>
+                <viewController id="c3B-Xw-aUY" userLabel="App Settings View Controller" customClass="AppSettingsViewController" customModule="SonicalDashboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wuL-rJ-eg4">
+                        <rect key="frame" x="0.0" y="0.0" width="712" height="1006.9200564096436"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vyv-Mv-j8f">
+                                <rect key="frame" x="0.0" y="0.0" width="712" height="1007"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLU-1b-uo2" userLabel="LogoView">
+                                        <rect key="frame" x="0.0" y="0.0" width="712" height="183"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gA5-0w-CWn" userLabel="TitleView">
+                                        <rect key="frame" x="0.0" y="183" width="712" height="91.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hello segue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X55-7G-CXw">
+                                                <rect key="frame" x="0.0" y="0.0" width="712" height="91.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="X55-7G-CXw" firstAttribute="width" secondItem="gA5-0w-CWn" secondAttribute="width" id="H4L-MY-pL8"/>
+                                            <constraint firstItem="X55-7G-CXw" firstAttribute="height" secondItem="gA5-0w-CWn" secondAttribute="height" id="Jm7-IJ-BhZ"/>
+                                            <constraint firstItem="X55-7G-CXw" firstAttribute="centerX" secondItem="gA5-0w-CWn" secondAttribute="centerX" id="fZH-bf-apY"/>
+                                            <constraint firstItem="X55-7G-CXw" firstAttribute="centerY" secondItem="gA5-0w-CWn" secondAttribute="centerY" id="nY3-BL-aw2"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIe-Pf-w9u" userLabel="ParametersView">
+                                        <rect key="frame" x="0.0" y="274.5" width="712" height="549.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2T-fN-8nK" userLabel="ButtonView">
+                                        <rect key="frame" x="0.0" y="824" width="712" height="183"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sce-kq-W3A" userLabel="ButtonStackView">
+                                                <rect key="frame" x="0.0" y="0.0" width="712" height="183"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyK-L3-bhw" userLabel="SaveView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="356" height="183"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bFu-Aj-zOT" userLabel="SaveButton">
+                                                                <rect key="frame" x="35.5" y="18" width="285" height="146.5"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="Save">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="bFu-Aj-zOT" firstAttribute="centerY" secondItem="kyK-L3-bhw" secondAttribute="centerY" id="Htu-fL-Hjd"/>
+                                                            <constraint firstItem="bFu-Aj-zOT" firstAttribute="height" secondItem="kyK-L3-bhw" secondAttribute="height" multiplier="0.8" id="Q3o-uI-jqp"/>
+                                                            <constraint firstItem="bFu-Aj-zOT" firstAttribute="centerX" secondItem="kyK-L3-bhw" secondAttribute="centerX" id="Tj9-Jh-wtD"/>
+                                                            <constraint firstItem="bFu-Aj-zOT" firstAttribute="width" secondItem="kyK-L3-bhw" secondAttribute="width" multiplier="0.8" id="t1H-Se-lpp"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foD-zd-l7w" userLabel="CancelView">
+                                                        <rect key="frame" x="356" y="0.0" width="356" height="183"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLO-9S-O1z" userLabel="CancelButton">
+                                                                <rect key="frame" x="35.5" y="18" width="285" height="146.5"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="Cancel">
+                                                                            <attributes>
+                                                                                <font key="NSFont" size="30" name="CourierNewPSMT"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </state>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="aLO-9S-O1z" firstAttribute="centerX" secondItem="foD-zd-l7w" secondAttribute="centerX" id="75h-BW-Dv9"/>
+                                                            <constraint firstItem="aLO-9S-O1z" firstAttribute="centerY" secondItem="foD-zd-l7w" secondAttribute="centerY" id="8rn-Bp-fwf"/>
+                                                            <constraint firstItem="aLO-9S-O1z" firstAttribute="width" secondItem="foD-zd-l7w" secondAttribute="width" multiplier="0.8" id="RYq-ST-Opc"/>
+                                                            <constraint firstItem="aLO-9S-O1z" firstAttribute="height" secondItem="foD-zd-l7w" secondAttribute="height" multiplier="0.8" id="xXh-lj-6pM"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="foD-zd-l7w" firstAttribute="height" secondItem="Sce-kq-W3A" secondAttribute="height" id="H4t-Ha-QwD"/>
+                                                    <constraint firstItem="kyK-L3-bhw" firstAttribute="height" secondItem="Sce-kq-W3A" secondAttribute="height" id="KIX-hs-QV8"/>
+                                                    <constraint firstItem="foD-zd-l7w" firstAttribute="width" secondItem="kyK-L3-bhw" secondAttribute="width" id="hrs-Vv-uFf"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Sce-kq-W3A" firstAttribute="height" secondItem="q2T-fN-8nK" secondAttribute="height" id="8cl-rv-vjx"/>
+                                            <constraint firstItem="Sce-kq-W3A" firstAttribute="width" secondItem="q2T-fN-8nK" secondAttribute="width" id="BcN-nr-395"/>
+                                            <constraint firstItem="Sce-kq-W3A" firstAttribute="centerY" secondItem="q2T-fN-8nK" secondAttribute="centerY" id="JKg-Z6-df1"/>
+                                            <constraint firstItem="Sce-kq-W3A" firstAttribute="centerX" secondItem="q2T-fN-8nK" secondAttribute="centerX" id="UNv-rq-eAD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="q2T-fN-8nK" firstAttribute="height" secondItem="HLU-1b-uo2" secondAttribute="height" id="HD9-zA-Ctn"/>
+                                    <constraint firstItem="XIe-Pf-w9u" firstAttribute="width" secondItem="vyv-Mv-j8f" secondAttribute="width" id="KwP-0T-A6X"/>
+                                    <constraint firstItem="gA5-0w-CWn" firstAttribute="height" secondItem="HLU-1b-uo2" secondAttribute="height" multiplier="0.5" id="Urh-gh-iza"/>
+                                    <constraint firstItem="XIe-Pf-w9u" firstAttribute="height" secondItem="HLU-1b-uo2" secondAttribute="height" multiplier="3" id="XGn-KC-KoJ"/>
+                                    <constraint firstItem="q2T-fN-8nK" firstAttribute="width" secondItem="vyv-Mv-j8f" secondAttribute="width" id="Zod-co-pMP"/>
+                                    <constraint firstItem="HLU-1b-uo2" firstAttribute="width" secondItem="vyv-Mv-j8f" secondAttribute="width" id="gtU-m8-LT0"/>
+                                    <constraint firstItem="gA5-0w-CWn" firstAttribute="width" secondItem="vyv-Mv-j8f" secondAttribute="width" id="zMr-9E-w1A"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vyv-Mv-j8f" firstAttribute="width" secondItem="ERH-2Z-7Fo" secondAttribute="width" id="0dK-0P-YNu"/>
+                            <constraint firstItem="vyv-Mv-j8f" firstAttribute="centerY" secondItem="ERH-2Z-7Fo" secondAttribute="centerY" id="QXM-Xm-ow5"/>
+                            <constraint firstItem="vyv-Mv-j8f" firstAttribute="height" secondItem="ERH-2Z-7Fo" secondAttribute="height" id="Y1H-Da-gNy"/>
+                            <constraint firstItem="vyv-Mv-j8f" firstAttribute="centerX" secondItem="ERH-2Z-7Fo" secondAttribute="centerX" id="g1P-1R-Q1P"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ERH-2Z-7Fo"/>
+                    </view>
+                    <connections>
+                        <outlet property="appSettingsMainView" destination="HLU-1b-uo2" id="cHq-Hq-Dz6"/>
+                        <outlet property="cancelParamsButton" destination="aLO-9S-O1z" id="hAB-G8-th6"/>
+                        <outlet property="logoView" destination="HLU-1b-uo2" id="mw7-GX-tgV"/>
+                        <outlet property="saveParamsButton" destination="bFu-Aj-zOT" id="NQS-qc-oJe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wBZ-dP-1h4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="963" y="802"/>
         </scene>
         <!--App Download View Controller-->
         <scene sceneID="f66-wl-56K">
@@ -1500,6 +1645,9 @@
             <point key="canvasLocation" x="833.7890625" y="-335.13909224011712"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Jvt-JW-bdi"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="alango-logo" width="170" height="170"/>
         <image name="dirac-logo" width="900" height="500"/>

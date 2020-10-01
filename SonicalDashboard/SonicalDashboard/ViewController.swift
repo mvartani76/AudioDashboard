@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, AADraggableViewDelegate, AppDownloadViewControllerDelegate {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, AADraggableViewDelegate, AppDownloadViewControllerDelegate, AppSettingsViewControllerDelegate {
     
     @IBOutlet var respectedView: UIView!
     @IBOutlet var systemPickerView: UIPickerView!
@@ -137,6 +137,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
     func doubleTap(_ sender: AADraggableView) {
         print("Detected double tap")
+        // Blur the background when the modal is presented to the viewer
+        self.definesPresentationContext = true
+        self.providesPresentationContextTransitionStyle = true
+        self.overlayBlurredBackgroundView()
+        performSegue(withIdentifier: "ShowAppSettings", sender: nil)
     }
     
     override func viewDidLoad() {
@@ -282,12 +287,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if let identifier = segue.identifier {
-                if identifier == "ShowModalView" {
-                    if let viewController = segue.destination as? AppDownloadViewController {
-                        viewController.delegate = self
-                        //viewController.modalPresentationStyle = .fullScreen
-                        self.modalPresentationStyle =  UIModalPresentationStyle(rawValue: 0)!
+        if let identifier = segue.identifier {
+            print(identifier)
+            if identifier == "ShowModalView" {
+                if let viewController = segue.destination as? AppDownloadViewController {
+                    viewController.delegate = self
+                    self.modalPresentationStyle =  UIModalPresentationStyle(rawValue: 0)!
+                }
+            } else if identifier == "ShowAppSettings" {
+                if let viewController = segue.destination as? AppSettingsViewController {
+                    viewController.delegate = self
+                    self.modalPresentationStyle =  UIModalPresentationStyle(rawValue: 0)!
                 }
             }
         }
