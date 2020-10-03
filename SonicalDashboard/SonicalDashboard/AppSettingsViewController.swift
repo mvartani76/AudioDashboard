@@ -16,7 +16,9 @@ class AppSettingsViewController: UIViewController {
 
     @IBOutlet var appSettingsMainView: UIView!
     @IBOutlet var logoView: UIView!
-
+    @IBOutlet var paramsView: UIView!
+    @IBOutlet var paramsGUIStackView: UIStackView!
+    
     @IBOutlet var saveParamsButton: UIButton!
     @IBOutlet var cancelParamsButton: UIButton!
 
@@ -78,5 +80,62 @@ class AppSettingsViewController: UIViewController {
         //imageView.centerYAnchor.constraint(equalTo: logoView.centerYAnchor).isActive = true
         imageView.center = CGPoint(x: logoView.frame.midX,
         y: logoView.frame.midY)
+        print(SystemConfig.shared.appMatrix[appSelect-1].params)
+        loadAppParamsGUI()
     }
+    
+    func loadAppParamsGUI() {
+        
+        let view1 = UIView()
+        var paramViews : [UIView] = []
+        
+        let appSelect = SystemConfig.shared.appMatrix[SystemConfig.shared.selectedApp-1].id
+        
+        paramViews.append(UIView())
+        paramViews[0].backgroundColor = UIColor.red
+        paramsGUIStackView.addArrangedSubview(paramViews[0])
+        
+        // Only loop through other parameter views if there is more than 1 parameter
+        if (SystemConfig.shared.appMatrix[appSelect-1].numParams > 1) {
+            for i in 1...(SystemConfig.shared.appMatrix[appSelect-1].numParams-1) {
+                paramViews.append(UIView())
+                if i == 1 {
+                    paramViews[i].backgroundColor = UIColor.yellow
+                } else {
+                    paramViews[i].backgroundColor = UIColor.green
+                }
+                paramsGUIStackView.addArrangedSubview(paramViews[i])
+            }
+            
+            paramsView.addSubview(paramsGUIStackView)
+            for i in 0...(SystemConfig.shared.appMatrix[appSelect-1].numParams-1) {
+                paramViews[i].widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
+                if (i > 0) {
+                    paramViews[i].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 1.0).isActive = true
+                }
+            }
+        }
+        //view1.widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
+        //view2.widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
+        //view3.widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
+        
+        //view2.heightAnchor.constraint(equalTo: view1.heightAnchor, multiplier: 1.0).isActive = true
+        //view3.heightAnchor.constraint(equalTo: view1.heightAnchor, multiplier: 1.0).isActive = true
+        
+    }
+
+    @IBAction func saveParams(_ sender: UIButton) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissAppDownloadModal"), object: nil)
+
+        dismiss(animated: true, completion: nil)
+        delegate?.removeBlurredBackgroundView()
+    }
+    
+    @IBAction func cancelParams(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+        delegate?.removeBlurredBackgroundView()
+    }
+    
+    
+
 }

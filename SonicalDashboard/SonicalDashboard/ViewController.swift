@@ -219,7 +219,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].clipsToBounds = true
 
         self.view.addSubview(SystemConfig.shared.myApps[SystemConfig.shared.numApps])
-
+        print("numApps = \(SystemConfig.shared.numApps)")
+        print("selectedApp = \(SystemConfig.shared.selectedApp)")
+        print("size = \(SystemConfig.shared.appMatrix.count)")
         // Set the appType for the draggableView. This will be used for determing where the view
         // can be dragged to
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].appType = SystemConfig.shared.appMatrix[SystemConfig.shared.selectedApp-1].appType
@@ -318,15 +320,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func initializeAppMatrix() {
-        SystemConfig.shared.appMatrix.append((1, "Waves", "Music", 1, "waves-logo.jpg"))
-        SystemConfig.shared.appMatrix.append((2, "Sony", "Music", 1, "sony-logo.png"))
-        SystemConfig.shared.appMatrix.append((3, "dts", "Music", 1, "dts-logo.png"))
-        SystemConfig.shared.appMatrix.append((4, "Petralex", "Hearing", 3, "petralex-logo.png"))
-        SystemConfig.shared.appMatrix.append((5, "Alango", "Hearing", 3, "alango-logo.png"))
-        SystemConfig.shared.appMatrix.append((6, "Eargo", "Hearing", 3, "eargo-logo.png"))
-        SystemConfig.shared.appMatrix.append((7, "Dolby", "Phone", 2, "dolby-logo.png"))
-        SystemConfig.shared.appMatrix.append((8, "Yamaha", "Phone", 2, "yamaha-logo.png"))
-        SystemConfig.shared.appMatrix.append((9, "Dirac", "Phone", 2, "dirac-logo.png"))
+        SystemConfig.shared.appMatrix.append((1, "Waves", "Music", 1, "waves-logo.jpg", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix[0].numParams = SystemConfig.shared.appMatrix[0].params.count
+        SystemConfig.shared.appMatrix.append((2, "Sony", "Music", 1, "sony-logo.png", 3, [ParamType(paramName: "Aggressiveness", paramType: 0, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "Gain", paramType: 0, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1),
+            ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix[1].numParams = SystemConfig.shared.appMatrix[1].params.count
+        SystemConfig.shared.appMatrix.append((3, "dts", "Music", 1, "dts-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix[2].numParams = SystemConfig.shared.appMatrix[2].params.count
+        SystemConfig.shared.appMatrix.append((4, "Petralex", "Hearing", 3, "petralex-logo.png", 1, [ParamType(paramName: "Gain", paramType: 0, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix[3].numParams = SystemConfig.shared.appMatrix[3].params.count
+        SystemConfig.shared.appMatrix.append((5, "Alango", "Hearing", 3, "alango-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix[4].numParams = SystemConfig.shared.appMatrix[4].params.count
+        SystemConfig.shared.appMatrix.append((6, "Eargo", "Hearing", 3, "eargo-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix[5].numParams = SystemConfig.shared.appMatrix[5].params.count
+        SystemConfig.shared.appMatrix.append((7, "Dolby", "Phone", 2, "dolby-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix[6].numParams = SystemConfig.shared.appMatrix[6].params.count
+        SystemConfig.shared.appMatrix.append((8, "Yamaha", "Phone", 2, "yamaha-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix[7].numParams = SystemConfig.shared.appMatrix[7].params.count
+        SystemConfig.shared.appMatrix.append((9, "Dirac", "Phone", 2, "dirac-logo.png", 1, [ParamType(paramName: "Gain", paramType: 0, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix[8].numParams = SystemConfig.shared.appMatrix[8].params.count
     }
 
 }

@@ -823,7 +823,18 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIe-Pf-w9u" userLabel="ParametersView">
                                         <rect key="frame" x="0.0" y="274.5" width="712" height="549.5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uja-0Y-qAM">
+                                                <rect key="frame" x="0.0" y="0.0" width="712" height="549.5"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="uja-0Y-qAM" firstAttribute="height" secondItem="XIe-Pf-w9u" secondAttribute="height" id="6AN-dg-GyN"/>
+                                            <constraint firstItem="uja-0Y-qAM" firstAttribute="centerY" secondItem="XIe-Pf-w9u" secondAttribute="centerY" id="koa-1B-Bq8"/>
+                                            <constraint firstItem="uja-0Y-qAM" firstAttribute="width" secondItem="XIe-Pf-w9u" secondAttribute="width" id="nPM-cB-9u6"/>
+                                            <constraint firstItem="uja-0Y-qAM" firstAttribute="centerX" secondItem="XIe-Pf-w9u" secondAttribute="centerX" id="wDL-PA-hTa"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2T-fN-8nK" userLabel="ButtonView">
                                         <rect key="frame" x="0.0" y="824" width="712" height="183"/>
@@ -847,6 +858,9 @@
                                                                         </fragment>
                                                                     </attributedString>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="saveParams:" destination="c3B-Xw-aUY" eventType="touchUpInside" id="vaz-kF-QDT"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -873,6 +887,9 @@
                                                                         </fragment>
                                                                     </attributedString>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="cancelParams:" destination="c3B-Xw-aUY" eventType="touchUpInside" id="Qtg-9d-ycO"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -924,6 +941,8 @@
                         <outlet property="appSettingsMainView" destination="HLU-1b-uo2" id="cHq-Hq-Dz6"/>
                         <outlet property="cancelParamsButton" destination="aLO-9S-O1z" id="hAB-G8-th6"/>
                         <outlet property="logoView" destination="HLU-1b-uo2" id="mw7-GX-tgV"/>
+                        <outlet property="paramsGUIStackView" destination="uja-0Y-qAM" id="VHz-u6-JuM"/>
+                        <outlet property="paramsView" destination="XIe-Pf-w9u" id="Inm-Mi-VEC"/>
                         <outlet property="saveParamsButton" destination="bFu-Aj-zOT" id="NQS-qc-oJe"/>
                     </connections>
                 </viewController>
