@@ -61,10 +61,7 @@ class AppSettingsViewController: UIViewController {
         cancelParamsButton.layer.insertSublayer(canGradientLayer, at: 0)
         cancelParamsButton.layer.cornerRadius = 10
         cancelParamsButton.clipsToBounds = true
-    }
 
-    override func viewWillAppear(_ animated: Bool) {
-        print("viewwillappear")
         let appSelect = SystemConfig.shared.appMatrix[SystemConfig.shared.selectedApp-1].id
         let imageName = SystemConfig.shared.appMatrix[appSelect-1].fileName
         let image = UIImage(named: imageName)
@@ -83,21 +80,33 @@ class AppSettingsViewController: UIViewController {
         print(SystemConfig.shared.appMatrix[appSelect-1].params)
         loadAppParamsGUI()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewwillappear")
+    }
     
     func loadAppParamsGUI() {
         
-        let view1 = UIView()
-        var paramViews : [UIView] = []
-        
         let appSelect = SystemConfig.shared.appMatrix[SystemConfig.shared.selectedApp-1].id
+        let numParams = SystemConfig.shared.appMatrix[appSelect-1].numParams
+
+        var paramViews : [UIView] = []
+        var buttonItems : [UIButton] = []
+        var sliderItems : [UISlider] = []
+        var guiIndices : [Int] = []
+        
+        for _ in 1...numParams {
+            buttonItems.append(UIButton())
+            sliderItems.append(UISlider())
+        }
         
         paramViews.append(UIView())
         paramViews[0].backgroundColor = UIColor.red
         paramsGUIStackView.addArrangedSubview(paramViews[0])
         
         // Only loop through other parameter views if there is more than 1 parameter
-        if (SystemConfig.shared.appMatrix[appSelect-1].numParams > 1) {
-            for i in 1...(SystemConfig.shared.appMatrix[appSelect-1].numParams-1) {
+        if (numParams > 1) {
+            for i in 1...(numParams-1) {
                 paramViews.append(UIView())
                 if i == 1 {
                     paramViews[i].backgroundColor = UIColor.yellow
@@ -106,22 +115,50 @@ class AppSettingsViewController: UIViewController {
                 }
                 paramsGUIStackView.addArrangedSubview(paramViews[i])
             }
-            
+
             paramsView.addSubview(paramsGUIStackView)
-            for i in 0...(SystemConfig.shared.appMatrix[appSelect-1].numParams-1) {
+            for i in 0...(numParams-1) {
                 paramViews[i].widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
                 if (i > 0) {
                     paramViews[i].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 1.0).isActive = true
                 }
             }
         }
-        //view1.widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
-        //view2.widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
-        //view3.widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
-        
-        //view2.heightAnchor.constraint(equalTo: view1.heightAnchor, multiplier: 1.0).isActive = true
-        //view3.heightAnchor.constraint(equalTo: view1.heightAnchor, multiplier: 1.0).isActive = true
-        
+        for i in 0...(numParams-1) {
+            print("i = \(i) paramType = \(SystemConfig.shared.appMatrix[appSelect-1].params[i].paramGUIType)")
+            switch SystemConfig.shared.appMatrix[appSelect-1].params[i].paramGUIType {
+                case 0:
+                    print(buttonItems)
+                    print(paramViews)
+                    //buttonItems.append(UIButton(type: .system))
+                    buttonItems[i].setTitle("Hello", for: .normal)
+                    buttonItems[i].backgroundColor = UIColor.black
+                    buttonItems[i].setTitleColor(.white, for: .normal)
+                    buttonItems[i].translatesAutoresizingMaskIntoConstraints = false
+                    paramViews[i].addSubview(buttonItems[i])
+                    buttonItems[i].widthAnchor.constraint(equalTo: paramViews[i].widthAnchor, multiplier: 0.8).isActive = true
+                    buttonItems[i].heightAnchor.constraint(equalTo: paramViews[i].heightAnchor, multiplier: 0.8).isActive = true
+                    buttonItems[i].centerXAnchor.constraint(equalTo: paramViews[i].centerXAnchor).isActive = true
+                    buttonItems[i].centerYAnchor.constraint(equalTo: paramViews[i].centerYAnchor).isActive = true
+                    buttonItems[i].layer.cornerRadius = 5
+                        guiIndices.append(0)
+                case 1:
+                    print("set slider \(i)")
+                    //sliderItems.append(UISlider())
+                    sliderItems[i].isContinuous = true
+                    sliderItems[i].tintColor = UIColor.black
+                    sliderItems[i].translatesAutoresizingMaskIntoConstraints = false
+                    paramViews[i].addSubview(sliderItems[i])
+                    sliderItems[i].widthAnchor.constraint(equalTo: paramViews[i].widthAnchor, multiplier: 0.8).isActive = true
+                    sliderItems[i].heightAnchor.constraint(equalTo: paramViews[i].heightAnchor, multiplier: 0.8).isActive = true
+                    sliderItems[i].centerXAnchor.constraint(equalTo: paramViews[i].centerXAnchor).isActive = true
+                    sliderItems[i].centerYAnchor.constraint(equalTo: paramViews[i].centerYAnchor).isActive = true
+                    guiIndices.append(1)
+                default:
+                    print("error")
+            }
+
+        }
     }
 
     @IBAction func saveParams(_ sender: UIButton) {

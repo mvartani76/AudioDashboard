@@ -320,14 +320,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func initializeAppMatrix() {
-        SystemConfig.shared.appMatrix.append((1, "Waves", "Music", 1, "waves-logo.jpg", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((1, "Waves", "Music", 1, "waves-logo.jpg", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0), ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[0].numParams = SystemConfig.shared.appMatrix[0].params.count
-        SystemConfig.shared.appMatrix.append((2, "Sony", "Music", 1, "sony-logo.png", 3, [ParamType(paramName: "Aggressiveness", paramType: 0, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "Gain", paramType: 0, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1),
+        SystemConfig.shared.appMatrix.append((2, "Sony", "Music", 1, "sony-logo.png", 3, [ParamType(paramName: "Threshold", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "Aggressiveness", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1),
             ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[1].numParams = SystemConfig.shared.appMatrix[1].params.count
         SystemConfig.shared.appMatrix.append((3, "dts", "Music", 1, "dts-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[2].numParams = SystemConfig.shared.appMatrix[2].params.count
-        SystemConfig.shared.appMatrix.append((4, "Petralex", "Hearing", 3, "petralex-logo.png", 1, [ParamType(paramName: "Gain", paramType: 0, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((4, "Petralex", "Hearing", 3, "petralex-logo.png", 1, [ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[3].numParams = SystemConfig.shared.appMatrix[3].params.count
         SystemConfig.shared.appMatrix.append((5, "Alango", "Hearing", 3, "alango-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[4].numParams = SystemConfig.shared.appMatrix[4].params.count
@@ -337,7 +337,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         SystemConfig.shared.appMatrix[6].numParams = SystemConfig.shared.appMatrix[6].params.count
         SystemConfig.shared.appMatrix.append((8, "Yamaha", "Phone", 2, "yamaha-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[7].numParams = SystemConfig.shared.appMatrix[7].params.count
-        SystemConfig.shared.appMatrix.append((9, "Dirac", "Phone", 2, "dirac-logo.png", 1, [ParamType(paramName: "Gain", paramType: 0, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((9, "Dirac", "Phone", 2, "dirac-logo.png", 1, [ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[8].numParams = SystemConfig.shared.appMatrix[8].params.count
     }
 
