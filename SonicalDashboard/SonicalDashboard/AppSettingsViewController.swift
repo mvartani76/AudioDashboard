@@ -16,6 +16,7 @@ class AppSettingsViewController: UIViewController {
 
     @IBOutlet var appSettingsMainView: UIView!
     @IBOutlet var logoView: UIView!
+    @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var paramsView: UIView!
     @IBOutlet var paramsGUIStackView: UIStackView!
     
@@ -72,6 +73,7 @@ class AppSettingsViewController: UIViewController {
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
         logoView.addSubview(imageView)
+        descriptionLabel.text = SystemConfig.shared.appMatrix[appSelect-1].description
 
         //imageView.centerXAnchor.constraint(equalTo: logoView.centerXAnchor).isActive = true
         //imageView.centerYAnchor.constraint(equalTo: logoView.centerYAnchor).isActive = true
@@ -95,6 +97,7 @@ class AppSettingsViewController: UIViewController {
         var sliderItems : [UISlider] = []
         var guiIndices : [Int] = []
         
+        // Initialize numParams # of UIButtons/UISliders
         for _ in 1...numParams {
             buttonItems.append(UIButton())
             sliderItems.append(UISlider())
@@ -125,7 +128,7 @@ class AppSettingsViewController: UIViewController {
             }
         }
         for i in 0...(numParams-1) {
-            print("i = \(i) paramType = \(SystemConfig.shared.appMatrix[appSelect-1].params[i].paramGUIType)")
+            // Check what type of GUI parameter will be used
             switch SystemConfig.shared.appMatrix[appSelect-1].params[i].paramGUIType {
                 case 0:
                     print(buttonItems)

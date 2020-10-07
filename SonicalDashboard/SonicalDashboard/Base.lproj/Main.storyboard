@@ -806,7 +806,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gA5-0w-CWn" userLabel="TitleView">
                                         <rect key="frame" x="0.0" y="183" width="712" height="91.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hello segue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X55-7G-CXw">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X55-7G-CXw">
                                                 <rect key="frame" x="0.0" y="0.0" width="712" height="91.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <nil key="textColor"/>
@@ -940,6 +940,7 @@
                     <connections>
                         <outlet property="appSettingsMainView" destination="HLU-1b-uo2" id="cHq-Hq-Dz6"/>
                         <outlet property="cancelParamsButton" destination="aLO-9S-O1z" id="hAB-G8-th6"/>
+                        <outlet property="descriptionLabel" destination="X55-7G-CXw" id="6ff-Hz-VDO"/>
                         <outlet property="logoView" destination="HLU-1b-uo2" id="mw7-GX-tgV"/>
                         <outlet property="paramsGUIStackView" destination="uja-0Y-qAM" id="VHz-u6-JuM"/>
                         <outlet property="paramsView" destination="XIe-Pf-w9u" id="Inm-Mi-VEC"/>
