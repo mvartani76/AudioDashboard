@@ -25,6 +25,15 @@ class AppSettingsViewController: UIViewController {
 
     weak var delegate: AppSettingsViewControllerDelegate?
 
+    var paramViews : [UIView] = []
+    var buttonItems : [UIButton] = []
+    var sliderItems : [UISlider] = []
+    var guiIndices : [Int] = []
+    var sliderTitleLabels : [UILabel] = []
+    var sliderValueLabels : [UILabel] = []
+    var sliderStackViews : [UIStackView] = []
+    var sliderTextLabels : [UILabel] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewdidload")
@@ -74,6 +83,7 @@ class AppSettingsViewController: UIViewController {
         imageView.clipsToBounds = true
         logoView.addSubview(imageView)
         descriptionLabel.text = SystemConfig.shared.appMatrix[appSelect-1].description
+        descriptionLabel.font = UIFont(name: "CourierNewPSMT", size: 30)
 
         //imageView.centerXAnchor.constraint(equalTo: logoView.centerXAnchor).isActive = true
         //imageView.centerYAnchor.constraint(equalTo: logoView.centerYAnchor).isActive = true
@@ -92,17 +102,16 @@ class AppSettingsViewController: UIViewController {
         let appSelect = SystemConfig.shared.appMatrix[SystemConfig.shared.selectedApp-1].id
         let numParams = SystemConfig.shared.appMatrix[appSelect-1].numParams
 
-        var paramViews : [UIView] = []
-        var buttonItems : [UIButton] = []
-        var sliderItems : [UISlider] = []
-        var guiIndices : [Int] = []
-        
-        // Initialize numParams # of UIButtons/UISliders
+        // Initialize numParams # of UIButtons/UISliders/labels
         for _ in 1...numParams {
             buttonItems.append(UIButton())
             sliderItems.append(UISlider())
+            sliderTitleLabels.append(UILabel())
+            sliderValueLabels.append(UILabel())
+            sliderStackViews.append(UIStackView())
+            sliderTextLabels.append(UILabel())
         }
-        
+
         paramViews.append(UIView())
         paramViews[0].backgroundColor = UIColor.red
         paramsGUIStackView.addArrangedSubview(paramViews[0])
@@ -131,9 +140,6 @@ class AppSettingsViewController: UIViewController {
             // Check what type of GUI parameter will be used
             switch SystemConfig.shared.appMatrix[appSelect-1].params[i].paramGUIType {
                 case 0:
-                    print(buttonItems)
-                    print(paramViews)
-                    //buttonItems.append(UIButton(type: .system))
                     buttonItems[i].setTitle("Hello", for: .normal)
                     buttonItems[i].backgroundColor = UIColor.black
                     buttonItems[i].setTitleColor(.white, for: .normal)
@@ -146,16 +152,32 @@ class AppSettingsViewController: UIViewController {
                     buttonItems[i].layer.cornerRadius = 5
                         guiIndices.append(0)
                 case 1:
-                    print("set slider \(i)")
-                    //sliderItems.append(UISlider())
+                    sliderItems[i].maximumValue = Float(SystemConfig.shared.appMatrix[appSelect-1].params[i].paramMax)
+                    sliderItems[i].minimumValue = Float(SystemConfig.shared.appMatrix[appSelect-1].params[i].paramMin)
                     sliderItems[i].isContinuous = true
                     sliderItems[i].tintColor = UIColor.black
-                    sliderItems[i].translatesAutoresizingMaskIntoConstraints = false
-                    paramViews[i].addSubview(sliderItems[i])
-                    sliderItems[i].widthAnchor.constraint(equalTo: paramViews[i].widthAnchor, multiplier: 0.8).isActive = true
-                    sliderItems[i].heightAnchor.constraint(equalTo: paramViews[i].heightAnchor, multiplier: 0.8).isActive = true
-                    sliderItems[i].centerXAnchor.constraint(equalTo: paramViews[i].centerXAnchor).isActive = true
-                    sliderItems[i].centerYAnchor.constraint(equalTo: paramViews[i].centerYAnchor).isActive = true
+                    sliderStackViews[i].translatesAutoresizingMaskIntoConstraints = false
+                    paramViews[i].addSubview(sliderStackViews[i])
+                    sliderStackViews[i].widthAnchor.constraint(equalTo: paramViews[i].widthAnchor, multiplier: 0.8).isActive = true
+                    sliderStackViews[i].heightAnchor.constraint(equalTo: paramViews[i].heightAnchor, multiplier: 0.8).isActive = true
+                    sliderStackViews[i].centerXAnchor.constraint(equalTo: paramViews[i].centerXAnchor).isActive = true
+                    sliderStackViews[i].centerYAnchor.constraint(equalTo: paramViews[i].centerYAnchor).isActive = true
+
+                    sliderTextLabels[i].textAlignment = .center
+                    sliderTextLabels[i].font = UIFont(name: "CourierNewPSMT", size: 30)
+                        //UIFont.systemFont(ofSize: 30)
+                    //sliderTextLabels[i].font = UIFont(name:"Helvetica Neue", size: 20.0)
+                    sliderItems[i].tag = i
+                    sliderTextLabels[i].text = String(format: "%.2f", sliderItems[i].value)
+                    sliderItems[i].addTarget(self, action: #selector(self.paybackSliderValueDidChange),for: .valueChanged)
+
+                    sliderStackViews[i].addArrangedSubview(sliderItems[i])
+                    sliderStackViews[i].addArrangedSubview(sliderTextLabels[i])
+
+                    sliderItems[i].heightAnchor.constraint(equalTo: sliderStackViews[i].heightAnchor, multiplier: 1.0).isActive = true
+                    sliderTextLabels[i].heightAnchor.constraint(equalTo: sliderStackViews[i].heightAnchor, multiplier: 1.0).isActive = true
+                    sliderItems[i].widthAnchor.constraint(equalTo: sliderTextLabels[i].widthAnchor, multiplier: 4.0).isActive = true
+
                     guiIndices.append(1)
                 default:
                     print("error")
@@ -164,18 +186,21 @@ class AppSettingsViewController: UIViewController {
         }
     }
 
+    @objc func paybackSliderValueDidChange(sender: UISlider!)
+    {
+        sliderTextLabels[sender.tag].text = String(format: "%.2f", sender.value)
+
+    }
+
     @IBAction func saveParams(_ sender: UIButton) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissAppDownloadModal"), object: nil)
 
         dismiss(animated: true, completion: nil)
         delegate?.removeBlurredBackgroundView()
     }
-    
+
     @IBAction func cancelParams(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
         delegate?.removeBlurredBackgroundView()
     }
-    
-    
-
 }
