@@ -115,24 +115,41 @@ class AppSettingsViewController: UIViewController {
         paramViews.append(UIView())
         paramViews[0].backgroundColor = UIColor.red
         paramsGUIStackView.addArrangedSubview(paramViews[0])
+
+        paramViews.append(UIView())
+        paramViews[1].backgroundColor = UIColor.red
+        paramsGUIStackView.addArrangedSubview(paramViews[1])
         
         // Only loop through other parameter views if there is more than 1 parameter
         if (numParams > 1) {
             for i in 1...(numParams-1) {
                 paramViews.append(UIView())
+                paramViews.append(UIView())
                 if i == 1 {
-                    paramViews[i].backgroundColor = UIColor.yellow
+                    paramViews[2*i].backgroundColor = UIColor.yellow
+                    paramViews[2*i+1].backgroundColor = UIColor.yellow
                 } else {
-                    paramViews[i].backgroundColor = UIColor.green
+                    paramViews[2*i].backgroundColor = UIColor.green
+                    paramViews[2*i+1].backgroundColor = UIColor.green
                 }
-                paramsGUIStackView.addArrangedSubview(paramViews[i])
+                paramsGUIStackView.addArrangedSubview(paramViews[2*i])
+                paramsGUIStackView.addArrangedSubview(paramViews[2*i+1])
             }
 
             paramsView.addSubview(paramsGUIStackView)
             for i in 0...(numParams-1) {
-                paramViews[i].widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
+                paramViews[2*i].widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
+                paramViews[2*i+1].widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
                 if (i > 0) {
-                    paramViews[i].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 1.0).isActive = true
+                    // Set the multiplier constraint different depending if the GUI type is a slider or a button. Since the button GUI type will remove a view down below as the title is embedded in the button
+                    if (SystemConfig.shared.appMatrix[appSelect-1].params[i].paramGUIType == 0) {
+                        paramViews[2*i].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 2.0).isActive = true
+                    } else {
+                        paramViews[2*i].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 1.0).isActive = true
+                    }
+                    paramViews[2*i+1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 1.0).isActive = true
+                } else {
+                    paramViews[2*i+1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 1.0).isActive = true
                 }
             }
         }
@@ -144,11 +161,12 @@ class AppSettingsViewController: UIViewController {
                     buttonItems[i].backgroundColor = UIColor.black
                     buttonItems[i].setTitleColor(.white, for: .normal)
                     buttonItems[i].translatesAutoresizingMaskIntoConstraints = false
-                    paramViews[i].addSubview(buttonItems[i])
-                    buttonItems[i].widthAnchor.constraint(equalTo: paramViews[i].widthAnchor, multiplier: 0.8).isActive = true
-                    buttonItems[i].heightAnchor.constraint(equalTo: paramViews[i].heightAnchor, multiplier: 0.8).isActive = true
-                    buttonItems[i].centerXAnchor.constraint(equalTo: paramViews[i].centerXAnchor).isActive = true
-                    buttonItems[i].centerYAnchor.constraint(equalTo: paramViews[i].centerYAnchor).isActive = true
+                    paramViews[2*i].addSubview(buttonItems[i])
+                    paramViews[2*i+1].removeFromSuperview()
+                    buttonItems[i].widthAnchor.constraint(equalTo: paramViews[2*i].widthAnchor, multiplier: 0.8).isActive = true
+                    buttonItems[i].heightAnchor.constraint(equalTo: paramViews[2*i].heightAnchor, multiplier: 0.8).isActive = true
+                    buttonItems[i].centerXAnchor.constraint(equalTo: paramViews[2*i].centerXAnchor).isActive = true
+                    buttonItems[i].centerYAnchor.constraint(equalTo: paramViews[2*i].centerYAnchor).isActive = true
                     buttonItems[i].layer.cornerRadius = 5
                         guiIndices.append(0)
                 case 1:
@@ -157,11 +175,19 @@ class AppSettingsViewController: UIViewController {
                     sliderItems[i].isContinuous = true
                     sliderItems[i].tintColor = UIColor.black
                     sliderStackViews[i].translatesAutoresizingMaskIntoConstraints = false
-                    paramViews[i].addSubview(sliderStackViews[i])
-                    sliderStackViews[i].widthAnchor.constraint(equalTo: paramViews[i].widthAnchor, multiplier: 0.8).isActive = true
-                    sliderStackViews[i].heightAnchor.constraint(equalTo: paramViews[i].heightAnchor, multiplier: 0.8).isActive = true
-                    sliderStackViews[i].centerXAnchor.constraint(equalTo: paramViews[i].centerXAnchor).isActive = true
-                    sliderStackViews[i].centerYAnchor.constraint(equalTo: paramViews[i].centerYAnchor).isActive = true
+                    sliderTitleLabels[i].text = SystemConfig.shared.appMatrix[appSelect-1].params[i].paramName
+                    sliderTitleLabels[i].textAlignment = .center
+                    sliderTitleLabels[i].font = UIFont(name: "CourierNewPSMT", size: 30)
+                    sliderTitleLabels[i].translatesAutoresizingMaskIntoConstraints = false
+                    paramViews[2*i].addSubview(sliderTitleLabels[i])
+                    paramViews[2*i+1].addSubview(sliderStackViews[i])
+                    sliderTitleLabels[i].widthAnchor.constraint(equalTo: paramViews[2*i].widthAnchor, multiplier: 0.8).isActive = true
+                    sliderStackViews[i].widthAnchor.constraint(equalTo: paramViews[2*i+1].widthAnchor, multiplier: 0.8).isActive = true
+                    sliderStackViews[i].heightAnchor.constraint(equalTo: paramViews[2*i+1].heightAnchor, multiplier: 0.8).isActive = true
+                    sliderTitleLabels[i].centerXAnchor.constraint(equalTo: paramViews[2*i].centerXAnchor).isActive = true
+                    sliderTitleLabels[i].centerYAnchor.constraint(equalTo: paramViews[2*i].centerYAnchor).isActive = true
+                    sliderStackViews[i].centerXAnchor.constraint(equalTo: paramViews[2*i+1].centerXAnchor).isActive = true
+                    sliderStackViews[i].centerYAnchor.constraint(equalTo: paramViews[2*i+1].centerYAnchor).isActive = true
 
                     sliderTextLabels[i].textAlignment = .center
                     sliderTextLabels[i].font = UIFont(name: "CourierNewPSMT", size: 30)
