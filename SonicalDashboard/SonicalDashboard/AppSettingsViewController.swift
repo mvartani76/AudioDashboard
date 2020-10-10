@@ -29,7 +29,7 @@ class AppSettingsViewController: UIViewController {
     var buttonItems : [UIButton] = []
     var sliderItems : [UISlider] = []
     var guiIndices : [Int] = []
-    var sliderTitleLabels : [UILabel] = []
+    var paramTitleLabels : [UILabel] = []
     var sliderValueLabels : [UILabel] = []
     var sliderStackViews : [UIStackView] = []
     var sliderTextLabels : [UILabel] = []
@@ -106,7 +106,7 @@ class AppSettingsViewController: UIViewController {
         for _ in 1...numParams {
             buttonItems.append(UIButton())
             sliderItems.append(UISlider())
-            sliderTitleLabels.append(UILabel())
+            paramTitleLabels.append(UILabel())
             sliderValueLabels.append(UILabel())
             sliderStackViews.append(UIStackView())
             sliderTextLabels.append(UILabel())
@@ -141,15 +141,10 @@ class AppSettingsViewController: UIViewController {
                 paramViews[2*i].widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
                 paramViews[2*i+1].widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
                 if (i > 0) {
-                    // Set the multiplier constraint different depending if the GUI type is a slider or a button. Since the button GUI type will remove a view down below as the title is embedded in the button
-                    if (SystemConfig.shared.appMatrix[appSelect-1].params[i].paramGUIType == 0) {
-                        paramViews[2*i].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 2.0).isActive = true
-                    } else {
-                        paramViews[2*i].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 1.0).isActive = true
-                    }
-                    paramViews[2*i+1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 1.0).isActive = true
+                    paramViews[2*i].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 1.0).isActive = true
+                    paramViews[2*i+1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 2.0).isActive = true
                 } else {
-                    paramViews[2*i+1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 1.0).isActive = true
+                    paramViews[2*i+1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 2.0).isActive = true
                 }
             }
         }
@@ -161,12 +156,22 @@ class AppSettingsViewController: UIViewController {
                     buttonItems[i].backgroundColor = UIColor.black
                     buttonItems[i].setTitleColor(.white, for: .normal)
                     buttonItems[i].translatesAutoresizingMaskIntoConstraints = false
-                    paramViews[2*i].addSubview(buttonItems[i])
-                    paramViews[2*i+1].removeFromSuperview()
-                    buttonItems[i].widthAnchor.constraint(equalTo: paramViews[2*i].widthAnchor, multiplier: 0.8).isActive = true
-                    buttonItems[i].heightAnchor.constraint(equalTo: paramViews[2*i].heightAnchor, multiplier: 0.8).isActive = true
-                    buttonItems[i].centerXAnchor.constraint(equalTo: paramViews[2*i].centerXAnchor).isActive = true
-                    buttonItems[i].centerYAnchor.constraint(equalTo: paramViews[2*i].centerYAnchor).isActive = true
+                    paramTitleLabels[i].text = SystemConfig.shared.appMatrix[appSelect-1].params[i].paramName
+                    paramTitleLabels[i].textAlignment = .center
+                    paramTitleLabels[i].font = UIFont(name: "CourierNewPSMT", size: 30)
+                    paramTitleLabels[i].translatesAutoresizingMaskIntoConstraints = false
+
+                    buttonItems[i].tag = i
+                    buttonItems[i].addTarget(self, action: #selector(self.buttonTouched), for: .touchUpInside)
+
+                    paramViews[2*i].addSubview(paramTitleLabels[i])
+                    paramViews[2*i+1].addSubview(buttonItems[i])
+                    buttonItems[i].widthAnchor.constraint(equalTo: paramViews[2*i+1].widthAnchor, multiplier: 0.8).isActive = true
+                    buttonItems[i].heightAnchor.constraint(equalTo: paramViews[2*i+1].heightAnchor, multiplier: 0.8).isActive = true
+                    paramTitleLabels[i].centerXAnchor.constraint(equalTo: paramViews[2*i].centerXAnchor).isActive = true
+                    paramTitleLabels[i].centerYAnchor.constraint(equalTo: paramViews[2*i].centerYAnchor).isActive = true
+                    buttonItems[i].centerXAnchor.constraint(equalTo: paramViews[2*i+1].centerXAnchor).isActive = true
+                    buttonItems[i].centerYAnchor.constraint(equalTo: paramViews[2*i+1].centerYAnchor).isActive = true
                     buttonItems[i].layer.cornerRadius = 5
                         guiIndices.append(0)
                 case 1:
@@ -175,27 +180,25 @@ class AppSettingsViewController: UIViewController {
                     sliderItems[i].isContinuous = true
                     sliderItems[i].tintColor = UIColor.black
                     sliderStackViews[i].translatesAutoresizingMaskIntoConstraints = false
-                    sliderTitleLabels[i].text = SystemConfig.shared.appMatrix[appSelect-1].params[i].paramName
-                    sliderTitleLabels[i].textAlignment = .center
-                    sliderTitleLabels[i].font = UIFont(name: "CourierNewPSMT", size: 30)
-                    sliderTitleLabels[i].translatesAutoresizingMaskIntoConstraints = false
-                    paramViews[2*i].addSubview(sliderTitleLabels[i])
+                    paramTitleLabels[i].text = SystemConfig.shared.appMatrix[appSelect-1].params[i].paramName
+                    paramTitleLabels[i].textAlignment = .center
+                    paramTitleLabels[i].font = UIFont(name: "CourierNewPSMT", size: 30)
+                    paramTitleLabels[i].translatesAutoresizingMaskIntoConstraints = false
+                    paramViews[2*i].addSubview(paramTitleLabels[i])
                     paramViews[2*i+1].addSubview(sliderStackViews[i])
-                    sliderTitleLabels[i].widthAnchor.constraint(equalTo: paramViews[2*i].widthAnchor, multiplier: 0.8).isActive = true
+                    paramTitleLabels[i].widthAnchor.constraint(equalTo: paramViews[2*i].widthAnchor, multiplier: 0.8).isActive = true
                     sliderStackViews[i].widthAnchor.constraint(equalTo: paramViews[2*i+1].widthAnchor, multiplier: 0.8).isActive = true
                     sliderStackViews[i].heightAnchor.constraint(equalTo: paramViews[2*i+1].heightAnchor, multiplier: 0.8).isActive = true
-                    sliderTitleLabels[i].centerXAnchor.constraint(equalTo: paramViews[2*i].centerXAnchor).isActive = true
-                    sliderTitleLabels[i].centerYAnchor.constraint(equalTo: paramViews[2*i].centerYAnchor).isActive = true
+                    paramTitleLabels[i].centerXAnchor.constraint(equalTo: paramViews[2*i].centerXAnchor).isActive = true
+                    paramTitleLabels[i].centerYAnchor.constraint(equalTo: paramViews[2*i].centerYAnchor).isActive = true
                     sliderStackViews[i].centerXAnchor.constraint(equalTo: paramViews[2*i+1].centerXAnchor).isActive = true
                     sliderStackViews[i].centerYAnchor.constraint(equalTo: paramViews[2*i+1].centerYAnchor).isActive = true
 
                     sliderTextLabels[i].textAlignment = .center
                     sliderTextLabels[i].font = UIFont(name: "CourierNewPSMT", size: 30)
-                        //UIFont.systemFont(ofSize: 30)
-                    //sliderTextLabels[i].font = UIFont(name:"Helvetica Neue", size: 20.0)
                     sliderItems[i].tag = i
                     sliderTextLabels[i].text = String(format: "%.2f", sliderItems[i].value)
-                    sliderItems[i].addTarget(self, action: #selector(self.paybackSliderValueDidChange),for: .valueChanged)
+                    sliderItems[i].addTarget(self, action: #selector(self.sliderValueDidChange),for: .valueChanged)
 
                     sliderStackViews[i].addArrangedSubview(sliderItems[i])
                     sliderStackViews[i].addArrangedSubview(sliderTextLabels[i])
@@ -212,10 +215,14 @@ class AppSettingsViewController: UIViewController {
         }
     }
 
-    @objc func paybackSliderValueDidChange(sender: UISlider!)
+    @objc func sliderValueDidChange(sender: UISlider!)
     {
         sliderTextLabels[sender.tag].text = String(format: "%.2f", sender.value)
 
+    }
+
+    @objc func buttonTouched(sender: UIButton!) {
+        print("button \(sender.tag) pressed")
     }
 
     @IBAction func saveParams(_ sender: UIButton) {
