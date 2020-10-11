@@ -320,24 +320,24 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func initializeAppMatrix() {
-        SystemConfig.shared.appMatrix.append((1, "Waves", "Waves spatial enhancer software","Music", 1, "waves-logo.jpg", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0), ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((1, "Waves", "Waves spatial enhancer software","Music", 1, "waves-logo.jpg", 1, [ParamType(paramName: "Boost", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0), ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[0].numParams = SystemConfig.shared.appMatrix[0].params.count
         SystemConfig.shared.appMatrix.append((2, "Sony", "Sony music expander suite", "Music", 1, "sony-logo.png", 3, [ParamType(paramName: "Threshold", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "Aggressiveness", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1),
-            ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+            ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[1].numParams = SystemConfig.shared.appMatrix[1].params.count
-        SystemConfig.shared.appMatrix.append((3, "dts", "DTS audio enhancement", "Music", 1, "dts-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((3, "dts", "DTS audio enhancement", "Music", 1, "dts-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[2].numParams = SystemConfig.shared.appMatrix[2].params.count
-        SystemConfig.shared.appMatrix.append((4, "Petralex", "Petralex assisted hearing device algorithms",  "Hearing", 3, "petralex-logo.png", 1, [ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((4, "Petralex", "Petralex assisted hearing device algorithms",  "Hearing", 3, "petralex-logo.png", 1, [ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[3].numParams = SystemConfig.shared.appMatrix[3].params.count
-        SystemConfig.shared.appMatrix.append((5, "Alango", "Alango assisted hearing device algorithms", "Hearing", 3, "alango-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((5, "Alango", "Alango assisted hearing device algorithms", "Hearing", 3, "alango-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[4].numParams = SystemConfig.shared.appMatrix[4].params.count
-        SystemConfig.shared.appMatrix.append((6, "Eargo", "Eargo assisted hearing device algorithms",  "Hearing", 3, "eargo-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((6, "Eargo", "Eargo assisted hearing device algorithms",  "Hearing", 3, "eargo-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[5].numParams = SystemConfig.shared.appMatrix[5].params.count
-        SystemConfig.shared.appMatrix.append((7, "Dolby", "Dolby phone audio optimization suite", "Phone", 2, "dolby-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((7, "Dolby", "Dolby phone audio optimization suite", "Phone", 2, "dolby-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[6].numParams = SystemConfig.shared.appMatrix[6].params.count
-        SystemConfig.shared.appMatrix.append((8, "Yamaha", "Yamaha phone audio optimization suite", "Phone", 2, "yamaha-logo.png", 1, [ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((8, "Yamaha", "Yamaha phone audio optimization suite", "Phone", 2, "yamaha-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[7].numParams = SystemConfig.shared.appMatrix[7].params.count
-        SystemConfig.shared.appMatrix.append((9, "Dirac", "Dirac phone audio optimization suite", "Phone", 2, "dirac-logo.png", 1, [ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "OnOff", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((9, "Dirac", "Dirac phone audio optimization suite", "Phone", 2, "dirac-logo.png", 1, [ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[8].numParams = SystemConfig.shared.appMatrix[8].params.count
     }
 
