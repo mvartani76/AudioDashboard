@@ -147,6 +147,8 @@ class AppSettingsViewController: UIViewController {
                     paramViews[2*i+1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 2.0).isActive = true
                 }
             }
+        } else {
+            paramViews[1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 2.0).isActive = true
         }
         for i in 0...(numParams-1) {
             // Check what type of GUI parameter will be used
