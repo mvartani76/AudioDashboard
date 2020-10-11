@@ -34,6 +34,10 @@ class AppSettingsViewController: UIViewController {
     var sliderStackViews : [UIStackView] = []
     var sliderTextLabels : [UILabel] = []
 
+    // Button Titles for enabled/disabled states
+    var buttonTitlePos = ""
+    var buttonTitleNeg = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewdidload")
@@ -150,12 +154,18 @@ class AppSettingsViewController: UIViewController {
         } else {
             paramViews[1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 2.0).isActive = true
         }
+
         for i in 0...(numParams-1) {
             // Check what type of GUI parameter will be used
             switch SystemConfig.shared.appMatrix[appSelect-1].params[i].paramGUIType {
                 case 0:
-                    buttonItems[i].setTitle("Hello", for: .normal)
-                    buttonItems[i].backgroundColor = UIColor.black
+                    if (SystemConfig.shared.appMatrix[appSelect-1].params[i].paramName == "Bypass") {
+                        buttonTitlePos = "Enabled"
+                        buttonTitleNeg = "Disabled"
+                    }
+                    buttonItems[i].setTitle(buttonTitlePos, for: .normal)
+                    buttonItems[i].titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
+                    buttonItems[i].backgroundColor = UIColor(red: 64/255, green: 62/255, blue: 61/255, alpha: 1.0)
                     buttonItems[i].setTitleColor(.white, for: .normal)
                     buttonItems[i].translatesAutoresizingMaskIntoConstraints = false
                     paramTitleLabels[i].text = SystemConfig.shared.appMatrix[appSelect-1].params[i].paramName
@@ -174,7 +184,7 @@ class AppSettingsViewController: UIViewController {
                     paramTitleLabels[i].centerYAnchor.constraint(equalTo: paramViews[2*i].centerYAnchor).isActive = true
                     buttonItems[i].centerXAnchor.constraint(equalTo: paramViews[2*i+1].centerXAnchor).isActive = true
                     buttonItems[i].centerYAnchor.constraint(equalTo: paramViews[2*i+1].centerYAnchor).isActive = true
-                    buttonItems[i].layer.cornerRadius = 5
+                    buttonItems[i].layer.cornerRadius = 10
                         guiIndices.append(0)
                 case 1:
                     sliderItems[i].maximumValue = Float(SystemConfig.shared.appMatrix[appSelect-1].params[i].paramMax)
@@ -224,7 +234,14 @@ class AppSettingsViewController: UIViewController {
     }
 
     @objc func buttonTouched(sender: UIButton!) {
-        print("button \(sender.tag) pressed")
+        // Toggle the button title and color based on state
+        if sender.titleLabel?.text == buttonTitlePos {
+            sender.setTitle(buttonTitleNeg, for: .normal)
+            sender.backgroundColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1.0)
+        } else {
+            sender.setTitle(buttonTitlePos, for: .normal)
+            sender.backgroundColor = UIColor(red: 64/255, green: 62/255, blue: 61/255, alpha: 1.0)
+        }
     }
 
     @IBAction func saveParams(_ sender: UIButton) {
