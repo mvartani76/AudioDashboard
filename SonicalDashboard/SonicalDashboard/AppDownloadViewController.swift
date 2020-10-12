@@ -31,16 +31,15 @@ class AppDownloadViewController: UIViewController {
     @IBOutlet var phoneApp3ImageView: UIImageView!
 
     var imageViewArray: [UIImageView] = []
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Initialize button gradient
-        let selTopGradientColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1)
-        let selBottomGradientColor = UIColor(red: 128/255, green: 122/255, blue: 121/255, alpha: 1)
-        let canTopGradientColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1)
-        let canBottomGradientColor = UIColor(red: 128/255, green: 122/255, blue: 121/255, alpha: 1)
+        let selTopGradientColor = ConstantsEnum.AppDownload.Colors.Buttons.selTopGradientColor
+        let selBottomGradientColor = ConstantsEnum.AppDownload.Colors.Buttons.selBottomGradientColor
+        let canTopGradientColor = ConstantsEnum.AppDownload.Colors.Buttons.canTopGradientColor
+        let canBottomGradientColor = ConstantsEnum.AppDownload.Colors.Buttons.canBottomGradientColor
 
         let selGradientLayer = CAGradientLayer()
         let canGradientLayer = CAGradientLayer()
@@ -55,7 +54,7 @@ class AppDownloadViewController: UIViewController {
         selGradientLayer.locations = [0.0, 1.0]
 
         selectAudioAppButton.layer.insertSublayer(selGradientLayer, at: 0)
-        selectAudioAppButton.layer.cornerRadius = 10
+        selectAudioAppButton.layer.cornerRadius = ConstantsEnum.cornerRadius.buttons.selectAudioAppButtonCornerRadius
         selectAudioAppButton.clipsToBounds = true
         selectAudioAppButton.alpha = 0.5
 
@@ -68,7 +67,7 @@ class AppDownloadViewController: UIViewController {
         canGradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         
         cancelAudioAppButton.layer.insertSublayer(canGradientLayer, at: 0)
-        cancelAudioAppButton.layer.cornerRadius = 10
+        cancelAudioAppButton.layer.cornerRadius = ConstantsEnum.cornerRadius.buttons.cancelAudioAppButtonCornerRadius
         cancelAudioAppButton.clipsToBounds = true
 
         // set up touch enabled imageviews
@@ -148,9 +147,9 @@ class AppDownloadViewController: UIViewController {
         
         if let tag = sender.view?.tag {
             print("Current App = \(tag)")
-                imageViewArray[SystemConfig.shared.tempSelectedApp-1].layer.borderColor = UIColor.clear.cgColor
+            imageViewArray[SystemConfig.shared.tempSelectedApp-1].layer.borderColor = ConstantsEnum.colors.imageView.tempSelectedAppBorderColor
                 imageViewArray[SystemConfig.shared.tempSelectedApp-1].setNeedsLayout()
-                sender.view?.layer.borderColor = UIColor.red.cgColor
+            sender.view?.layer.borderColor = ConstantsEnum.colors.imageView.currentSelectedAppBorderColor
                 sender.view?.layer.borderWidth = 5
                 SystemConfig.shared.tempSelectedApp = tag
                 selectAudioAppButton.alpha = 1.0

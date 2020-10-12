@@ -53,7 +53,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if let v = view {
             label = v as! UILabel
         }
-        label.font = UIFont.systemFont(ofSize: 36, weight: UIFont.Weight.regular)
+        label.font = ConstantsEnum.ViewController.Fonts.pickerViewLabelFont
         label.text =  systemConfigurations[row]
         label.textAlignment = .center
         return label
@@ -151,8 +151,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         systemPickerView.dataSource = self
         
         // Initialize button gradient
-        let frbTopGradientColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1)
-        let frbBottomGradientColor = UIColor(red: 128/255, green: 122/255, blue: 121/255, alpha: 1)
+        let frbTopGradientColor = ConstantsEnum.colors.buttons.frbTopGradientColor
+        let frbBottomGradientColor = ConstantsEnum.colors.buttons.frbBottomGradientColor
 
         let frbGradientLayer = CAGradientLayer()
         let apbGradientLayer = CAGradientLayer()
@@ -167,7 +167,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         frbGradientLayer.locations = [0.0, 1.0]
 
         factoryResetButton.layer.insertSublayer(frbGradientLayer, at: 0)
-        factoryResetButton.layer.cornerRadius = 10
+        factoryResetButton.layer.cornerRadius = ConstantsEnum.ViewController.CornerRadius.Buttons.factoryResetButtonCornerRadius
         factoryResetButton.clipsToBounds = true
         
         apbGradientLayer.frame = addAppButton.bounds
@@ -179,7 +179,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         apbGradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         
         addAppButton.layer.insertSublayer(apbGradientLayer, at: 0)
-        addAppButton.layer.cornerRadius = 10
+        addAppButton.layer.cornerRadius = ConstantsEnum.ViewController.CornerRadius.Buttons.addAppButtonCornerRadius
         addAppButton.clipsToBounds = true
         
         // Get the initial background colors for the views
@@ -211,11 +211,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @objc func postModalAddApp() {
         print("postmodaladdapp")
         print(SystemConfig.shared.selectedApp)
-        SystemConfig.shared.myApps.append(AADraggableView(frame: CGRect(x:0, y:0, width: 50, height: 50)))
-        SystemConfig.shared.myApps[SystemConfig.shared.numApps].backgroundColor=UIColor.lightGray
-        SystemConfig.shared.myApps[SystemConfig.shared.numApps].layer.borderColor = UIColor.red.cgColor
+        SystemConfig.shared.myApps.append(AADraggableView(frame: CGRect(x:0, y:0, width: ConstantsEnum.ViewController.Frame.MyApps.width, height: ConstantsEnum.ViewController.Frame.MyApps.height)))
+        SystemConfig.shared.myApps[SystemConfig.shared.numApps].backgroundColor = ConstantsEnum.ViewController.Colors.MyApps.backgroundColor
+        SystemConfig.shared.myApps[SystemConfig.shared.numApps].layer.borderColor = ConstantsEnum.ViewController.Colors.MyApps.borderColor
 
-        SystemConfig.shared.myApps[SystemConfig.shared.numApps].layer.cornerRadius = 10
+        SystemConfig.shared.myApps[SystemConfig.shared.numApps].layer.cornerRadius = ConstantsEnum.cornerRadius.postModalAppMyAppsCornerRadius
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].clipsToBounds = true
 
         self.view.addSubview(SystemConfig.shared.myApps[SystemConfig.shared.numApps])
@@ -241,15 +241,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let imageName = SystemConfig.shared.appMatrix[appSelect-1].fileName
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
-        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        imageView.frame = CGRect(x: 0, y: 0, width: ConstantsEnum.ViewController.Frame.ImageView.width, height: ConstantsEnum.ViewController.Frame.ImageView.height)
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = ConstantsEnum.ViewController.CornerRadius.ImageView.imageViewCornerRadius
         imageView.clipsToBounds = true
-
-        //let label = UILabel(frame: CGRect(x:0,y: 0, width:150, height:30))
-        //label.textAlignment = .center
-        //label.text = "App " + String(SystemConfig.shared.numApps)
-        //SystemConfig.shared.myApps[SystemConfig.shared.numApps].addSubview(label)
 
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].addSubview(imageView)
         
@@ -320,24 +315,24 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func initializeAppMatrix() {
-        SystemConfig.shared.appMatrix.append((1, "Waves", "Waves spatial enhancer software","Music", 1, "waves-logo.jpg", 1, [ParamType(paramName: "Boost", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0), ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((1, "Waves", "Waves spatial enhancer software","Music", 1, "waves-logo.jpg", 1, [ParamType(paramName: "Boost", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: ConstantsEnum.params.paramGUIType.button), ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: ConstantsEnum.params.paramGUIType.button)]))
         SystemConfig.shared.appMatrix[0].numParams = SystemConfig.shared.appMatrix[0].params.count
-        SystemConfig.shared.appMatrix.append((2, "Sony", "Sony music expander suite", "Music", 1, "sony-logo.png", 3, [ParamType(paramName: "Threshold", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "Aggressiveness", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1),
+        SystemConfig.shared.appMatrix.append((2, "Sony", "Sony music expander suite", "Music", 1, "sony-logo.png", 3, [ParamType(paramName: "Threshold", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: ConstantsEnum.params.paramGUIType.slider), ParamType(paramName: "Aggressiveness", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: ConstantsEnum.params.paramGUIType.slider), ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: ConstantsEnum.params.paramGUIType.slider),
             ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
         SystemConfig.shared.appMatrix[1].numParams = SystemConfig.shared.appMatrix[1].params.count
-        SystemConfig.shared.appMatrix.append((3, "dts", "DTS audio enhancement", "Music", 1, "dts-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((3, "dts", "DTS audio enhancement", "Music", 1, "dts-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: ConstantsEnum.params.paramGUIType.button)]))
         SystemConfig.shared.appMatrix[2].numParams = SystemConfig.shared.appMatrix[2].params.count
-        SystemConfig.shared.appMatrix.append((4, "Petralex", "Petralex assisted hearing device algorithms",  "Hearing", 3, "petralex-logo.png", 1, [ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((4, "Petralex", "Petralex assisted hearing device algorithms",  "Hearing", 3, "petralex-logo.png", 1, [ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: ConstantsEnum.params.paramGUIType.slider), ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: ConstantsEnum.params.paramGUIType.button)]))
         SystemConfig.shared.appMatrix[3].numParams = SystemConfig.shared.appMatrix[3].params.count
-        SystemConfig.shared.appMatrix.append((5, "Alango", "Alango assisted hearing device algorithms", "Hearing", 3, "alango-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((5, "Alango", "Alango assisted hearing device algorithms", "Hearing", 3, "alango-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: ConstantsEnum.params.paramGUIType.button)]))
         SystemConfig.shared.appMatrix[4].numParams = SystemConfig.shared.appMatrix[4].params.count
-        SystemConfig.shared.appMatrix.append((6, "Eargo", "Eargo assisted hearing device algorithms",  "Hearing", 3, "eargo-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((6, "Eargo", "Eargo assisted hearing device algorithms",  "Hearing", 3, "eargo-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: ConstantsEnum.params.paramGUIType.button)]))
         SystemConfig.shared.appMatrix[5].numParams = SystemConfig.shared.appMatrix[5].params.count
-        SystemConfig.shared.appMatrix.append((7, "Dolby", "Dolby phone audio optimization suite", "Phone", 2, "dolby-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((7, "Dolby", "Dolby phone audio optimization suite", "Phone", 2, "dolby-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: ConstantsEnum.params.paramGUIType.button)]))
         SystemConfig.shared.appMatrix[6].numParams = SystemConfig.shared.appMatrix[6].params.count
-        SystemConfig.shared.appMatrix.append((8, "Yamaha", "Yamaha phone audio optimization suite", "Phone", 2, "yamaha-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((8, "Yamaha", "Yamaha phone audio optimization suite", "Phone", 2, "yamaha-logo.png", 1, [ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: ConstantsEnum.params.paramGUIType.button)]))
         SystemConfig.shared.appMatrix[7].numParams = SystemConfig.shared.appMatrix[7].params.count
-        SystemConfig.shared.appMatrix.append((9, "Dirac", "Dirac phone audio optimization suite", "Phone", 2, "dirac-logo.png", 1, [ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: 1), ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: 0)]))
+        SystemConfig.shared.appMatrix.append((9, "Dirac", "Dirac phone audio optimization suite", "Phone", 2, "dirac-logo.png", 1, [ParamType(paramName: "Gain", paramType: 1, paramMin: 0.0, paramMax: 1.0, paramGUIType: ConstantsEnum.params.paramGUIType.slider), ParamType(paramName: "Bypass", paramType: 0, paramMin: 0.0, paramMax: 0.0, paramGUIType: ConstantsEnum.params.paramGUIType.button)]))
         SystemConfig.shared.appMatrix[8].numParams = SystemConfig.shared.appMatrix[8].params.count
     }
 

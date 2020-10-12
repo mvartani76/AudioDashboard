@@ -42,10 +42,10 @@ class AppSettingsViewController: UIViewController {
         super.viewDidLoad()
         print("viewdidload")
         // Initialize button gradient
-        let saveTopGradientColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1)
-        let saveBottomGradientColor = UIColor(red: 128/255, green: 122/255, blue: 121/255, alpha: 1)
-        let canTopGradientColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1)
-        let canBottomGradientColor = UIColor(red: 128/255, green: 122/255, blue: 121/255, alpha: 1)
+        let saveTopGradientColor = ConstantsEnum.AppSettings.Colors.Buttons.saveTopGradientColor
+        let saveBottomGradientColor = ConstantsEnum.AppSettings.Colors.Buttons.saveBottomGradientColor
+        let canTopGradientColor = ConstantsEnum.AppSettings.Colors.Buttons.canTopGradientColor
+        let canBottomGradientColor = ConstantsEnum.AppSettings.Colors.Buttons.canBottomGradientColor
 
         let saveGradientLayer = CAGradientLayer()
         let canGradientLayer = CAGradientLayer()
@@ -60,7 +60,7 @@ class AppSettingsViewController: UIViewController {
         saveGradientLayer.locations = [0.0, 1.0]
 
         saveParamsButton.layer.insertSublayer(saveGradientLayer, at: 0)
-        saveParamsButton.layer.cornerRadius = 10
+        saveParamsButton.layer.cornerRadius = ConstantsEnum.AppSettings.CornerRadius.Buttons.saveParamsButtonCornerRadius
         saveParamsButton.clipsToBounds = true
         saveParamsButton.alpha = 0.5
 
@@ -73,7 +73,7 @@ class AppSettingsViewController: UIViewController {
         canGradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
 
         cancelParamsButton.layer.insertSublayer(canGradientLayer, at: 0)
-        cancelParamsButton.layer.cornerRadius = 10
+        cancelParamsButton.layer.cornerRadius = ConstantsEnum.AppSettings.CornerRadius.Buttons.cancelParamsButtonCornerRadius
         cancelParamsButton.clipsToBounds = true
 
         let appSelect = SystemConfig.shared.appMatrix[SystemConfig.shared.selectedApp-1].id
@@ -83,11 +83,11 @@ class AppSettingsViewController: UIViewController {
         let maxDim = 0.8 * min(logoView.frame.width, logoView.frame.height)
         imageView.frame = CGRect(x: 0, y: 0, width: maxDim, height: maxDim)
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = ConstantsEnum.AppSettings.CornerRadius.ImageView.appSettingsVCImageViewCornerRadius 
         imageView.clipsToBounds = true
         logoView.addSubview(imageView)
         descriptionLabel.text = SystemConfig.shared.appMatrix[appSelect-1].description
-        descriptionLabel.font = UIFont(name: "CourierNewPSMT", size: 30)
+        descriptionLabel.font = ConstantsEnum.AppSettings.Fonts.descriptionLabelFont
 
         //imageView.centerXAnchor.constraint(equalTo: logoView.centerXAnchor).isActive = true
         //imageView.centerYAnchor.constraint(equalTo: logoView.centerYAnchor).isActive = true
@@ -142,17 +142,17 @@ class AppSettingsViewController: UIViewController {
 
             paramsView.addSubview(paramsGUIStackView)
             for i in 0...(numParams-1) {
-                paramViews[2*i].widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
-                paramViews[2*i+1].widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: 1.0).isActive = true
+                paramViews[2*i].widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.paramsTitleWidthMultiplier).isActive = true
+                paramViews[2*i+1].widthAnchor.constraint(equalTo: paramsGUIStackView.widthAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.paramsGUIWidthMultiplier).isActive = true
                 if (i > 0) {
-                    paramViews[2*i].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 1.0).isActive = true
-                    paramViews[2*i+1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 2.0).isActive = true
+                    paramViews[2*i].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.paramsTitleHeightMultiplier).isActive = true
+                    paramViews[2*i+1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.paramsGUIHeightMultiplier).isActive = true
                 } else {
-                    paramViews[2*i+1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 2.0).isActive = true
+                    paramViews[2*i+1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.paramsGUIHeightMultiplier).isActive = true
                 }
             }
         } else {
-            paramViews[1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: 2.0).isActive = true
+            paramViews[1].heightAnchor.constraint(equalTo: paramViews[0].heightAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.paramsGUIHeightMultiplier).isActive = true
         }
 
         for i in 0...(numParams-1) {
@@ -164,13 +164,13 @@ class AppSettingsViewController: UIViewController {
                         buttonTitleNeg = "Disabled"
                     }
                     buttonItems[i].setTitle(buttonTitlePos, for: .normal)
-                    buttonItems[i].titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
+                    buttonItems[i].titleLabel?.font = ConstantsEnum.AppSettings.Fonts.paramButtonTitleLabelFont
                     buttonItems[i].backgroundColor = UIColor(red: 64/255, green: 62/255, blue: 61/255, alpha: 1.0)
                     buttonItems[i].setTitleColor(.white, for: .normal)
                     buttonItems[i].translatesAutoresizingMaskIntoConstraints = false
                     paramTitleLabels[i].text = SystemConfig.shared.appMatrix[appSelect-1].params[i].paramName
                     paramTitleLabels[i].textAlignment = .center
-                    paramTitleLabels[i].font = UIFont(name: "CourierNewPSMT", size: 30)
+                    paramTitleLabels[i].font = ConstantsEnum.AppSettings.Fonts.paramTitleLabelFont
                     paramTitleLabels[i].translatesAutoresizingMaskIntoConstraints = false
 
                     buttonItems[i].tag = i
@@ -178,13 +178,13 @@ class AppSettingsViewController: UIViewController {
 
                     paramViews[2*i].addSubview(paramTitleLabels[i])
                     paramViews[2*i+1].addSubview(buttonItems[i])
-                    buttonItems[i].widthAnchor.constraint(equalTo: paramViews[2*i+1].widthAnchor, multiplier: 0.8).isActive = true
-                    buttonItems[i].heightAnchor.constraint(equalTo: paramViews[2*i+1].heightAnchor, multiplier: 0.8).isActive = true
+                    buttonItems[i].widthAnchor.constraint(equalTo: paramViews[2*i+1].widthAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.buttonItemWidthMultiplier).isActive = true
+                    buttonItems[i].heightAnchor.constraint(equalTo: paramViews[2*i+1].heightAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.buttonItemHeightMultiplier).isActive = true
                     paramTitleLabels[i].centerXAnchor.constraint(equalTo: paramViews[2*i].centerXAnchor).isActive = true
                     paramTitleLabels[i].centerYAnchor.constraint(equalTo: paramViews[2*i].centerYAnchor).isActive = true
                     buttonItems[i].centerXAnchor.constraint(equalTo: paramViews[2*i+1].centerXAnchor).isActive = true
                     buttonItems[i].centerYAnchor.constraint(equalTo: paramViews[2*i+1].centerYAnchor).isActive = true
-                    buttonItems[i].layer.cornerRadius = 10
+                    buttonItems[i].layer.cornerRadius = ConstantsEnum.AppSettings.CornerRadius.Buttons.paramButtonItemCornerRadius
                         guiIndices.append(0)
                 case 1:
                     sliderItems[i].maximumValue = Float(SystemConfig.shared.appMatrix[appSelect-1].params[i].paramMax)
@@ -194,7 +194,7 @@ class AppSettingsViewController: UIViewController {
                     sliderStackViews[i].translatesAutoresizingMaskIntoConstraints = false
                     paramTitleLabels[i].text = SystemConfig.shared.appMatrix[appSelect-1].params[i].paramName
                     paramTitleLabels[i].textAlignment = .center
-                    paramTitleLabels[i].font = UIFont(name: "CourierNewPSMT", size: 30)
+                    paramTitleLabels[i].font = ConstantsEnum.AppSettings.Fonts.paramTitleLabelFont
                     paramTitleLabels[i].translatesAutoresizingMaskIntoConstraints = false
                     paramViews[2*i].addSubview(paramTitleLabels[i])
                     paramViews[2*i+1].addSubview(sliderStackViews[i])
@@ -207,7 +207,7 @@ class AppSettingsViewController: UIViewController {
                     sliderStackViews[i].centerYAnchor.constraint(equalTo: paramViews[2*i+1].centerYAnchor).isActive = true
 
                     sliderTextLabels[i].textAlignment = .center
-                    sliderTextLabels[i].font = UIFont(name: "CourierNewPSMT", size: 30)
+                    sliderTextLabels[i].font = ConstantsEnum.AppSettings.Fonts.sliderTextLabelFont
                     sliderItems[i].tag = i
                     sliderTextLabels[i].text = String(format: "%.2f", sliderItems[i].value)
                     sliderItems[i].addTarget(self, action: #selector(self.sliderValueDidChange),for: .valueChanged)
