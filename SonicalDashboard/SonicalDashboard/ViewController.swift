@@ -151,8 +151,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         systemPickerView.dataSource = self
         
         // Initialize button gradient
-        let frbTopGradientColor = ConstantsEnum.colors.buttons.frbTopGradientColor
-        let frbBottomGradientColor = ConstantsEnum.colors.buttons.frbBottomGradientColor
+        let frbTopGradientColor = ConstantsEnum.ViewController.Colors.Buttons.frbTopGradientColor
+        let frbBottomGradientColor = ConstantsEnum.ViewController.Colors.Buttons.frbBottomGradientColor
 
         let frbGradientLayer = CAGradientLayer()
         let apbGradientLayer = CAGradientLayer()
@@ -215,7 +215,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].backgroundColor = ConstantsEnum.ViewController.Colors.MyApps.backgroundColor
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].layer.borderColor = ConstantsEnum.ViewController.Colors.MyApps.borderColor
 
-        SystemConfig.shared.myApps[SystemConfig.shared.numApps].layer.cornerRadius = ConstantsEnum.cornerRadius.postModalAppMyAppsCornerRadius
+        SystemConfig.shared.myApps[SystemConfig.shared.numApps].layer.cornerRadius = ConstantsEnum.ViewController.CornerRadius.MyApps.postModalAppMyAppsCornerRadius
         SystemConfig.shared.myApps[SystemConfig.shared.numApps].clipsToBounds = true
 
         self.view.addSubview(SystemConfig.shared.myApps[SystemConfig.shared.numApps])

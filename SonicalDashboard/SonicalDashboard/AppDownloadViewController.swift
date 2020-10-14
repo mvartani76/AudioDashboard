@@ -54,9 +54,9 @@ class AppDownloadViewController: UIViewController {
         selGradientLayer.locations = [0.0, 1.0]
 
         selectAudioAppButton.layer.insertSublayer(selGradientLayer, at: 0)
-        selectAudioAppButton.layer.cornerRadius = ConstantsEnum.cornerRadius.buttons.selectAudioAppButtonCornerRadius
+        selectAudioAppButton.layer.cornerRadius = ConstantsEnum.AppDownload.CornerRadius.Buttons.selectAudioAppButtonCornerRadius
         selectAudioAppButton.clipsToBounds = true
-        selectAudioAppButton.alpha = 0.5
+        selectAudioAppButton.alpha = ConstantsEnum.AppDownload.Alpha.Buttons.selectAudioAppButtonAlphaUnselected
 
         canGradientLayer.frame = cancelAudioAppButton.bounds
 
@@ -67,7 +67,7 @@ class AppDownloadViewController: UIViewController {
         canGradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         
         cancelAudioAppButton.layer.insertSublayer(canGradientLayer, at: 0)
-        cancelAudioAppButton.layer.cornerRadius = ConstantsEnum.cornerRadius.buttons.cancelAudioAppButtonCornerRadius
+        cancelAudioAppButton.layer.cornerRadius = ConstantsEnum.AppDownload.CornerRadius.Buttons.cancelAudioAppButtonCornerRadius
         cancelAudioAppButton.clipsToBounds = true
 
         // set up touch enabled imageviews
@@ -142,17 +142,16 @@ class AppDownloadViewController: UIViewController {
 
     //Action
     @objc func tapDetected(sender: UITapGestureRecognizer) {
-
         print("Selected App = \(SystemConfig.shared.tempSelectedApp)")
         
         if let tag = sender.view?.tag {
             print("Current App = \(tag)")
-            imageViewArray[SystemConfig.shared.tempSelectedApp-1].layer.borderColor = ConstantsEnum.colors.imageView.tempSelectedAppBorderColor
-                imageViewArray[SystemConfig.shared.tempSelectedApp-1].setNeedsLayout()
-            sender.view?.layer.borderColor = ConstantsEnum.colors.imageView.currentSelectedAppBorderColor
-                sender.view?.layer.borderWidth = 5
-                SystemConfig.shared.tempSelectedApp = tag
-                selectAudioAppButton.alpha = 1.0
+            imageViewArray[SystemConfig.shared.tempSelectedApp-1].layer.borderColor = ConstantsEnum.AppDownload.Colors.ImageView.tempSelectedAppBorderColor
+            imageViewArray[SystemConfig.shared.tempSelectedApp-1].setNeedsLayout()
+            sender.view?.layer.borderColor = ConstantsEnum.AppDownload.Colors.ImageView.currentSelectedAppBorderColor
+            sender.view?.layer.borderWidth = ConstantsEnum.AppDownload.Dimensions.borderWidth
+            SystemConfig.shared.tempSelectedApp = tag
+            selectAudioAppButton.alpha = ConstantsEnum.AppDownload.Alpha.Buttons.selectAudioAppButtonAlphaSelected
         }
     }
 

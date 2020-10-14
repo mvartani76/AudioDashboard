@@ -17,6 +17,8 @@ enum ConstantsEnum {
                 static let saveBottomGradientColor = UIColor(red: 128/255, green: 122/255, blue: 121/255, alpha: 1)
                 static let canTopGradientColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1)
                 static let canBottomGradientColor = UIColor(red: 128/255, green: 122/255, blue: 121/255, alpha: 1)
+                static let unselectedAudioAppColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1.0)
+                static let selectedAudioAppColor = UIColor(red: 64/255, green: 62/255, blue: 61/255, alpha: 1.0)
             }
         }
         enum CornerRadius {
@@ -52,6 +54,12 @@ enum ConstantsEnum {
     }
 
     enum AppDownload {
+        enum Alpha {
+            enum Buttons {
+                static let selectAudioAppButtonAlphaUnselected = CGFloat(0.5)
+                static let selectAudioAppButtonAlphaSelected = CGFloat(1.0)
+            }
+        }
         enum Colors {
             enum Buttons {
                 static let selTopGradientColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1)
@@ -59,11 +67,30 @@ enum ConstantsEnum {
                 static let canTopGradientColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1)
                 static let canBottomGradientColor = UIColor(red: 128/255, green: 122/255, blue: 121/255, alpha: 1)
             }
+            enum ImageView {
+                static let tempSelectedAppBorderColor = UIColor.clear.cgColor
+                static let currentSelectedAppBorderColor = UIColor.red.cgColor
+            }
+        }
+        enum CornerRadius {
+            enum Buttons {
+                static let selectAudioAppButtonCornerRadius = CGFloat(10)
+                static let cancelAudioAppButtonCornerRadius = CGFloat(10)
+            }
+        }
+        enum Dimensions {
+            static let borderWidth = CGFloat(5)
         }
     }
 
     enum ViewController {
         enum Colors {
+            enum Buttons {
+                static let frbTopGradientColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1)
+                static let frbBottomGradientColor = UIColor(red: 128/255, green: 122/255, blue: 121/255, alpha: 1)
+                static let unselectedAudioAppColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1.0)
+                static let selectedAudioAppColor = UIColor(red: 64/255, green: 62/255, blue: 61/255, alpha: 1.0)
+            }
             enum MyApps {
                 static let backgroundColor = UIColor.lightGray
                 static let borderColor = UIColor.red.cgColor
@@ -80,6 +107,9 @@ enum ConstantsEnum {
             enum ImageView {
                 static let imageViewCornerRadius = CGFloat(10)
             }
+            enum MyApps {
+                static let postModalAppMyAppsCornerRadius = CGFloat(10)
+            }
         }
         enum Frame {
             enum ImageView {
@@ -92,26 +122,6 @@ enum ConstantsEnum {
             }
         }
     }
-    enum colors {
-        enum buttons {
-            static let frbTopGradientColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1)
-            static let frbBottomGradientColor = UIColor(red: 128/255, green: 122/255, blue: 121/255, alpha: 1)
-        }
-        enum imageView {
-            static let tempSelectedAppBorderColor = UIColor.clear.cgColor
-            static let currentSelectedAppBorderColor = UIColor.red.cgColor
-        }
-    }
-    enum cornerRadius {
-        enum buttons {
-            
-            static let selectAudioAppButtonCornerRadius = CGFloat(10)
-            static let cancelAudioAppButtonCornerRadius = CGFloat(10)
-        }
-        static let postModalAppMyAppsCornerRadius = CGFloat(10)
-        
-    }
-
     enum params {
         enum paramGUIType {
             static let button = 0

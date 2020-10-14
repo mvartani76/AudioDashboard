@@ -198,9 +198,9 @@ class AppSettingsViewController: UIViewController {
                     paramTitleLabels[i].translatesAutoresizingMaskIntoConstraints = false
                     paramViews[2*i].addSubview(paramTitleLabels[i])
                     paramViews[2*i+1].addSubview(sliderStackViews[i])
-                    paramTitleLabels[i].widthAnchor.constraint(equalTo: paramViews[2*i].widthAnchor, multiplier: 0.8).isActive = true
-                    sliderStackViews[i].widthAnchor.constraint(equalTo: paramViews[2*i+1].widthAnchor, multiplier: 0.8).isActive = true
-                    sliderStackViews[i].heightAnchor.constraint(equalTo: paramViews[2*i+1].heightAnchor, multiplier: 0.8).isActive = true
+                    paramTitleLabels[i].widthAnchor.constraint(equalTo: paramViews[2*i].widthAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.paramTitleLabelWidthMultiplier).isActive = true
+                    sliderStackViews[i].widthAnchor.constraint(equalTo: paramViews[2*i+1].widthAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.sliderStackViewWidthMultiplier).isActive = true
+                    sliderStackViews[i].heightAnchor.constraint(equalTo: paramViews[2*i+1].heightAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.sliderStackViewHeightMultiplier).isActive = true
                     paramTitleLabels[i].centerXAnchor.constraint(equalTo: paramViews[2*i].centerXAnchor).isActive = true
                     paramTitleLabels[i].centerYAnchor.constraint(equalTo: paramViews[2*i].centerYAnchor).isActive = true
                     sliderStackViews[i].centerXAnchor.constraint(equalTo: paramViews[2*i+1].centerXAnchor).isActive = true
@@ -215,9 +215,9 @@ class AppSettingsViewController: UIViewController {
                     sliderStackViews[i].addArrangedSubview(sliderItems[i])
                     sliderStackViews[i].addArrangedSubview(sliderTextLabels[i])
 
-                    sliderItems[i].heightAnchor.constraint(equalTo: sliderStackViews[i].heightAnchor, multiplier: 1.0).isActive = true
-                    sliderTextLabels[i].heightAnchor.constraint(equalTo: sliderStackViews[i].heightAnchor, multiplier: 1.0).isActive = true
-                    sliderItems[i].widthAnchor.constraint(equalTo: sliderTextLabels[i].widthAnchor, multiplier: 4.0).isActive = true
+                    sliderItems[i].heightAnchor.constraint(equalTo: sliderStackViews[i].heightAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.sliderItemHeightMultiplier).isActive = true
+                    sliderTextLabels[i].heightAnchor.constraint(equalTo: sliderStackViews[i].heightAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.sliderTextLabelHeightMultiplier).isActive = true
+                    sliderItems[i].widthAnchor.constraint(equalTo: sliderTextLabels[i].widthAnchor, multiplier: ConstantsEnum.AppSettings.Constraints.sliderItemWidthMultiplier).isActive = true
 
                     guiIndices.append(1)
                 default:
@@ -237,10 +237,10 @@ class AppSettingsViewController: UIViewController {
         // Toggle the button title and color based on state
         if sender.titleLabel?.text == buttonTitlePos {
             sender.setTitle(buttonTitleNeg, for: .normal)
-            sender.backgroundColor = UIColor(red: 148/255, green: 142/255, blue: 141/255, alpha: 1.0)
+            sender.backgroundColor = ConstantsEnum.AppSettings.Colors.Buttons.unselectedAudioAppColor
         } else {
             sender.setTitle(buttonTitlePos, for: .normal)
-            sender.backgroundColor = UIColor(red: 64/255, green: 62/255, blue: 61/255, alpha: 1.0)
+            sender.backgroundColor = ConstantsEnum.AppSettings.Colors.Buttons.selectedAudioAppColor
         }
     }
 
