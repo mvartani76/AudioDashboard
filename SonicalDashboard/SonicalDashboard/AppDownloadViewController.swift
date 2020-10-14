@@ -31,6 +31,7 @@ class AppDownloadViewController: UIViewController {
     @IBOutlet var phoneApp3ImageView: UIImageView!
 
     var imageViewArray: [UIImageView] = []
+    var tapToggle = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,12 +147,24 @@ class AppDownloadViewController: UIViewController {
         
         if let tag = sender.view?.tag {
             print("Current App = \(tag)")
-            imageViewArray[SystemConfig.shared.tempSelectedApp-1].layer.borderColor = ConstantsEnum.AppDownload.Colors.ImageView.tempSelectedAppBorderColor
-            imageViewArray[SystemConfig.shared.tempSelectedApp-1].setNeedsLayout()
-            sender.view?.layer.borderColor = ConstantsEnum.AppDownload.Colors.ImageView.currentSelectedAppBorderColor
-            sender.view?.layer.borderWidth = ConstantsEnum.AppDownload.Dimensions.borderWidth
-            SystemConfig.shared.tempSelectedApp = tag
-            selectAudioAppButton.alpha = ConstantsEnum.AppDownload.Alpha.Buttons.selectAudioAppButtonAlphaSelected
+            if ((tag != SystemConfig.shared.tempSelectedApp) || tapToggle) {
+                imageViewArray[SystemConfig.shared.tempSelectedApp-1].layer.borderColor = ConstantsEnum.AppDownload.Colors.ImageView.tempSelectedAppBorderColor
+                imageViewArray[SystemConfig.shared.tempSelectedApp-1].setNeedsLayout()
+                sender.view?.layer.borderColor = ConstantsEnum.AppDownload.Colors.ImageView.currentSelectedAppBorderColor
+                sender.view?.layer.borderWidth = ConstantsEnum.AppDownload.Dimensions.borderWidth
+                SystemConfig.shared.tempSelectedApp = tag
+                selectAudioAppButton.alpha = ConstantsEnum.AppDownload.Alpha.Buttons.selectAudioAppButtonAlphaSelected
+                tapToggle = false
+            } else {
+                if (!tapToggle) {
+                    imageViewArray[SystemConfig.shared.tempSelectedApp-1].layer.borderColor = ConstantsEnum.AppDownload.Colors.ImageView.tempSelectedAppBorderColor
+                    imageViewArray[SystemConfig.shared.tempSelectedApp-1].setNeedsLayout()
+                    selectAudioAppButton.alpha = ConstantsEnum.AppDownload.Alpha.Buttons.selectAudioAppButtonAlphaUnselected
+                    tapToggle = true
+                } else {
+                    tapToggle = false
+                }
+            }
         }
     }
 
@@ -166,11 +179,15 @@ class AppDownloadViewController: UIViewController {
     */
 
     @IBAction func selectAudioAppAndReturnToDashboardVC(_ sender: UIButton) {
-        SystemConfig.shared.selectedApp = SystemConfig.shared.tempSelectedApp
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissAppDownloadModal"), object: nil)
+        // Using button color alpha to determine if an app is selected and therefore can be selected
+        // Probably better to use an actual state value but for now, this works...
+        if (selectAudioAppButton.alpha == ConstantsEnum.AppDownload.Alpha.Buttons.selectAudioAppButtonAlphaSelected) {
+            SystemConfig.shared.selectedApp = SystemConfig.shared.tempSelectedApp
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DismissAppDownloadModal"), object: nil)
 
-        dismiss(animated: true, completion: nil)
-        delegate?.removeBlurredBackgroundView()
+            dismiss(animated: true, completion: nil)
+            delegate?.removeBlurredBackgroundView()
+        }
     }
     
     
