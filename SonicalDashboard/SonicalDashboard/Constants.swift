@@ -95,6 +95,9 @@ enum ConstantsEnum {
                 static let backgroundColor = UIColor.lightGray
                 static let borderColor = UIColor.red.cgColor
             }
+            enum DashboardView {
+                static let backgroundColor = UIColor.red
+            }
         }
         enum Fonts {
             static let pickerViewLabelFont = UIFont(name: "CourierNewPSMT", size: 32)
@@ -119,6 +122,22 @@ enum ConstantsEnum {
             enum MyApps {
                 static let height = 50
                 static let width = 50
+            }
+        }
+        enum Shadows {
+            enum AADraggableView {
+                enum DraggingDidBegan {
+                    static let zPosition = CGFloat(100)
+                    static let shadowOffset = CGSize(width: 0, height: 20)
+                    static let shadowOpacity = Float(0.3)
+                    static let shadowRadius = CGFloat(6)
+                }
+                enum DraggingDidEnd {
+                    static let zPosition = CGFloat(0)
+                    static let shadowOffset = CGSize.zero
+                    static let shadowOpacity = Float(0.0)
+                    static let shadowRadius = CGFloat(0)
+                }
             }
         }
     }

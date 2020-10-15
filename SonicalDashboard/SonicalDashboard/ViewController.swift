@@ -61,10 +61,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // Add delegate methods and observe changes!
     func draggingDidBegan(_ sender: AADraggableView) {
-        sender.layer.zPosition = 100
-        sender.layer.shadowOffset = CGSize(width: 0, height: 20)
-        sender.layer.shadowOpacity = 0.3
-        sender.layer.shadowRadius = 6
+        sender.layer.zPosition = ConstantsEnum.ViewController.Shadows.AADraggableView.DraggingDidBegan.zPosition
+        sender.layer.shadowOffset = ConstantsEnum.ViewController.Shadows.AADraggableView.DraggingDidBegan.shadowOffset
+        sender.layer.shadowOpacity = ConstantsEnum.ViewController.Shadows.AADraggableView.DraggingDidBegan.shadowOpacity
+        sender.layer.shadowRadius = ConstantsEnum.ViewController.Shadows.AADraggableView.DraggingDidBegan.shadowRadius
 
         var globalpoint: CGPoint = CGPoint(x: 0,y: 0)
 
@@ -97,10 +97,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
 
     func draggingDidEnd(_ sender: AADraggableView) {
-        sender.layer.zPosition = 0
-        sender.layer.shadowOffset = CGSize.zero
-        sender.layer.shadowOpacity = 0.0
-        sender.layer.shadowRadius = 0
+        sender.layer.zPosition = ConstantsEnum.ViewController.Shadows.AADraggableView.DraggingDidEnd.zPosition
+        sender.layer.shadowOffset = ConstantsEnum.ViewController.Shadows.AADraggableView.DraggingDidEnd.shadowOffset
+        sender.layer.shadowOpacity = ConstantsEnum.ViewController.Shadows.AADraggableView.DraggingDidEnd.shadowOpacity
+        sender.layer.shadowRadius = ConstantsEnum.ViewController.Shadows.AADraggableView.DraggingDidEnd.shadowRadius
 
         var globalpoint: CGPoint = CGPoint(x: 0,y: 0)
         var entered: Bool = false
@@ -113,7 +113,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
             if ((dashboardView.dView.bounds.contains(sender.center)) && (!dashboardView.isInput) && (sender.appType == dashboardView.dashboardType)) {
 
-                dashboardView.dView.backgroundColor = UIColor.red
+                dashboardView.dView.backgroundColor = ConstantsEnum.ViewController.Colors.DashboardView.backgroundColor
                 sender.center.x = dashboardView.dView.bounds.origin.x + (dashboardView.dView.bounds.width / 2)
                 sender.center.y = dashboardView.dView.bounds.origin.y + (dashboardView.dView.bounds.height / 2)
                 // Increment the num apps in view for keeping track of dashboardview formatting
