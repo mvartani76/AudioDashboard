@@ -296,6 +296,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     viewController.delegate = self
                     self.modalPresentationStyle =  UIModalPresentationStyle(rawValue: 0)!
                 }
+            } else if identifier == "BLEConnect" {
+                if let viewController = segue.destination as? BLEConnectViewController {
+                    //viewController.delegate = self
+                }
             }
         }
     }
@@ -312,6 +316,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             dashboardViewsNumApps[index] = 0
             dashboardView.dView.backgroundColor = dashboardViewsBGColors[index]
         }
+        performSegue(withIdentifier: "BLEConnect", sender: nil)
     }
     
     func initializeAppMatrix() {

@@ -782,6 +782,7 @@
                         <outlet property="systemPickerView" destination="815-M1-8I0" id="xCL-vb-shm"/>
                         <segue destination="1pb-xv-Tyk" kind="presentation" id="TeC-gG-ekX"/>
                         <segue destination="c3B-Xw-aUY" kind="presentation" identifier="ShowAppSettings" modalPresentationStyle="automatic" id="Rhk-0d-UEc"/>
+                        <segue destination="ij2-BO-lv6" kind="show" identifier="BLEConnect" id="55O-56-YKL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -949,7 +950,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBZ-dP-1h4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963" y="802"/>
+            <point key="canvasLocation" x="139" y="1050"/>
         </scene>
         <!--App Download View Controller-->
         <scene sceneID="f66-wl-56K">
@@ -1662,11 +1663,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fs2-bi-16U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833.7890625" y="-335.13909224011712"/>
+            <point key="canvasLocation" x="963" y="-559"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4US-f3-P5R">
+            <objects>
+                <viewController id="ij2-BO-lv6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l03-9Z-RPM">
+                        <rect key="frame" x="0.0" y="0.0" width="712" height="1006.9200564096436"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="xgR-MZ-TPP"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yjo-dx-NFH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MxU-mH-TpY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="963" y="625"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Jvt-JW-bdi"/>
+        <segue reference="TeC-gG-ekX"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="alango-logo" width="170" height="170"/>
